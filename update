@@ -1,0 +1,4 @@
+#!/bin/sh
+cat ~/.profile > ./_profile;
+cat ~/.zshrc > ./_zshrc;
+cat ~/.bash_profile > ./_bash_profile
