@@ -4,17 +4,17 @@ CURR_DIR=$(dirname $0);
 _=$(cat ${HOME}/.bash_profile);
 if [[ $? = "0" ]]; then
   cp "${HOME}/.bash_profile" "${HOME}/.bash_profile.$(date +'%Y%m%d%H%M%S')";
-  cat ${CURR_DIR}/.bash_profile ${HOME}/.bash_profile;
+  cat ${CURR_DIR}/.bash_profile > ${HOME}/.bash_profile;
 fi;
 
 _=$(cat ${HOME}/.profile);
 if [[ $? = "0" ]]; then
   cp "${HOME}/.profile" "${HOME}/.profile.$(date +'%Y%m%d%H%M%S')";
-  cat ${CURR_DIR}/.profile ${HOME}/.profile;
+  cat ${CURR_DIR}/.profile > ${HOME}/.profile;
 fi;
 
 _=$(cat ${HOME}/.zshrc);
 if [[ $? = "0" ]]; then
   cp "${HOME}/.zshrc" "${HOME}/.zshrc.$(date +'%Y%m%d%H%M%S')";
-  cat ${CURR_DIR}/.zshrc ${HOME}/.zshrc;
+  cat ${CURR_DIR}/.zshrc > ${HOME}/.zshrc;
 fi;

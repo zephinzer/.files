@@ -35,5 +35,5 @@ get_branch() {
     printf "[`printf $(git branch | grep '*' | cut -f 2 -d '*')`]";
   fi;
 }
-PS1=$'\[\e]0;\W $(get_branch)\a\]\n\e[90m\e[33m\e[1m$(drawline)\n⎸𝔟𝖆𝖘𝔥 ⎸📆  $(get_time) ⎸ 📂  $(pwd) $(get_branch)\n\e[0m\e[36m\e[35m⢈\e[31m⢨⢘\e[91m⢈⢸⠨\e[33m⠸⢈\e[32m⢨\e[36m⢘\e[94m⢈ \e[37m$\e[0m ';
+PS1=$'\[\e]0;\W $(get_branch)\a\]\n\e[90m\e[37m\e[1m$(drawline)\n⎸𝔟𝖆𝖘𝔥 ⎸📆  $(get_time) ⎸ 📂  $(pwd) $(get_branch)\n\e[0m\e[36m\e[35m⢈\e[31m⢨⢘\e[91m⢈⢸⠨\e[33m⠸⢈\e[32m⢨\e[36m⢘\e[94m⢈ \e[37m$\e[0m ';
 
