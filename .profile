@@ -19,16 +19,22 @@ if [[ "$SSH_AUTH_SOCK" != '' ]]; then
   eval `ssh-agent -s` &>/dev/null;
   ls -A ~/.ssh | egrep '^id_rsa[0-9a-zA-Z_]+$' | xargs -I@ bash -c "ssh-add ~/.ssh/@" &>/dev/null;
 fi;
-alias gcb="git branch | grep '*' | cut -c 3- | tr -d '\n'";
+
+alias ga='git add';
+alias gaaa='git add .';
 alias gb='git branch -ar';
+alias gcm='git commit -m';
+alias gcmae='git commit --allow-empty -m';
+alias gcb="git name-rev --name-only HEAD";
 alias gco='git checkout';
+alias gcr="git config branch.$(gcb).remote";
 alias gf='git fetch';
 alias grb='git rebase';
 alias grm='git remote';
 alias gs='git status';
-alias gpull='git pull';
-alias gpush='git push';
-alias gpullre='git pull --rebase';
+alias gpull='git pull ${gcr} $(gcb)';
+alias gpush='git push ${gcr} $(gcb)';
+alias gpullrecb='git pull --rebase ${gcr} $(gcb)';
 alias ll='ls -lA';
 alias kc='kubectl';
 alias kca='kubectl apply -f';
