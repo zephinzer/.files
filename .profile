@@ -2,11 +2,33 @@ clear;
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 # eval "$(rbenv init -)";
-export PATH="/=/usr/local/bin:/usr/local/mysql/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/lib/python2.7/site-packages:/$HOME/scripts:/$HOME/.composer/vendor/bin:/usr/local/sbin:$HOME/.rbenv/bin:$HOME/.cargo/bin:$PATH"
+export PATH="\
+/=/usr/local/bin:\
+/Library/Frameworks/Python.framework/Versions/2.7/bin:\
+/usr/local/mysql/bin:\
+/usr/local/sbin:\
+/usr/local/lib/python2.7/site-packages:\
+/$HOME/.bin:\
+/$HOME/.cargo/bin:\
+/$HOME/.composer/vendor/bin:\
+/$HOME/.rbenv/bin:\
+/$HOME/scripts:\
+$PATH"
+
 if [[ "$SSH_AUTH_SOCK" != '' ]]; then
   eval `ssh-agent -s` &>/dev/null;
   ls -A ~/.ssh | egrep '^id_rsa[0-9a-zA-Z_]+$' | xargs -I@ bash -c "ssh-add ~/.ssh/@" &>/dev/null;
 fi;
+alias gcb="git branch | grep '*' | cut -c 3- | tr -d '\n'";
+alias gb='git branch -ar';
+alias gco='git checkout';
+alias gf='git fetch';
+alias grb='git rebase';
+alias grm='git remote';
+alias gs='git status';
+alias gpull='git pull';
+alias gpush='git push';
+alias gpullre='git pull --rebase';
 alias ll='ls -lA';
 alias kc='kubectl';
 alias kca='kubectl apply -f';
@@ -20,6 +42,7 @@ alias kcdsec='kubectl describe sercret';
 alias kcdi='kubectl describe ing';
 alias kcdcm='kubectl describe cm';
 alias kcdel='kubectl delete';
+alias kcexec='kubectl exec';
 alias kcg='kubectl get';
 alias kcgp='kubectl get pods -o wide';
 alias kcgn='kubectl get nodes -o wide';
@@ -31,11 +54,13 @@ alias kcgi='kubectl get ing -o wide';
 alias kcgcm='kubectl get cm -o wide';
 alias kcl='kubectl logs';
 alias kclf='kubectl logs -f';
-alias kcexec='kubectl exec';
 alias kcr='kubectl replace';
 alias gc='gcloud';
 alias gce='gcloud compute';
+alias gceals='gcloud compute addresses list'
 alias gke='gcloud container';
+alias gkeils='gcloud container image list --repository'
+alias gkeitls='gcloud container image list-tags'
 alias gcdpush='gcloud docker -- push';
 alias gcdpull='gcloud docker -- pull';
 printf "\e[35m――――――――――――――――――――――――――――――――――――――――――――――――――――\e[0m\n";
@@ -48,7 +73,7 @@ printf "\e[94m⎸⍽⍽֯⍽֯     ֯  ֯ ֯ |⎽|        ֯ ֯  ֯   \e[31m🅙
 printf "\e[34m――――――――――――――――――――――――――――――――――――――――――――――――――――\e[0m\n";
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/zephinzer/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/zephinzer/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "/Users/$(whoami)/google-cloud-sdk/path.zsh.inc" ]; then source "/Users/$(whoami)/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/zephinzer/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/zephinzer/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "/Users/$(whoami)/google-cloud-sdk/completion.zsh.inc" ]; then source "/Users/$(whoami)/google-cloud-sdk/completion.zsh.inc"; fi
