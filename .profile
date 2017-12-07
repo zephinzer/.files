@@ -15,6 +15,10 @@ export PATH="\
 /$HOME/scripts:\
 $PATH"
 
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)";
+fi
+
 if [[ "$SSH_AUTH_SOCK" != '' ]]; then
   eval `ssh-agent -s` &>/dev/null;
   ls -A ~/.ssh | egrep '^id_rsa[0-9a-zA-Z_]+$' | xargs -I@ bash -c "ssh-add ~/.ssh/@" &>/dev/null;
