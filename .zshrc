@@ -26,7 +26,7 @@ vcs_info_wrapper() {
 get_status_bar_vcs_info() {
   vcs_info;
   if [ -n "$vcs_info_msg_0_" ]; then
-    printf "⎸💡  $(printf "$vcs_info_msg_0_" | cut -f 2 -d '-') ⎸";
+    printf "⎸💡  $(printf "$vcs_info_msg_0_") ⎸";
   fi;
 }
 precmd() {

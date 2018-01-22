@@ -1,6 +1,7 @@
 clear;
 export NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+. $(brew --prefix nvm)/nvm.sh
 # eval "$(rbenv init -)";
 export PATH="\
 /=/usr/local/bin:\
@@ -20,6 +21,10 @@ if [[ "$SSH_AUTH_SOCK" != '' ]]; then
   ls -A ~/.ssh | egrep '^id_rsa[0-9a-zA-Z_]+$' | xargs -I@ bash -c "ssh-add ~/.ssh/@" &>/dev/null;
 fi;
 
+alias dcrm='docker container rm';
+alias dck='docker container kill';
+alias dcs='docker container stop';
+alias dirm='docker image rm';
 alias ga='git add';
 alias gaaa='git add .';
 alias gb='git branch -ar';
