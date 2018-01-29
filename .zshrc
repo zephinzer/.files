@@ -14,7 +14,7 @@ get_time() {
 get_vcs_branch() {
   vcs_info;
   if [ -n "$vcs_info_msg_0_" ]; then
-    echo `printf $vcs_info_msg_0_ | cut -f 2 -d '-'`;
+    echo `printf "${vcs_info_msg_0_}" | cut -f 2 -d '[' | cut -f 1 -d ']'`;
   fi;
 }
 vcs_info_wrapper() {
@@ -34,6 +34,6 @@ precmd() {
   vcs_info;
   echo -ne "\e]1;${PWD##*/} $(get_vcs_branch)\a";
 }
-PROMPT=$'\n%{\e[90m%}%{\e[37m%}%{\e[1m%}$(drawline)⎸ 𝒛𝖘𝔥 ⎸📆  $(get_time) ⎸ 📂  ${PWD/} $(get_vcs_branch) %{\e[0m%} \n%{\e[36m%}%{\e[35m%}⢈%{\e[31m%}⢨⢘%{\e[91m%}⢈⢸⠨%{\e[33m%}⠸⢈%{\e[32m%}⢨%{\e[36m%}⢘%{\e[94m%}⢈ %{\e[37m%}$\ %{\e[0m%} '
+PROMPT=$'\n%{\e[90m%}%{\e[37m%}%{\e[1m%}$(drawline)⎸ 𝒛𝖘𝔥 ⎸📆  $(get_time) ⎸ 📂  ${PWD/} %{\e[0m% [ %{\e[32m% $(get_vcs_branch) %{\e[0m% ] %{\e[0m%} \n%{\e[36m%}%{\e[35m%}⢈%{\e[31m%}⢨⢘%{\e[91m%}⢈⢸⠨%{\e[33m%}⠸⢈%{\e[32m%}⢨%{\e[36m%}⢘%{\e[94m%}⢈ %{\e[37m%}$\ %{\e[0m%} '
 ZLE_RPROMPT_INDENT=0
 
