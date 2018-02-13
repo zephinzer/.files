@@ -14,7 +14,7 @@ get_time() {
 get_vcs_branch() {
   vcs_info;
   if [ -n "$vcs_info_msg_0_" ]; then
-    echo "\e[0m\e[32m$(printf "$vcs_info_msg_0_" | cut -f 2 -d '-' | cut -f 1 -d ']' | cut -f 2 -d '[')\e[0m";
+    echo "\e[0m\e[32m$(printf "$vcs_info_msg_0_" | cut -f 1 -d ']' | cut -f 2 -d '[')\e[0m";
   fi;
 }
 vcs_info_wrapper() {
