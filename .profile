@@ -57,8 +57,8 @@ alias gi='git init';
 alias gl='git log';
 alias gln='git log -n';
 alias gplrecb='git pull --rebase origin $(git branch | grep '*' | cut -f 2 -d ' ')';
-alias gplcb='git pull origin $(git branch | grep '*' | cut -f 2 -d ' ')';
-alias gpscb='git push origin $(git branch | grep '*' | cut -f 2 -d ' ')';
+alias gplcb="git pull origin $(git branch | grep '*' | cut -f 2 -d ' ')";
+alias gpscb="git push origin $(git branch | grep '*' | cut -f 2 -d ' ')";
 alias gr='git rebase';
 alias gri='git rebase -i HEAD~';
 alias gs='git status';
@@ -105,15 +105,18 @@ alias kcexec='kubectl exec';
 # / kubectl
 
 # > gcloud
-alias gc='gcloud';
-alias gce='gcloud compute';
-alias gceals='gcloud compute addresses list'
+alias gcl='gcloud';
+alias gcle='gcloud compute';
+alias gcleals='gcloud compute addresses list'
+alias gcldkpush='gcloud docker -- push';
+alias gcldkpull='gcloud docker -- pull';
+# / gcloud
+
+# > gcloud gke
 alias gke='gcloud container';
 alias gkeils='gcloud container image list --repository'
 alias gkeitls='gcloud container image list-tags'
-alias gcdkpush='gcloud docker -- push';
-alias gcdkpull='gcloud docker -- pull';
-# / gcloud
+# / gcloud gke
 
 printf "\e[35m――――――――――――――――――――――――――――――――――――――――――――――――――――\e[0m\n";
 printf "\e[31m⎸⍽֯⍽֯⍽                      ⚬     ֯       ֯          ֯⍽⍽֯⍽⎸✅  BE AWESOME\n";
