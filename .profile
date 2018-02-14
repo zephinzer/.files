@@ -48,26 +48,20 @@ alias dkimg='docker image';
 
 # > git
 alias ga='git add';
-alias gaaa='git add .';
-alias gb='git branch -ar';
 alias gcm='git commit -m';
 alias gcmae='git commit --allow-empty -m';
-alias gcb="git name-rev --name-only HEAD";
 alias gco='git checkout';
-alias gcr="git config branch.$(gcb).remote";
+alias gcob='git cehckout -b';
 alias gf='git fetch';
-alias grb='git rebase';
-alias grm='git remote';
+alias gi='git init';
+alias gl='git log';
+alias gln='git log -n';
+alias gplrecb='git pull --rebase origin $(git branch | grep '*' | cut -f 2 -d ' ')';
+alias gplcb='git pull origin $(git branch | grep '*' | cut -f 2 -d ' ')';
+alias gpscb='git push origin $(git branch | grep '*' | cut -f 2 -d ' ')';
+alias gr='git rebase';
+alias gri='git rebase -i HEAD~';
 alias gs='git status';
-alias gpullcb='git pull $(gcr) $(gcb)';
-alias gpullocb='git pull origin $(gcb)';
-alias gpushcb='git push $(gcr) $(gcb)';
-alias gpushocb='git push origin $(gcb)';
-alias gpullrecb='git pull --rebase $(gcr) $(gcb)';
-alias gsminit='git submodule init';
-alias gsmdeinit='git submodule deinit -f';
-alias gsmud='git submodule update --init --recursive';
-alias gsmudremote='git submodule update --init --remote --recursive';
 # / git
 
 # > kubectl
