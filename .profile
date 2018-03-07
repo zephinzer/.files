@@ -1,7 +1,6 @@
-clear;
+printf -- "> initialising .profile...\n";
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-# eval "$(rbenv init -)";
 export PATH="\
 /=/usr/local/bin:\
 /Library/Frameworks/Python.framework/Versions/2.7/bin:\
@@ -15,13 +14,24 @@ export PATH="\
 /$HOME/scripts:\
 $PATH"
 
-if which rbenv > /dev/null; then
+## initialise ruby environment if available
+
+_=$(which rbenv &>/dev/null);
+if [ "$?" = "0" ]; then
+  printf -- '> rbenv found on this system - initialising\n';
   eval "$(rbenv init -)";
+else
+  printf -- '> rbenv is not present on this system - skipping\n';
 fi
 
+## initialise ssh agent if SSH_AUTH_SOCK is found
+
 if [[ "$SSH_AUTH_SOCK" != '' ]]; then
+  printf -- '> ssh-agent found, initialising ssh keys...\n';
   eval `ssh-agent -s` &>/dev/null;
-  ls -A ~/.ssh | egrep '^id_rsa[0-9a-zA-Z_]+$' | xargs -I@ bash -c "ssh-add ~/.ssh/@" &>/dev/null;
+  ls -A "${HOME}/.ssh" | egrep '^id_rsa[0-9a-zA-Z_]+$' | xargs -I@ sh -c "ssh-add ${HOME}/.ssh/@";
+else
+  printf -- '> ssh-agent not found - skipping\n';
 fi;
 
 alias ll='ls -lA';
@@ -118,14 +128,17 @@ alias gkeils='gcloud container image list --repository'
 alias gkeitls='gcloud container image list-tags'
 # / gcloud gke
 
-printf "\e[35m――――――――――――――――――――――――――――――――――――――――――――――――――――\e[0m\n";
-printf "\e[31m⎸⍽֯⍽֯⍽                      ⚬     ֯       ֯          ֯⍽⍽֯⍽⎸✅  BE AWESOME\n";
-printf "\e[91m⎸⍽⍽⍽ ⎽⎽⎽⎽⎽⎽⎽֯⎽ ⎽ ⎽⎽ ⎾ ֯⏋⎽⎽ ⎹⎽⎸⎽ ⎽⎽  ⎽⎽⎽⎽⎽⎽⎽⎽ ⎽ ⎽⎽  ⍽֯⍽⍽֯⎸✅  BE RELENTLESS\n";
-printf "\e[33m⎸֯⍽֯⍽⍽⎹⎽⎽  ⧸ ⎽ | '⎽ \│ '֯⎽ \⎹ ⎸ '֯⎽ \⎹⎽⎽⎽ / ⎽ ⎸ '⎽⎽⎸ ֯⍽⍽֯⍽֯⎸✅  BE DISCIPLINED\n";
-printf "\e[32m⎸⍽⍽⍽  ⧸ |  ⎽⎽| |⎽) │ | |⎹⎹ ⎸ | | | ⧸ |  ⎽⎽⎸ ⎸    ⍽֯⍽⍽֯⎸✅  BE COMPASSIONATE\n";
-printf "\e[36m⎸֯⍽֯⍽֯⍽ ⧸⎽⎽⎽⧹⎽⎽⎽| .⎽⎽/|⎽| |⎽⎹⎽⎸⎽| |⎽|⧸⎽⎽⎽⧹⎽⎽⎽⎸⎽⎸    ֯⍽⍽֯⍽֯⎸✅  BE PASSIONATE\n";
-printf "\e[94m⎸⍽⍽֯⍽֯     ֯  ֯ ֯ |⎽|        ֯ ֯  ֯   \e[31m🅙 \e[91m🅞 \e[33m🅔 \e[36m🅘 \e[94m🅡 ⢀\e[37m🅝 🅔 🅣 \e[34m  ⍽֯⍽⍽֯⎸✅  \e[47m\e[34mBE YOURSELF\e[0m\n";
-printf "\e[34m――――――――――――――――――――――――――――――――――――――――――――――――――――\e[0m\n";
+_=$(command -v tput);
+if [ "$?" = "0" ]; then
+ tput reset;
+fi;
+
+printf '\e[31m⎸                     .__    .__           \e[0m\e[31m🅙 \e[91m🅞 \e[33m🅔 \e[36m🅘 \e[94m🅡 ⢀\e[37m🅝 🅔 🅣 \e[0m ⎸✅  BE AWESOME\n';
+printf '\e[91m⎸________ ____ ______ |  |__ |__| ____ ________ ___________  ⎸✅  BE RELENTLESS\n';
+printf '\e[33m⎸\___   // __ \\\____ \|  |  \|  |/    \\\___   // __ \_  __ \ ⎸✅  BE DISCIPLINED\n';
+printf '\e[32m⎸ /    /\  ___/|  |_> >   Y  \  |   |  \/    /\  ___/|  | \/ ⎸✅  BE COMPASSIONATE\n';
+printf '\e[36m⎸/_____ \\\___  >   __/|___|  /__|___|  /_____ \\\___  >__|    ⎸✅  BE PASSIONATE\n';
+printf '\e[94m⎸      \/    \/|__|        \/        \/      \/    \/        ⎸✅  \e[47m\e[34mBE YOURSELF\e[0m\n';
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "/Users/$(whoami)/google-cloud-sdk/path.zsh.inc" ]; then source "/Users/$(whoami)/google-cloud-sdk/path.zsh.inc"; fi

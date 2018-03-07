@@ -1,12 +1,24 @@
-test -e "${HOME}/.iterm2_shell_integration.zsh" && \
-  source "${HOME}/.iterm2_shell_integration.zsh" && \
+printf -- "> initialising .zshrc...\n";
+_=$(stat ${HOME}/.iterm2_shell_integration.zsh &>/dev/null);
+if [ "$?" = "0" ]; then
+  printf -- '> initialising iTerm integration...\n';
+  test -e "${HOME}/.iterm2_shell_integration.zsh";
+  source "${HOME}/.iterm2_shell_integration.zsh";
+else
+  printf -- '> no instance of iTerm integration found - skipping\n';
+fi;
+
+_=$(stat ${HOME}/.profile &>/dev/null);
+if [ "$?" = "0" ]; then
   source ~/.profile;
+fi;
 
 autoload -Uz vcs_info;
 setopt PROMPT_SUBST;
 zstyle ':vcs_info:*' enable git cvs svn;
 drawline() {
-  printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ―;
+  # printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ―;
+  printf '\e[4m%*s\e[0m\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ' ';
 }
 get_time() {
   printf "$(date +'%Y-%m-%d %I:%M %p')";
