@@ -1,4 +1,7 @@
+## initialise with message
 printf -- "> initialising .zshrc...\n";
+
+## iterm integration checks
 _=$(stat ${HOME}/.iterm2_shell_integration.zsh &>/dev/null);
 if [ "$?" = "0" ]; then
   printf -- '> initialising iTerm integration...\n';
@@ -8,16 +11,17 @@ else
   printf -- '> no instance of iTerm integration found - skipping\n';
 fi;
 
+## .profile loading
 _=$(stat ${HOME}/.profile &>/dev/null);
 if [ "$?" = "0" ]; then
   source ~/.profile;
 fi;
 
+## zsh specific stuff
 autoload -Uz vcs_info;
 setopt PROMPT_SUBST;
 zstyle ':vcs_info:*' enable git cvs svn;
 drawline() {
-  # printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ―;
   printf '\e[4m%*s\e[0m\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ' ';
 }
 get_time() {
@@ -42,10 +46,9 @@ get_status_bar_vcs_info() {
   fi;
 }
 precmd() {
-  # sets the tab title to current dir
   vcs_info;
   echo -ne "\e]1;${PWD##*/} $(get_vcs_branch)\a";
 }
+
 PROMPT=$'\n%{\e[90m%}%{\e[37m%}%{\e[1m%}$(drawline)\e[0m⎸ 𝒛𝖘𝔥 ⎸📆  $(get_time) ⎸📂  ${PWD/} ⎸$(get_vcs_branch) %{\e[0m%} \n%{\e[36m%}%{\e[35m%}⢈%{\e[31m%}⢨⢘%{\e[91m%}⢈⢸⠨%{\e[33m%}⠸⢈%{\e[32m%}⢨%{\e[36m%}⢘%{\e[94m%}⢈ %{\e[37m%}$\ %{\e[0m%} '
 ZLE_RPROMPT_INDENT=0
-

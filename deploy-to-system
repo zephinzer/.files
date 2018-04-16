@@ -1,20 +1,62 @@
 #!/bin/bash
 CURR_DIR=$(dirname $0);
 
-_=$(cat ${HOME}/.bash_profile);
-if [[ $? = "0" ]]; then
-  cp "${HOME}/.bash_profile" "${HOME}/.bash_profile.$(date +'%Y%m%d%H%M%S')";
-  cat ${CURR_DIR}/.bash_profile > ${HOME}/.bash_profile;
+_=$(command -v xmodmap);
+if [ "$?" = "0" ]; then XMODMAP_PRESENT=1;
+else XMODMAP_PRESENT=0;
 fi;
 
+printf -- "XMODMAP_PRESENT: ${XMODMAP_PRESENT}\n";
+
+_=$(command -v bash);
+if [ "$?" = "0" ]; then BASH_PRESENT=1;
+else BASH_PRESENT=0;
+fi;
+
+printf -- "BASH_PRESENT: ${BASH_PRESENT}\n";
+
+_=$(command -v zsh);
+if [ "$?" = "0" ]; then ZSH_PRESENT=1;
+else ZSH_PRESENT=0;
+fi;
+
+printf -- "ZSH_PRESENT: ${ZSH_PRESENT}\n";
+
+printf -- "Processing .aliases... ";
+_=$(cat ${HOME}/.aliases);
+if [[ $? = "0" ]]; then cp "${HOME}/.aliases" "${HOME}/.aliases.$(date +'%Y%m%d%H%M%S')"; fi;
+cat ${CURR_DIR}/.aliases > ${HOME}/.aliases;
+printf -- "Done.\n";
+
+printf -- "Processing .profile... ";
 _=$(cat ${HOME}/.profile);
-if [[ $? = "0" ]]; then
-  cp "${HOME}/.profile" "${HOME}/.profile.$(date +'%Y%m%d%H%M%S')";
-  cat ${CURR_DIR}/.profile > ${HOME}/.profile;
+if [[ $? = "0" ]]; then cp "${HOME}/.profile" "${HOME}/.profile.$(date +'%Y%m%d%H%M%S')"; fi;
+cat ${CURR_DIR}/.profile > ${HOME}/.profile;
+printf -- "Done.\n";
+
+printf -- "Processing .bash_profile... ";
+if [ $BASH_PRESENT -eq 1 ]; then
+  _=$(cat ${HOME}/.bash_profile);
+  if [[ $? = "0" ]]; then cp "${HOME}/.bash_profile" "${HOME}/.bash_profile.$(date +'%Y%m%d%H%M%S')"; fi;
+  cat ${CURR_DIR}/.bash_profile > ${HOME}/.bash_profile;
+  printf -- "Done.\n";
+else printf -- "Skipped.\n";
 fi;
 
-_=$(cat ${HOME}/.zshrc);
-if [[ $? = "0" ]]; then
-  cp "${HOME}/.zshrc" "${HOME}/.zshrc.$(date +'%Y%m%d%H%M%S')";
+printf -- "Processing .zshrc... ";
+if [ $ZSH_PRESENT -eq 1 ]; then
+  _=$(cat ${HOME}/.zshrc);
+  if [[ $? = "0" ]]; then cp "${HOME}/.zshrc" "${HOME}/.zshrc.$(date +'%Y%m%d%H%M%S')"; fi;
   cat ${CURR_DIR}/.zshrc > ${HOME}/.zshrc;
+  printf -- "Done.\n";
+else printf -- "Skipped.\n";
+fi;
+
+printf -- "Processing .Xmodmap... ";
+if [ $XMODMAP_PRESET -eq 1 ]; then
+  _=$(cat ${HOME}/.Xmodmap);
+  if [[ $? = "0" ]]; then cp "${HOME}/.Xmodmap" "${HOME}/.Xmodmap.$(date +'%Y%m%d%H%M%S')"; fi;
+  cat ${CURR_DIR}/.Xmodmap > ${HOME}/.Xmodmap;
+  printf -- "Done.\n";
+else printf -- "Skipped.\n";
 fi;

@@ -1,13 +1,24 @@
+## initialise with message
 printf -- "> initialising .bash_profile...\n";
+
+## iterm integration checks
 _=$(stat ${HOME}/.iterm2_shell_integration.zsh &>/dev/null);
 if [ "$?" = "0" ]; then
   printf -- '> initialising iTerm integration...\n';
   test -e "${HOME}/.iterm2_shell_integration.sh";
   source "${HOME}/.iterm2_shell_integration.sh";
+else
+  printf -- '> no instance of iTerm integration found - skipping\n';
 fi;
-source ~/.profile;
+
+## .profile loading
+_=$(stat ${HOME}/.profile &>/dev/null);
+if [ "$?" = "0" ]; then
+  source ~/.profile;
+fi;
+
+## bash specific stuff
 drawline() {
-  # printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ―;
   printf '\e[4m%*s\e[0m\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ' ';
 }
 get_time() {
@@ -32,7 +43,6 @@ get_status_bar_vcs_info() {
   fi;
 }
 precmd() {
-  # sets the tab title to current dir
   echo -ne "\e]1;${PWD##*/} $(get_branch)\a";
 }
 get_branch() {
