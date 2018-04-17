@@ -25,6 +25,7 @@ fi;
 export PATH="\
 /=/usr/local/bin:\
 /Library/Frameworks/Python.framework/Versions/2.7/bin:\
+$PWD/node_modules/.bin:\
 /usr/local/mysql/bin:\
 /usr/local/go/bin:\
 /usr/local/sbin:\
@@ -34,7 +35,6 @@ export PATH="\
 /$HOME/.composer/vendor/bin:\
 /$HOME/.rbenv/bin:\
 /$HOME/scripts:\
-$PWD/node_modules/.bin:\
 $PATH"
 
 ## initialise ssh agent if SSH_AUTH_SOCK is found

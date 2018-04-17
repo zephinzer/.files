@@ -53,7 +53,7 @@ else printf -- "Skipped.\n";
 fi;
 
 printf -- "Processing .Xmodmap... ";
-if [ $XMODMAP_PRESET -eq 1 ]; then
+if [ $XMODMAP_PRESENT -eq 1 ]; then
   _=$(cat ${HOME}/.Xmodmap);
   if [[ $? = "0" ]]; then cp "${HOME}/.Xmodmap" "${HOME}/.Xmodmap.$(date +'%Y%m%d%H%M%S')"; fi;
   cat ${CURR_DIR}/.Xmodmap > ${HOME}/.Xmodmap;
