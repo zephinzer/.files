@@ -1,68 +1,106 @@
 ## initialise with message
-printf -- "> initialising .profile...\n";
+printf -- "\033[90m.PROFILE.";
 
-## node version manager initialisation
-_=$(command -v nvm);
-if [ "$?" = "0" ]; then NVM_PRESENT=1;
-else NVM_PRESENT=0; fi;
-printf -- "NVM_PRESENT: ${NVM_PRESENT}\n";
+#  ___   _  _____  _  _  ___ 
+# | _ \ /_\|_   _|| || |/ __|
+# |  _// _ \ | |  | __ |\__ \
+# |_| /_/ \_\|_|  |_||_||___/
+#                            
 
-if [ $NVM_PRESENT - eq 1 ]; then
+export PATH='/=/:/bin:/usr/bin:usr/local/bin';
+export PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/2.7/bin";
+export PATH="${PATH}:/usr/local/lib/python2.7/site-packages";
+export PATH="${PATH}:/usr/local/mysql/bin";
+export PATH="${PATH}:/usr/local/go/bin";
+export PATH="${PATH}:/usr/local/sbin";
+export PATH="${PATH}:/${HOME}/.bin";
+export PATH="${PATH}:/${HOME}/.cargo/bin";
+export PATH="${PATH}:/${HOME}/.composer/vendor/bin";
+export PATH="${PATH}:/${HOME}/.rbenv/bin";
+export PATH="${PATH}:/${HOME}/scripts";
+export PATH="${PATH}:${PWD}/node_modules/.bin";
+printf -- "PATH-${PATH}."
+
+#  _  _ __   __ __  __ 
+# | \| |\ \ / /|  \/  |
+# | .` | \ V / | |\/| |
+# |_|\_|  \_/  |_|  |_|
+#                      
+
+NVM_PRESENT=0;
+stat "${HOME}/.nvm" &>/dev/null && NVM_PRESENT=1;
+printf -- 'NVM-';
+if [ ${NVM_PRESENT} -eq 1 ]; then
   export NVM_DIR="${HOME}/.nvm";
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh";
+  [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh";
+  [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion";
+  printf -- 'Y.';
+else printf -- 'N.';
 fi;
 
-## ruby env initialisation
+#  ___  ___  ___  _  _ __   __
+# | _ \| _ )| __|| \| |\ \ / /
+# |   /| _ \| _| | .` | \ V / 
+# |_|_\|___/|___||_|\_|  \_/  
+#
+
 _=$(which rbenv &>/dev/null);
 if [ "$?" = "0" ]; then RBENV_PRESENT=1;
 else RBENV_PRESENT=0; fi;
-printf -- "RBENV_PRESENT: ${RBENV_PRESENT}\n";
-
+printf -- 'RBENV-';
 if [ $RBENV_PRESENT -eq 1 ]; then
   eval "$(rbenv init -)";
+  printf -- 'Y.';
+else printf -- 'N.';
 fi;
 
-export PATH="\
-/=/usr/local/bin:\
-/Library/Frameworks/Python.framework/Versions/2.7/bin:\
-$PWD/node_modules/.bin:\
-/usr/local/mysql/bin:\
-/usr/local/go/bin:\
-/usr/local/sbin:\
-/usr/local/lib/python2.7/site-packages:\
-/$HOME/.bin:\
-/$HOME/.cargo/bin:\
-/$HOME/.composer/vendor/bin:\
-/$HOME/.rbenv/bin:\
-/$HOME/scripts:\
-$PATH"
+#  ___  ___  _  _     _    ___  ___  _  _  _____ 
+# / __|/ __|| || |   /_\  / __|| __|| \| ||_   _|
+# \__ \\__ \| __ |  / _ \| (_ || _| | .` |  | |  
+# |___/|___/|_||_| /_/ \_\\___||___||_|\_|  |_|  
+#                                                
 
-## initialise ssh agent if SSH_AUTH_SOCK is found
-
-if [[ "$SSH_AUTH_SOCK" != '' ]]; then
-  printf -- '> ssh-agent found, initialising ssh keys...\n';
+printf -- 'SSHAGENT-';
+if [ "${SSH_AUTH_SOCK}" != '' ]; then
   eval `ssh-agent -s` &>/dev/null;
-  ls -A "${HOME}/.ssh" | egrep '^id_rsa[0-9a-zA-Z_]+$' | xargs -I@ sh -c "ssh-add ${HOME}/.ssh/@";
+  ls -A "${HOME}/.ssh" | egrep '^[a-z]+_rsa[0-9a-zA-Z_]+$' | xargs -I@ sh -c "ssh-add ${HOME}/.ssh/@";
+  printf -- 'Y.';
 else
-  printf -- '> ssh-agent not found - skipping\n';
+  printf -- 'N.';
 fi;
 
-source ~/.aliases;
+#   ___   ___  ___ 
+#  / __| / __|| _ \
+# | (_ || (__ |  _/
+#  \___| \___||_|  
+#                  
 
-_=$(command -v tput);
+if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
+
+printf -- 'ALIASES-';
+_=$(stat .aliases &>/dev/null);
 if [ "$?" = "0" ]; then
- tput reset;
+  source ~/.aliases;
+  printf -- 'Y.';
+else printf -- 'N.';
 fi;
 
-printf '\e[31m⎸                     .__    .__           \e[0m\e[31m🅙 \e[91m🅞 \e[33m🅔 \e[36m🅘 \e[94m🅡 ⢀\e[37m🅝 🅔 🅣 \e[0m ⎸✅  BE AWESOME\n';
-printf '\e[91m⎸________ ____ ______ |  |__ |__| ____ ________ ___________  ⎸✅  BE RELENTLESS\n';
-printf '\e[33m⎸\___   // __ \\\____ \|  |  \|  |/    \\\___   // __ \_  __ \ ⎸✅  BE DISCIPLINED\n';
-printf '\e[32m⎸ /    /\  ___/|  |_> >   Y  \  |   |  \/    /\  ___/|  | \/ ⎸✅  BE COMPASSIONATE\n';
-printf '\e[36m⎸/_____ \\\___  >   __/|___|  /__|___|  /_____ \\\___  >__|    ⎸✅  BE PASSIONATE\n';
-printf '\e[94m⎸      \/    \/|__|        \/        \/      \/    \/        ⎸✅  \e[47m\e[34mBE YOURSELF\e[0m\n';
+## a linux hack because this
+printf -- '\n';
+printf -- '\033[37m\033[4m%*s\033[0m\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ' ';
+# command -v tput &>/dev/null && tput reset;
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "/Users/$(whoami)/google-cloud-sdk/path.zsh.inc" ]; then source "/Users/$(whoami)/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "/Users/$(whoami)/google-cloud-sdk/completion.zsh.inc" ]; then source "/Users/$(whoami)/google-cloud-sdk/completion.zsh.inc"; fi
+printf -- '\033[1m';
+printf -- '\033[31m     ___ __        \033[0m\033[90mBE RELENTLESS\033[0m\033[1m   \n';
+printf -- '\033[31m   _{___{__}\\        \033[0m\033[34mBE DISCIPLINED\033[0m\033[1m  \n';
+printf -- '\033[91m  {_}      \`\\)        \033[0m\033[31mBE PASSIONATE\033[0m\033[1m \n';
+printf -- '\033[91m {_}        `            _.-````--.._     \n';
+printf -- '\033[33m {_}                    //`.--.  \\___`.  \n';
+printf -- '\033[33m  { }__,_.--~~~-~~~-~~-::.---. `-.\\  `.) \n';
+printf -- '\033[32m   `-.{_{_{_{_{_{_{_{_//  -- 8;=- `       \n';
+printf -- '\033[32m      `-:,_.:,_:,_:,.`\\\\._ ..`=- ,  \e[0m\e[31m🅙 \e[91m🅞 \e[33m🅔 \e[36m🅘 \e[94m🅡⢀\e[37m🅝 🅔 🅣 \e[0m  \n';
+printf -- '\033[36m          // // // //`-.`\`   .-`/        \n';
+printf -- '\033[94m         << << << <<    \\ `--`  /----)   \n';
+printf -- '\033[94m          ^  ^  ^  ^     `-.....--```     ';
+printf -- '\033[0m';

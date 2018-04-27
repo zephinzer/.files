@@ -1,21 +1,19 @@
 ## initialise with message
-printf -- "> initialising .bash_profile...\n";
+printf -- "\n\033[90m.BASH_PROFILE.";
 
 ## iterm integration checks
+printf -- 'ITERM-';
 _=$(stat ${HOME}/.iterm2_shell_integration.zsh &>/dev/null);
 if [ "$?" = "0" ]; then
-  printf -- '> initialising iTerm integration...\n';
   test -e "${HOME}/.iterm2_shell_integration.sh";
   source "${HOME}/.iterm2_shell_integration.sh";
+  printf -- 'Y.';
 else
-  printf -- '> no instance of iTerm integration found - skipping\n';
+  printf -- 'N.';
 fi;
 
 ## .profile loading
-_=$(stat ${HOME}/.profile &>/dev/null);
-if [ "$?" = "0" ]; then
-  source ~/.profile;
-fi;
+stat ${HOME}/.profile &>/dev/null && source ~/.profile;
 
 ## bash specific stuff
 drawline() {
@@ -47,9 +45,9 @@ precmd() {
 }
 get_branch() {
   CURRENT_BRANCH=$(git branch &>/dev/null);
-  if [[ $? = "0" ]]; then
-    printf "\e[0m\e[32m`printf $(git branch | grep '*' | cut -f 2 -d '*')`\e[0m";
+  if [ "$?" = "0" ]; then
+    CURRENT_BRANCH="$(git branch | grep '*' | cut -f 2 -d '*')";
+    printf -- "⎸\e[0m\e[32m${CURRENT_BRANCH}\e[0m";
   fi;
 }
-PS1=$'\[\e]0;\W $(get_branch)\a\]\n\e[90m\e[37m\e[1m$(drawline)\n⎸𝔟𝖆𝖘𝔥 ⎸📆  $(get_time) ⎸ 📂  $(pwd) ⎸$(get_branch)\n\e[0m\e[36m\e[35m⢈\e[31m⢨⢘\e[91m⢈⢸⠨\e[33m⠸⢈\e[32m⢨\e[36m⢘\e[94m⢈ \e[37m$\e[0m ';
-
+PS1=$'\[\a\]\[\n\]\[\e[90m\]\[\e[37m\]\[\e[1m\]$(drawline)\n⎸𝔟𝖆𝖘𝔥 ⎸📆  $(get_time) ⎸ 📂  $(pwd) $(get_branch)\n\[\e[0m\]\[\e[36m\]\[\e[35m\]⢈\[\e[31m\]⢨⢘\[\e[91m\]⢈⢸⠨\[\e[33m\]⠸⢈\[\e[32m\]⢨\[\e[36m\]⢘\[\e[94m\]⢈ \[\e[37m\]$\[\e[0m\] ';
