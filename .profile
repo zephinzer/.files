@@ -79,9 +79,9 @@ if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-c
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
 printf -- 'ALIASES-';
-_=$(stat .aliases &>/dev/null);
+_=$(stat "${HOME}/.aliases" &>/dev/null);
 if [ "$?" = "0" ]; then
-  source ~/.aliases;
+  source "${HOME}/.aliases";
   printf -- 'Y.';
 else printf -- 'N.';
 fi;
