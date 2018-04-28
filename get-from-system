@@ -1,9 +1,11 @@
 #!/bin/sh
 TIMESTAMP=$(date +'%Y%m%d%H%M%S');
 mkdir -p .archives
-cp ./.profile ./.archives/.profile.snapshot_on.${TIMESTAMP};
-cat ~/.profile > ./.profile;
-cp ./.zshrc ./.archives/.zshrc.snapshot_on.${TIMESTAMP};
-cat ~/.zshrc > ./.zshrc;
-cp ./.bash_profile ./.archives/.bash_profile.snapshot_on.${TIMESTAMP};
-cat ~/.bash_profile > ./.bash_profile
+stat ~/.profile &>/dev/null && cp ./.profile ./.archives/.profile.snapshot_on.${TIMESTAMP};
+stat ~/.profile &>/dev/null && cat ~/.profile > ./.profile;
+stat ~/.zshrc &>/dev/null && cp ./.zshrc ./.archives/.zshrc.snapshot_on.${TIMESTAMP};
+stat ~/.zshrc &>/dev/null && cat ~/.zshrc > ./.zshrc;
+stat ~/.bash_profile &>/dev/null && cp ./.bash_profile ./.archives/.bash_profile.snapshot_on.${TIMESTAMP};
+stat ~/.bash_profile &>/dev/null && cat ~/.bash_profile > ./.bash_profile
+stat ~/.Xmodmap &>/dev/null && cp ./.Xmodmap ./.archives/.Xmodmap.snapshot_on.${TIMESTAMP};
+stat ~/.Xmodmap &>/dev/null && cat ~/.Xmodmap > ./.Xmodmap
