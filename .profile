@@ -7,7 +7,7 @@ printf -- "\033[90m.PROFILE.";
 # |_| /_/ \_\|_|  |_||_||___/
 #                            
 
-export PATH='/=/:/bin:/usr/bin:usr/local/bin';
+export PATH="${PATH}:/=/:/bin:/usr/bin:usr/local/bin";
 export PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/2.7/bin";
 export PATH="${PATH}:/usr/local/lib/python2.7/site-packages";
 export PATH="${PATH}:/usr/local/mysql/bin";
@@ -87,9 +87,11 @@ else printf -- 'N.';
 fi;
 
 ## a linux hack because this
-printf -- '\n';
-printf -- '\033[37m\033[4m%*s\033[0m\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ' ';
-# command -v tput &>/dev/null && tput reset;
+printf -- '\n\n';
+# if [ -n $TERM ]; then
+  # printf -- '\033[37m\033[4m%*s\033[0m\n\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ' ';
+command -v tput &>/dev/null && tput reset;
+# fi;
 
 printf -- '\033[1m';
 printf -- '\033[31m     ___ __        \033[0m\033[90mBE RELENTLESS\033[0m\033[1m   \n';
