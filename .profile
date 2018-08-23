@@ -23,6 +23,15 @@ export PATH="${PATH}:/${HOME}/scripts";
 export PATH="${PATH}:${PWD}/node_modules/.bin";
 printf -- "PATH-${PATH}."
 
+
+#   ___  ___  _      _   _  _  ___ 
+#  / __|/ _ \| |    /_\ | \| |/ __|
+# | (_ | (_) | |__ / _ \| .` | (_ |
+#  \___|\___/|____/_/ \_\_|\_|\___|
+#                                  
+
+[[ -s "${HOME}/.gvm/scripts/gvm" ]] && source "${HOME}/.gvm/scripts/gvm"
+
 #  _  _ __   __ __  __ 
 # | \| |\ \ / /|  \/  |
 # | .` | \ V / | |\/| |
