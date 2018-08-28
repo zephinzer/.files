@@ -30,7 +30,14 @@ printf -- "PATH-${PATH}."
 #  \___|\___/|____/_/ \_\_|\_|\___|
 #                                  
 
-[[ -s "${HOME}/.gvm/scripts/gvm" ]] && source "${HOME}/.gvm/scripts/gvm"
+GVM_PRESENT=0;
+stat ${HOME}/.gvm/scripts/gvm &>/dev/null && GVM_PRESENT=1;
+printf -- 'GVM-';
+if [ ${GVM_PRESENT} -eq 1 ]; then
+  source "${HOME}/.gvm/scripts/gvm";
+  printf -- 'Y.';
+else printf -- 'N.';
+fi;
 
 #  _  _ __   __ __  __ 
 # | \| |\ \ / /|  \/  |
@@ -55,11 +62,11 @@ fi;
 # |_|_\|___/|___||_|\_|  \_/  
 #
 
+RBENV_PRESENT=0;
 _=$(which rbenv &>/dev/null);
-if [ "$?" = "0" ]; then RBENV_PRESENT=1;
-else RBENV_PRESENT=0; fi;
+if [ "$?" = "0" ]; then RBENV_PRESENT=1; fi;
 printf -- 'RBENV-';
-if [ $RBENV_PRESENT -eq 1 ]; then
+if [ ${RBENV_PRESENT} -eq 1 ]; then
   eval "$(rbenv init -)";
   printf -- 'Y.';
 else printf -- 'N.';
