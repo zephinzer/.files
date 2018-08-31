@@ -66,6 +66,15 @@ alias kcdelpvc='kubectl delete persistentvolumeclaim';
 alias kcdelsec='kubectl delete secret';
 alias kcdels='kubectl delete service';
 alias kcdeli='kubectl delete ingress';
+alias kce='kubectl edit';
+alias kcecm='kubectl edit configmap';
+alias kced='kubectl edit deployment';
+alias kcep='kubectl edit pod';
+alias kcesec='kubectl edit secret';
+alias kcexec='kubectl exec';
+alias kcexpd='kubectl expose deployment';
+alias kces='kubectl edit service';
+alias kcei='kubectl edit ingress';
 alias kcg='kubectl get';
 alias kcgp='kubectl get pods -o wide';
 alias kcgpv='kubectl get persistentvolume -o wide';
@@ -79,7 +88,11 @@ alias kcgi='kubectl get ing -o wide';
 alias kcgcm='kubectl get configmap -o wide';
 alias kcl='kubectl logs';
 alias kclf='kubectl logs -f';
-alias kcexec='kubectl exec';
+alias kcro='kubectl rollout';
+alias kcrou='kubectl rollout-update';
+alias kcrun='kubectl run';
+alias kctn='kubectl top node';
+alias kctp='kubectl top pod';
 # / kubectl
 
 # > gcloud
