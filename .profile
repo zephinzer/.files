@@ -38,6 +38,7 @@ if [ ${GVM_PRESENT} -eq 1 ]; then
   printf -- 'Y.';
 else printf -- 'N.';
 fi;
+gvm use go1.11;
 
 #  _  _ __   __ __  __ 
 # | \| |\ \ / /|  \/  |
