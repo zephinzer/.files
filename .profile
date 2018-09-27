@@ -88,6 +88,18 @@ else
   printf -- 'N.';
 fi;
 
+#  _  _______   _____ _  _   _   ___ _  _ 
+# | |/ / __\ \ / / __| || | /_\ |_ _| \| |
+# | ' <| _| \ V / (__| __ |/ _ \ | || .` |
+# |_|\_\___| |_| \___|_||_/_/ \_\___|_|\_|
+#                                         
+
+KEYCHAIN_PRESENT=0;
+which keychain &>/dev/null && KEYCHAIN_PRESENT=1;
+if [ ${KEYCHAIN_PRESENT} -eq 1 ]; then
+  source ~/.keychain/$(hostname)-sh;
+fi;
+
 #   ___   ___  ___ 
 #  / __| / __|| _ \
 # | (_ || (__ |  _/
@@ -97,6 +109,12 @@ fi;
 if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
+#    _   _    ___   _   ___ ___ ___ 
+#   /_\ | |  |_ _| /_\ / __| __/ __|
+#  / _ \| |__ | | / _ \\__ \ _|\__ \
+# /_/ \_\____|___/_/ \_\___/___|___/
+#                                   
+
 printf -- 'ALIASES-';
 _=$(stat "${HOME}/.aliases" &>/dev/null);
 if [ "$?" = "0" ]; then
@@ -105,11 +123,22 @@ if [ "$?" = "0" ]; then
 else printf -- 'N.';
 fi;
 
-## a linux hack because this
+#  ___  ___  __  __ ___   _  _   _   ___ _  __
+# / __|/ _ \|  \/  | __| | || | /_\ / __| |/ /
+# \__ \ (_) | |\/| | _|  | __ |/ _ \ (__| ' < 
+# |___/\___/|_|  |_|___| |_||_/_/ \_\___|_|\_\
+#                                             
+
 printf -- '\n';
 if [ -n $TERM ]; then
   command -v tput &>/dev/null && tput -Txterm reset;
 fi;
+
+#  _  _ ___ ___ ___ 
+# | \| |_ _/ __| __|
+# | .` || | (__| _| 
+# |_|\_|___\___|___|
+#                   
 
 printf -- '\033[1m';
 if [ -n $TERM ]; then
