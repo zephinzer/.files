@@ -108,3 +108,13 @@ alias gke='gcloud container';
 alias gkeils='gcloud container image list --repository'
 alias gkeitls='gcloud container image list-tags'
 # / gcloud gke
+
+# > minikube
+alias mk='minikube';
+alias mkdelete='minikube delete';
+alias mkao='minikube addons';
+alias mks='minikube start';
+alias mkstat='minikube status';
+alias mkstop='minikube stop';
+alias mksvc='minikube service';
+# / minikube
