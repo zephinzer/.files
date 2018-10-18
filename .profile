@@ -23,6 +23,19 @@ export PATH="${PATH}:/${HOME}/scripts";
 export PATH="${PATH}:${PWD}/node_modules/.bin";
 printf -- "PATH-${PATH}."
 
+#    _   _    ___   _   ___ ___ ___ 
+#   /_\ | |  |_ _| /_\ / __| __/ __|
+#  / _ \| |__ | | / _ \\__ \ _|\__ \
+# /_/ \_\____|___/_/ \_\___/___|___/
+#                                   
+
+printf -- 'ALIASES-';
+_=$(stat "${HOME}/.aliases" &>/dev/null);
+if [ "$?" = "0" ]; then
+  source "${HOME}/.aliases";
+  printf -- 'Y.';
+else printf -- 'N.';
+fi;
 
 #   ___  ___  _      _   _  _  ___ 
 #  / __|/ _ \| |    /_\ | \| |/ __|
@@ -73,31 +86,37 @@ if [ ${RBENV_PRESENT} -eq 1 ]; then
 else printf -- 'N.';
 fi;
 
-#  ___  ___  _  _     _    ___  ___  _  _  _____ 
-# / __|/ __|| || |   /_\  / __|| __|| \| ||_   _|
-# \__ \\__ \| __ |  / _ \| (_ || _| | .` |  | |  
-# |___/|___/|_||_| /_/ \_\\___||___||_|\_|  |_|  
-#                                                
-
-printf -- 'SSHAGENT-';
-if [ "${SSH_AUTH_SOCK}" != '' ]; then
-  eval `ssh-agent -s` &>/dev/null;
-  ls -A "${HOME}/.ssh" | egrep '^[a-z]+_rsa[0-9a-zA-Z_]+$' | xargs -I@ sh -c "ssh-add ${HOME}/.ssh/@";
-  printf -- 'Y.';
-else
-  printf -- 'N.';
-fi;
-
 #  _  _______   _____ _  _   _   ___ _  _ 
 # | |/ / __\ \ / / __| || | /_\ |_ _| \| |
 # | ' <| _| \ V / (__| __ |/ _ \ | || .` |
 # |_|\_\___| |_| \___|_||_/_/ \_\___|_|\_|
 #                                         
 
+printf -- 'KEYCHAIN-';
 KEYCHAIN_PRESENT=0;
 which keychain &>/dev/null && KEYCHAIN_PRESENT=1;
 if [ ${KEYCHAIN_PRESENT} -eq 1 ]; then
+  # add all SSH keys with 'id_rsa' in their name
+  ls ~/.ssh | grep id_rsa | grep -v '.pub' | xargs -I@ keychain -- ~/.ssh/@;
+  # initialise keychain
   source ~/.keychain/$(hostname)-sh;
+  printf -- 'Y.';
+else
+  printf -- 'N,';
+
+  #  ___  ___  _  _     _    ___  ___  _  _  _____ 
+  # / __|/ __|| || |   /_\  / __|| __|| \| ||_   _|
+  # \__ \\__ \| __ |  / _ \| (_ || _| | .` |  | |  
+  # |___/|___/|_||_| /_/ \_\\___||___||_|\_|  |_|  
+  #                                                
+  # only executes if keychain is not present
+  printf -- 'SSHAGENT-';
+  if [ "${SSH_AUTH_SOCK}" != '' ]; then
+    # eval `ssh-agent -s`;
+    printf -- 'Y.';
+  else
+    printf -- 'N.';
+  fi; 
 fi;
 
 #   ___   ___  ___ 
@@ -109,20 +128,6 @@ fi;
 if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
-#    _   _    ___   _   ___ ___ ___ 
-#   /_\ | |  |_ _| /_\ / __| __/ __|
-#  / _ \| |__ | | / _ \\__ \ _|\__ \
-# /_/ \_\____|___/_/ \_\___/___|___/
-#                                   
-
-printf -- 'ALIASES-';
-_=$(stat "${HOME}/.aliases" &>/dev/null);
-if [ "$?" = "0" ]; then
-  source "${HOME}/.aliases";
-  printf -- 'Y.';
-else printf -- 'N.';
-fi;
-
 #  ___  ___  __  __ ___   _  _   _   ___ _  __
 # / __|/ _ \|  \/  | __| | || | /_\ / __| |/ /
 # \__ \ (_) | |\/| | _|  | __ |/ _ \ (__| ' < 
@@ -131,6 +136,7 @@ fi;
 
 printf -- '\n';
 if [ -n $TERM ]; then
+  sleep 1;
   command -v tput &>/dev/null && tput -Txterm reset;
 fi;
 
