@@ -1,11 +1,62 @@
 #!/bin/sh
 TIMESTAMP=$(date +'%Y%m%d%H%M%S');
-mkdir -p .archives
-stat ~/.profile &>/dev/null && cp ./.profile ./.archives/.profile.snapshot_on.${TIMESTAMP};
-stat ~/.profile &>/dev/null && cat ~/.profile > ./.profile;
-stat ~/.zshrc &>/dev/null && cp ./.zshrc ./.archives/.zshrc.snapshot_on.${TIMESTAMP};
-stat ~/.zshrc &>/dev/null && cat ~/.zshrc > ./.zshrc;
-stat ~/.bash_profile &>/dev/null && cp ./.bash_profile ./.archives/.bash_profile.snapshot_on.${TIMESTAMP};
-stat ~/.bash_profile &>/dev/null && cat ~/.bash_profile > ./.bash_profile
-stat ~/.Xmodmap &>/dev/null && cp ./.Xmodmap ./.archives/.Xmodmap.snapshot_on.${TIMESTAMP};
-stat ~/.Xmodmap &>/dev/null && cat ~/.Xmodmap > ./.Xmodmap
+mkdir -p .archives;
+
+#   _   _  _  _  ___ __   __ ___  ___  ___    _    _    
+#  | | | || \| ||_ _|\ \ / /| __|| _ \/ __|  /_\  | |   
+#  | |_| || .` | | |  \ V / | _| |   /\__ \ / _ \ | |__ 
+#   \___/ |_|\_||___|  \_/  |___||_|_\|___//_/ \_\|____|
+#                                                      
+
+printf -- "Processing ${HOME}/.aliases... " \
+  && [ -e ${HOME}/.aliases ] \
+  && cp ./.aliases ./.archives/.aliases.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.aliases > ./.aliases \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+printf -- "Processing ${HOME}/.profile... " \
+  && [ -e ${HOME}/.profile ] \
+  && cp ./.profile ./.archives/.profile.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.profile > ./.profile \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+#  ___    _    ___  _  _ 
+# | _ )  /_\  / __|| || |
+# | _ \ / _ \ \__ \| __ |
+# |___//_/ \_\|___/|_||_|
+#                                               
+
+printf -- "Processing ${HOME}/.bash_profile... " \
+  && [ -e ${HOME}/.bash_profile ] \
+  && cp ./.bash_profile ./.archives/.bash_profile.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.bash_profile > ./.bash_profile \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+#   ____ ___  _  _ 
+#  |_  // __|| || |
+#   / / \__ \| __ |
+#  /___||___/|_||_|
+#                 
+
+printf -- "Processing ${HOME}/.zshrc... " \
+  && [ -e ${HOME}/.zshrc ] \
+  && cp ./.zshrc ./.archives/.zshrc.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.zshrc > ./.zshrc \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+# __  __ __  __   ___   ___   __  __    _    ___ 
+# \ \/ /|  \/  | / _ \ |   \ |  \/  |  /_\  | _ \
+#  >  < | |\/| || (_) || |) || |\/| | / _ \ |  _/
+# /_/\_\|_|  |_| \___/ |___/ |_|  |_|/_/ \_\|_|  
+#                                                
+
+printf -- "Processing ${HOME}/.Xmodmap... " \
+  && [ -e ${HOME}/.Xmodmap ] \
+  && cp ./.Xmodmap ./.archives/.Xmodmap.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.Xmodmap > ./.Xmodmap \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';

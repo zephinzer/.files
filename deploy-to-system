@@ -11,13 +11,13 @@ mkdir -p "${HOME}/.archived.scripts";
 #   \___/ |_|\_||___|  \_/  |___||_|_\|___//_/ \_\|____|
 #                                                      
 
-printf -- "Processing .aliases... ";
+printf -- "Processing ~/.aliases... ";
 _=$(cat ${HOME}/.aliases &>/dev/null);
 if [ "$?" = "0" ]; then cp "${HOME}/.aliases" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
 cat ${CURR_DIR}/.aliases > ${HOME}/.aliases;
 printf -- "Done.\n";
 
-printf -- "Processing .profile... ";
+printf -- "Processing ~/.profile... ";
 _=$(cat ${HOME}/.profile &>/dev/null);
 if [ "$?" = "0" ]; then cp "${HOME}/.profile" "${HOME}/.archived.scripts/profile.${CURR_TIMESTAMP}"; fi;
 cat ${CURR_DIR}/.profile > ${HOME}/.profile;
@@ -29,11 +29,11 @@ printf -- "Done.\n";
 # |___//_/ \_\|___/|_||_|
 #                                               
 
+BASH_PRESENT=0;
 _=$(command -v bash &>/dev/null);
-if [ "$?" = "0" ]; then BASH_PRESENT=1;
-else BASH_PRESENT=0;
-fi;
-printf -- "Processing .bash_profile... ";
+if [ "$?" = "0" ]; then BASH_PRESENT=1; fi;
+
+printf -- "Processing ~/.bash_profile... ";
 if [ $BASH_PRESENT -eq 1 ]; then
   _=$(cat ${HOME}/.bash_profile);
   if [ "$?" = "0" ]; then cp "${HOME}/.bash_profile" "${HOME}/.archived.scripts/bash_profile.${CURR_TIMESTAMP}"; fi;
@@ -48,11 +48,11 @@ fi;
 #  /___||___/|_||_|
 #                 
 
+ZSH_PRESENT=0;
 _=$(command -v zsh);
-if [ "$?" = "0" ]; then ZSH_PRESENT=1;
-else ZSH_PRESENT=0;
-fi;
-printf -- "Processing .zshrc... ";
+if [ "$?" = "0" ]; then ZSH_PRESENT=1; fi;
+
+printf -- "Processing ~/.zshrc... ";
 if [ $ZSH_PRESENT -eq 1 ]; then
   _=$(cat ${HOME}/.zshrc);
   if [[ $? = "0" ]]; then cp "${HOME}/.zshrc" "${HOME}/.archived.scripts/zshrc.${CURR_TIMESTAMP}"; fi;
@@ -67,11 +67,11 @@ fi;
 # /_/\_\|_|  |_| \___/ |___/ |_|  |_|/_/ \_\|_|  
 #                                                
 
+XMODMAP_PRESENT=0;
 _=$(command -v xmodmap);
-if [ "$?" = "0" ]; then XMODMAP_PRESENT=1;
-else XMODMAP_PRESENT=0;
-fi;
-printf -- "Processing .Xmodmap... ";
+if [ "$?" = "0" ]; then XMODMAP_PRESENT=1; fi;
+
+printf -- "Processing ~/.Xmodmap... ";
 if [ $XMODMAP_PRESENT -eq 1 ]; then
   _=$(cat ${HOME}/.Xmodmap);
   if [ "$?" = "0" ]; then cp "${HOME}/.Xmodmap" "${HOME}/.archived.scripts/Xmodmap.${CURR_TIMESTAMP}"; fi;
