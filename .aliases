@@ -1,7 +1,11 @@
 #!/bin/sh
 # > shell
 alias ll='ls -lA';
+# for linux systems with xclip
 command -v xclip &>/dev/null && alias pbcopy='xclip -selection clipboard';
+# for linux systems with pm-powersave
+command -v pm-powersave &>/dev/null && alias __chill='sudo pm-powersave true';
+command -v pm-powersave &>/dev/null && alias __chiong='sudo pm-powersave false';
 # / shell
 
 # > docker
