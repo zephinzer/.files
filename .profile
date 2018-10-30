@@ -23,6 +23,18 @@ export PATH="${PATH}:/${HOME}/scripts";
 export PATH="${PATH}:${PWD}/node_modules/.bin";
 printf -- "PATH-${PATH}."
 
+
+#  ___ ___ ___ ___ _  ___   __
+#  |   \_ _| _ \ __| \| \ \ / /
+#  | |) | ||   / _|| .` |\ V / 
+#  |___/___|_|_\___|_|\_| \_/  
+#                                  
+
+which direnv >/dev/null;
+if [ "$?" = "0" ]; then
+  eval "$(direnv hook bash)";
+fi;
+
 #    _   _    ___   _   ___ ___ ___ 
 #   /_\ | |  |_ _| /_\ / __| __/ __|
 #  / _ \| |__ | | / _ \\__ \ _|\__ \
@@ -127,17 +139,6 @@ fi;
 
 if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
-
-#  ___ ___ ___ ___ _  ___   __
-#  |   \_ _| _ \ __| \| \ \ / /
-#  | |) | ||   / _|| .` |\ V / 
-#  |___/___|_|_\___|_|\_| \_/  
-#                                  
-
-which direnv >/dev/null;
-if [ "$?" = "0" ]; then
-  eval "$(direnv hook bash &>/dev/null)";
-fi;
 
 #  ___  ___  __  __ ___   _  _   _   ___ _  __
 # / __|/ _ \|  \/  | __| | || | /_\ / __| |/ /
