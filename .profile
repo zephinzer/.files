@@ -49,9 +49,9 @@ printf -- 'GVM-';
 if [ ${GVM_PRESENT} -eq 1 ]; then
   source "${HOME}/.gvm/scripts/gvm";
   printf -- 'Y.';
+  gvm use go1.11;
 else printf -- 'N.';
 fi;
-gvm use go1.11;
 
 #  _  _ __   __ __  __ 
 # | \| |\ \ / /|  \/  |
@@ -128,6 +128,16 @@ fi;
 if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
 
+#  ___ ___ ___ ___ _  ___   __
+#  |   \_ _| _ \ __| \| \ \ / /
+#  | |) | ||   / _|| .` |\ V / 
+#  |___/___|_|_\___|_|\_| \_/  
+#                                  
+
+which direnv >/dev/null;
+if [ "$?" = "0" ]; then
+  eval "$(direnv hook bash &>/dev/null)";
+fi;
 
 #  ___  ___  __  __ ___   _  _   _   ___ _  __
 # / __|/ _ \|  \/  | __| | || | /_\ / __| |/ /
@@ -153,7 +163,7 @@ if [ -n $TERM ]; then
 fi;
 printf -- '\033[31m     ___ __        \033[0m\033[90mBE RELENTLESS\033[0m\033[1m   \n';
 printf -- '\033[31m   _{___{__}\\        \033[0m\033[34mBE DISCIPLINED\033[0m\033[1m  \n';
-printf -- '\033[91m  {_}      \`\\)        \033[0m\033[31mSTAY PASSIONATE\033[0m\033[1m \n';
+printf -- '\033[91m  {_}      \`\\)        \033[0m\033[31mBE PASSIONATE\033[0m\033[1m \n';
 printf -- '\033[91m {_}        `            _.-````--.._     \n';
 printf -- '\033[33m {_}                    //`.--.  \\___`.  \n';
 printf -- '\033[33m  { }__,_.--~~~-~~~-~~-::.---. `-.\\  `.) \n';
