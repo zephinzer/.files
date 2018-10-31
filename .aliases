@@ -10,22 +10,30 @@ command -v pm-powersave &>/dev/null && alias __chiong='sudo pm-powersave false';
 
 # > docker
 alias dk='docker';
-alias dkc='docker-compose';
 alias dkb='docker build';
+alias dkcon='docker container';
+alias dkl='docker logs';
+alias dklf='docker logs -f';
+alias dkimg='docker image';
 alias dksvc='docker service';
 alias dksvcl='docker service logs';
-alias dks='docker stack';
-alias dkssvc='docker stack service';
-alias dksd='docker stack deploy';
-alias dkr='docker run';
-alias dkb='docker build';
+alias dksvclf='docker service logs -f';
 alias dkl='docker login';
 alias dkpush='docker push';
 alias dkpull='docker pull';
 alias dkps='docker ps';
-alias dkcon='docker container';
-alias dkimg='docker image';
+alias dkr='docker run';
+alias dkst='docker stack';
+alias dksts='docker stack service';
+alias dkstd='docker stack deploy';
+alias dkt='docker tag';
 # / docker
+
+# > docker-compose
+alias dc='docker-compose';
+alias dcu='docker-compose up';
+alias dcd='docker-compose down';
+# / docker-compose
 
 # > git
 alias ga='git add';
