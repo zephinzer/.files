@@ -19,6 +19,7 @@ export PATH="${PATH}:/${HOME}/.bin";
 export PATH="${PATH}:/${HOME}/.cargo/bin";
 export PATH="${PATH}:/${HOME}/.composer/vendor/bin";
 export PATH="${PATH}:/${HOME}/.rbenv/bin";
+export PATH="${PATH}:/${HOME}/go/bin";
 export PATH="${PATH}:/${HOME}/scripts";
 export PATH="${PATH}:${PWD}/node_modules/.bin";
 printf -- "PATH-${PATH}."
