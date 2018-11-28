@@ -102,6 +102,7 @@ alias kcgep='kubectl get ep -o wide';
 alias kcgi='kubectl get ing -o wide';
 alias kcgj='kubectl get jobs -o wide';
 alias kcgn='kubectl get nodes -o wide';
+alias kcgns='kubectl get namespaces -o wide';
 alias kcgpv='kubectl get persistentvolume -o wide';
 alias kcgpvc='kubectl get persistentvolumeclaim -o wide';
 alias kcgp='kubectl get pods -o wide';
