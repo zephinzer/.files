@@ -15,6 +15,9 @@ fi;
 ## .profile loading
 stat ${HOME}/.profile &>/dev/null && source ~/.profile;
 
+## awscli command completion
+which aws_completer &>/dev/null && complete -C $(which aws_completer) aws;
+
 ## bash specific stuff
 drawline() {
   printf '\e[4m%*s\e[0m\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' ' ';

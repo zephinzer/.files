@@ -15,6 +15,9 @@ fi;
 ## .profile loading
 stat ${HOME}/.profile &>/dev/null && source ~/.profile;
 
+## awscli command completion
+stat /usr/local/bin/aws_zsh_completer.sh &>/dev/null && source /usr/local/bin/aws_zsh_completer.sh;
+
 ## zsh specific stuff
 autoload -Uz vcs_info;
 setopt PROMPT_SUBST;
