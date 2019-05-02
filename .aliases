@@ -53,6 +53,13 @@ alias gri='git rebase -i HEAD~';
 alias gs='git status';
 # / git
 
+# > jekyll
+alias jkserve='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest serve';
+alias jkinitt='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest init-theme';
+alias jkinits='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest init-site';
+alias jkinit='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest init';
+# / jekyll
+
 # > kubectl
 alias kc='kubectl';
 alias kca='kubectl apply -f';
