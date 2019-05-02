@@ -147,3 +147,7 @@ alias mkstat='minikube status';
 alias mkstop='minikube stop';
 alias mksvc='minikube service';
 # / minikube
+
+# > reveal-md
+alias revealmd='docker run -it -u $(id -u) -v "$(pwd):/app/src" -p 12345:12345 zephinzer/reveal-md:latest';
+# / reveal-md
