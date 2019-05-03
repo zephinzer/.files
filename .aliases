@@ -149,5 +149,5 @@ alias mksvc='minikube service';
 # / minikube
 
 # > reveal-md
-alias revealmd='docker run -it -v "$(pwd):/app/src" -p 12345:12345 zephinzer/reveal-md:latest';
+alias revealmd='docker run -it -v "$(pwd):/app/src" --network host zephinzer/reveal-md:latest';
 # / reveal-md
