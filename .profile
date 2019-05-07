@@ -62,7 +62,6 @@ printf -- 'GVM-';
 if [ ${GVM_PRESENT} -eq 1 ]; then
   source "${HOME}/.gvm/scripts/gvm";
   printf -- 'Y.';
-  gvm use go1.11;
 else printf -- 'N.';
 fi;
 
