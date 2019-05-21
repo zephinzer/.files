@@ -15,13 +15,17 @@ export PATH="${PATH}:/usr/local/go/bin";
 export PATH="${PATH}:/usr/local/sbin";
 export PATH="${PATH}:/opt/tools";
 export PATH="${PATH}:/opt/tools/bin";
-export PATH="${PATH}:/${HOME}/.bin";
-export PATH="${PATH}:/${HOME}/.cargo/bin";
-export PATH="${PATH}:/${HOME}/.composer/vendor/bin";
-export PATH="${PATH}:/${HOME}/.rbenv/bin";
-export PATH="${PATH}:/${HOME}/go/bin";
-export PATH="${PATH}:/${HOME}/scripts";
-export PATH="${PATH}:${PWD}/node_modules/.bin";
+export PATH="${PATH}:${HOME}/.bin";
+export PATH="${PATH}:${HOME}/.composer/vendor/bin";
+export PATH="${PATH}:${HOME}/scripts";
+# ruby environment manager
+[ -e "${HOME}/.rbenv/bin" ] && export PATH="${PATH}:${HOME}/.rbenv/bin";
+# rust
+[ -e "${HOME}/.cargo/bin" ] && export PATH="${PATH}:${HOME}/.cargo/bin";
+# golang
+[ -e "${HOME}/go/bin" ] && export PATH="${PATH}:${HOME}/go/bin";
+# linkerd
+[ -e "${HOME}/.linkerd2/bin" ] && export PATH="${PATH}:${HOME}/.linkerd2/bin";
 printf -- "PATH-${PATH}."
 
 
