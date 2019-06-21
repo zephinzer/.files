@@ -17,6 +17,18 @@ if [ "$?" = "0" ]; then cp "${HOME}/.aliases" "${HOME}/.archived.scripts/aliases
 cat ${CURR_DIR}/.aliases > ${HOME}/.aliases;
 printf -- "Done.\n";
 
+printf -- "Processing ~/.aliases.docker... ";
+_=$(cat ${HOME}/.aliases.docker &>/dev/null);
+if [ "$?" = "0" ]; then cp "${HOME}/.aliases.docker" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.aliases.docker > ${HOME}/.aliases.docker;
+printf -- "Done.\n";
+
+printf -- "Processing ~/.aliases.kubectl... ";
+_=$(cat ${HOME}/.aliases.kubectl &>/dev/null);
+if [ "$?" = "0" ]; then cp "${HOME}/.aliases.kubectl" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.aliases.kubectl > ${HOME}/.aliases.kubectl;
+printf -- "Done.\n";
+
 printf -- "Processing ~/.profile... ";
 _=$(cat ${HOME}/.profile &>/dev/null);
 if [ "$?" = "0" ]; then cp "${HOME}/.profile" "${HOME}/.archived.scripts/profile.${CURR_TIMESTAMP}"; fi;

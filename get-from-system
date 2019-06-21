@@ -15,6 +15,20 @@ printf -- "Processing ${HOME}/.aliases... " \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
+printf -- "Processing ${HOME}/.aliases.docker... " \
+  && [ -e ${HOME}/.aliases.docker ] \
+  && cp ./.aliases.docker ./.archives/.aliases.docker.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.aliases.docker > ./.aliases.docker \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+printf -- "Processing ${HOME}/.aliases.kubectl... " \
+  && [ -e ${HOME}/.aliases.kubectl ] \
+  && cp ./.aliases.kubectl ./.archives/.aliases.kubectl.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.aliases.kubectl > ./.aliases.kubectl \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
 printf -- "Processing ${HOME}/.profile... " \
   && [ -e ${HOME}/.profile ] \
   && cp ./.profile ./.archives/.profile.snapshot_on.${TIMESTAMP} \

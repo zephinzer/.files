@@ -9,30 +9,14 @@ command -v pm-powersave &>/dev/null && alias __chiong='sudo pm-powersave false';
 # / shell
 
 # > docker
-alias dk='docker';
-alias dkb='docker build';
-alias dkcon='docker container';
-alias dkl='docker logs';
-alias dklf='docker logs -f';
-alias dkimg='docker image';
-alias dksvc='docker service';
-alias dksvcl='docker service logs';
-alias dksvclf='docker service logs -f';
-alias dkl='docker login';
-alias dkpl='docker pull';
-alias dkps='docker push';
-alias dkr='docker run';
-alias dkst='docker stack';
-alias dksts='docker stack service';
-alias dkstd='docker stack deploy';
-alias dkt='docker tag';
+printf -- '.aliases.docker.'
+_=$(stat "${HOME}/.aliases.docker" &>/dev/null);
+if [ "$?" = "0" ]; then
+  source "${HOME}/.aliases.docker";
+  printf -- 'Y.';
+else printf -- 'N.';
+fi;
 # / docker
-
-# > docker-compose
-alias dc='docker-compose';
-alias dcu='docker-compose up';
-alias dcd='docker-compose down';
-# / docker-compose
 
 # > git
 alias ga='git add';
@@ -48,8 +32,8 @@ alias gln='git log -n';
 alias gplrecb='git pull --rebase origin $(gcb)';
 alias gplcb='git pull origin $(gcb)';
 alias gpscb='git push origin $(gcb)';
-alias gr='git rebase';
-alias gri='git rebase -i HEAD~';
+alias gra='git remote add';
+alias grb='git rebase';
 alias gs='git status';
 # / git
 
@@ -61,67 +45,13 @@ alias jkinit='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tm
 # / jekyll
 
 # > kubectl
-alias kc='kubectl';
-alias kca='kubectl apply -f';
-alias kccv='kubectl config view';
-alias kcd='kubectl describe';
-alias kcdcm='kubectl describe configmap';
-alias kcdcj='kubectl describe cronjob';
-alias kcdcr='kubectl describe clusterrole';
-alias kcdd='kubectl describe deployment';
-alias kcdj='kubectl describe job';
-alias kcdp='kubectl describe pod';
-alias kcdpv='kubectl describe persistentvolume';
-alias kcdpvc='kubectl describe persistentvolumeclaim';
-alias kcdn='kubectl describe node';
-alias kcdsec='kubectl describe secret';
-alias kcds='kubectl describe service';
-alias kcdi='kubectl describe ingress';
-alias kcdel='kubectl delete';
-alias kcdelcm='kubectl delete configmap';
-alias kcdelcj='kubectl delete cronjob';
-alias kcdelcr='kubectl delete clusterrole';
-alias kcdeld='kubectl delete deployment';
-alias kcdelj='kubectl delete job';
-alias kcdelp='kubectl delete pod';
-alias kcdelpv='kubectl delete persistentvolume';
-alias kcdelpvc='kubectl delete persistentvolumeclaim';
-alias kcdelsec='kubectl delete secret';
-alias kcdels='kubectl delete service';
-alias kcdeli='kubectl delete ingress';
-alias kce='kubectl edit';
-alias kcecm='kubectl edit configmap';
-alias kcecj='kubectl edit cronjob';
-alias kced='kubectl edit deployment';
-alias kcej='kubectl edit job';
-alias kcep='kubectl edit pod';
-alias kcesec='kubectl edit secret';
-alias kcexec='kubectl exec';
-alias kcexpd='kubectl expose deployment';
-alias kces='kubectl edit service';
-alias kcei='kubectl edit ingress';
-alias kcg='kubectl get';
-alias kcgd='kubectl get deploy -o wide';
-alias kcgcm='kubectl get configmap -o wide';
-alias kcgcj='kubectl get cronjob -o wide';
-alias kcgcr='kubectl get clusterrole -o wide';
-alias kcgep='kubectl get ep -o wide';
-alias kcgi='kubectl get ing -o wide';
-alias kcgj='kubectl get jobs -o wide';
-alias kcgn='kubectl get nodes -o wide';
-alias kcgns='kubectl get namespaces -o wide';
-alias kcgpv='kubectl get persistentvolume -o wide';
-alias kcgpvc='kubectl get persistentvolumeclaim -o wide';
-alias kcgp='kubectl get pods -o wide';
-alias kcgsec='kubectl get secrets -o wide';
-alias kcgs='kubectl get service -o wide';
-alias kcl='kubectl logs';
-alias kclf='kubectl logs -f';
-alias kcro='kubectl rollout';
-alias kcrou='kubectl rollout-update';
-alias kcrun='kubectl run';
-alias kctn='kubectl top node';
-alias kctp='kubectl top pod';
+printf -- '.aliases.kubectl.'
+_=$(stat "${HOME}/.aliases.kubectl" &>/dev/null);
+if [ "$?" = "0" ]; then
+  source "${HOME}/.aliases.kubectl";
+  printf -- 'Y.';
+else printf -- 'N.';
+fi;
 # / kubectl
 
 # > gcloud
@@ -140,12 +70,17 @@ alias gkeitls='gcloud container image list-tags'
 
 # > minikube
 alias mk='minikube';
-alias mkdelete='minikube delete';
+alias mkc='minikube config';
+alias mkd='minikube dashboard';
+alias mkdel='minikube delete';
 alias mkao='minikube addons';
-alias mks='minikube start';
+alias mkip='minikube ip';
+alias mkl='minikube logs';
+alias mkp='minikube profile';
+alias mks='minikube service';
+alias mkstart='minikube start';
 alias mkstat='minikube status';
 alias mkstop='minikube stop';
-alias mksvc='minikube service';
 # / minikube
 
 # > reveal-md

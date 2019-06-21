@@ -1,0 +1,58 @@
+#!/bin/sh
+# a set of useful aliases for docker usage
+# > docker [dk]
+
+########
+# main #
+########
+alias dk='docker';
+alias dkb='dk build';
+alias dkc='dk container';
+alias dkexec='dk exec';
+alias dkimg='dk image';
+alias dkin='dk inspect';
+alias dkl='dk logs';
+alias dklf='dk logs -f';
+alias dklogin='dk login';
+alias dklogout='dk logout';
+alias dkpl='dk pull';
+alias dkps='dk push';
+alias dkrun='dk run';
+alias dkrunit='dk run -it';
+alias dks='dk service';
+alias dksl='dks logs';
+alias dkslf='dks logs -f';
+alias dkst='dk stack';
+alias dkstop='dk stop';
+alias dkrm='dk rm';
+alias dksts='dkst service';
+alias dkstd='dkst deploy';
+alias dkt='dk tag';
+
+###########
+# utility #
+###########
+# docker get container (name)
+alias dkgc='dk ps | grep ';
+# / docker [dk]
+
+# > docker-compose [dc]
+
+########
+# main #
+########
+# laziness ftw
+alias dc='docker-compose';
+# bring up in foreground
+alias dcu='dc up';
+# bring up in background
+alias dcud='dc up -d';
+# bring up in background with volume reset
+alias dcudv='dc up -d -V';
+# bring down the whole thing
+alias dcd='dc down';
+# run a single service
+alias dcr='dc run';
+# remove the whole thing
+alias dcrm='dc rm';
+# / docker-compose [dc]

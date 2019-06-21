@@ -1,0 +1,198 @@
+#!/bin/sh
+# a set of useful aliases for kubectl usage
+# > kubectl
+alias kc='kubectl';
+
+#########
+# verbs #
+#########
+alias kca='kc apply -f';
+alias kcci='kubectl cluster-info';
+alias kcconf='kubectl config';
+alias kcdel='kc delete';
+alias kcd='kc describe';
+alias kce='kc edit';
+alias kcexec='kc exec';
+alias kcexp='kc expose';
+alias kcg='kc get';
+alias kclb='kc label';
+alias kcl='kc logs';
+alias kclf='kc logs -f';
+alias kcpf='kc port-forward';
+alias kcro='kc rollout';
+alias kcroup='kc rollout-update';
+alias kcrun='kc run';
+alias kct='kc top';
+
+##########
+# config # (conf)
+##########
+alias kcconfcc='kcconf current-context';
+alias kcconfv='kcconf view';
+alias kcconfs='kcconf set';
+alias kcconfsc='kcconf set-context';
+alias kcconfus='kcconf unset';
+
+#############
+# configmap # (cm)
+#############
+alias kcdcm='kcd configmap';
+alias kcdelcm='kcdel configmap';
+alias kcecm='kce configmap';
+alias kcgcm='kcg configmap -o wide';
+
+###########
+# cronjob # (cj)
+###########
+alias kcdcj='kcd cronjob';
+alias kcdelcj='kcdel cronjob';
+alias kcecj='kce cronjob';
+alias kcgcj='kcg cronjob -o wide';
+
+###############
+# clusterrole # (cr)
+###############
+alias kcdcr='kcd clusterrole';
+alias kcdelcr='kcdel clusterrole';
+alias kcecr='kce clusterrole';
+alias kcgcr='kcg clusterrole -o wide';
+
+######################
+# clusterrolebinding # (crb)
+######################
+alias kcdcrb='kcd clusterrolebinding';
+alias kcdelcrb='kcdel clusterrolebinding';
+alias kcecrb='kce clusterrolebinding';
+alias kcgcrb='kcg clusterrolebinding -o wide';
+
+##############
+# deployment # (d)
+##############
+alias kcdd='kcd deployment';
+alias kcdeld='kcdel deployment';
+alias kced='kce deployment';
+alias kcexpd='kcexp deployment';
+alias kcgd='kcg deployment -o wide';
+
+#############
+# daemonset # (ds)
+#############
+alias kcdds='kcd daemonset';
+alias kcdelds='kcdel daemonset';
+alias kceds='kce daemonset';
+alias kcgds='kcg daemonset -o wide';
+
+############
+# endpoint # (ep)
+############
+alias kcdep='kc describe endpoint';
+alias kcdelep='kc delete endpoint';
+alias kceep='kc edit endpoint';
+alias kcgep='kc get endpoint -o wide';
+
+###########
+# ingress # (i)
+###########
+alias kcdi='kcd ingress';
+alias kcdeli='kcdel ingress';
+alias kcei='kce ingress';
+alias kcgi='kcg ingress -o wide';
+
+#######
+# job # (j)
+#######
+alias kcdj='kcd job';
+alias kcdelj='kcdel job';
+alias kcej='kce job';
+alias kcgj='kcg job -o wide';
+
+#######
+# pod # (p)
+#######
+alias kcdp='kcd pod';
+alias kcdelp='kcdel pod';
+alias kcep='kce pod';
+alias kcgp='kcg pods -o wide';
+alias kctp='kct pod';
+
+####################
+# persistentvolume # (pv)
+####################
+alias kcdpv='kcd persistentvolume';
+alias kcdelpv='kcdel persistentvolume';
+alias kcepv='kce persistentvolume';
+alias kcgpv='kcg persistentvolume -o wide';
+
+#########################
+# persistentvolumeclaim # (pvc)
+#########################
+alias kcdpvc='kcd persistentvolumeclaim';
+alias kcdelpvc='kcdel persistentvolumeclaim';
+alias kcepvc='kcdel persistentvolumeclaim';
+alias kcgpvc='kcg persistentvolumeclaim -o wide';
+
+########
+# node # (n)
+########
+alias kcdn='kcd node';
+alias kcen='kce node';
+alias kcgn='kcg node -o wide';
+alias kctn='kct node';
+
+#############
+# namespace # (ns)
+#############
+alias kcdns='kcd namespace';
+alias kcdelns='kcdel namespace';
+alias kcens='kce namespace';
+alias kcgns='kcg namespace -o wide';
+
+########
+# role # (r)
+########
+alias kcdr='kcd role';
+alias kcdelr='kcdel role';
+alias kcer='kce role';
+alias kcgr='kcg role -o wide';
+
+########
+# rolebinding # (rb)
+########
+alias kcdrb='kcd rolebinding';
+alias kcdelrb='kcdel rolebinding';
+alias kcerb='kce rolebinding';
+alias kcgrb='kcg rolebinding -o wide';
+
+##########
+# secret # (sec)
+##########
+alias kcdsec='kcd secret';
+alias kcdelsec='kcdel secret';
+alias kcesec='kce secret';
+alias kcgsec='kcg secret -o wide';
+
+###########
+# service # (s)
+###########
+alias kcds='kcd service';
+alias kcdels='kcdel service';
+alias kces='kce service';
+alias kcgs='kcg service -o wide';
+
+##################
+# serviceaccount # (sa)
+##################
+alias kcdsa='kcd serviceaccount';
+alias kcdelsa='kcdel serviceaccount';
+alias kcesa='kce serviceaccount';
+alias kcgsa='kcg serviceaccount -o wide';
+
+#################
+# pure laziness # - - - - - - - - - - - - - - - - - -
+#################
+# sets the namespace that all kc* commands will use
+alias kcsetns='kcconfsc $(kcconfcc) --namespace';
+# gets the namespace that all kc* commands are using
+alias kcgetns='kcconfcc | grep namespace';
+
+# / kubectl
