@@ -1,5 +1,57 @@
 #!/bin/sh
-# a set of useful aliases for kubectl usage
+# canonical url: https://github.com/zephinzer/config-nix-shell/blob/master/.aliases.kubectl
+# a set of useful aliases for kubectl usage by @zephinzer
+#
+# main features:
+# - use kcsetns to set your current namespace
+# - use kcgetns to get your current namespace
+# - simple intuitive shortcuts for everything else
+#
+# handles the following kubectl verbs (abbreviation in brackets):
+# - apply (a)
+# - config (conf)
+# - describe (d)
+# - delete (del)
+# - edit (e)
+# - exec (exec)
+# - expose (exp)
+# - get (g)
+# - logs (l)
+# - port-forward (pf)
+# - run (r)
+# - top (t)
+#
+# handles the following resource types (abbreviation in brackets):
+# - config (c)
+# - configmap (cm)
+# - cronjob (cj)
+# - clusterrole (cr)
+# - clusterrolebinding (crb)
+# - deployment (d)
+# - daemonset (ds)
+# - endpoint (e)
+# - ingress (i)
+# - job (j)
+# - pod (p)
+# - persistentvolume (pv)
+# - persistentvolumeclaim (pvc)
+# - node (n)
+# - namespace (ns)
+# - role (r)
+# - rolebinding (rb)
+# - secret (sec)
+# - service (s)
+# - serviceaccount (sa)
+#
+# main idea:
+# - kubectl is abbreviated as kc
+# - add the verb abbreviation after that
+# - add the resource abbreviation after that
+# - eg. kubectl (kc) get (g) pods (p) => kcgp ...
+#       kubectl (kc) edit (e) configmap (cm) => kcecm ...
+#
+# cheers!
+#
 # > kubectl
 alias kc='kubectl';
 
