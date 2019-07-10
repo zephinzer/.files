@@ -57,7 +57,6 @@ PS1=$'\[\a\]\[\n\]\[\e[90m\]\[\e[37m\]\[\e[1m\]$(drawline)\n⎸𝔟𝖆𝖘𝔥 
 
 ## direnv
 _=$(which direnv &>/dev/null);
-if [ "$?" = "0" ]; then DIRENV_PRESENT=1; fi;
-if [ ${DIRENV_PRESENT} -eq 1 ]; then
+if [ "$?" = "0" ]; then
   eval "$(direnv hook bash)";
 fi;

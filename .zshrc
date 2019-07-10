@@ -56,7 +56,6 @@ ZLE_RPROMPT_INDENT=0
 
 ## direnv
 _=$(which direnv &>/dev/null);
-if [ "$?" = "0" ]; then DIRENV_PRESENT=1; fi;
-if [ ${DIRENV_PRESENT} -eq 1 ]; then
+if [ "$?" = "0" ]; then
   eval "$(direnv hook zsh)";
 fi;
