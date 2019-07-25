@@ -9,26 +9,32 @@
 #
 # handles the following kubectl verbs (abbreviation in brackets):
 # - apply (a)
+# - api-resources (ar)
+# - api-versions (av)
 # - config (conf)
+# - certificate (crt)
 # - describe (d)
 # - delete (del)
 # - edit (e)
 # - exec (exec)
+# - explain (ex)
 # - expose (exp)
 # - get (g)
 # - logs (l)
 # - port-forward (pf)
 # - run (r)
+# - taint (tnt)
 # - top (t)
 #
 # handles the following resource types (abbreviation in brackets):
+# - certificatesigningrequests (csr)
 # - config (c)
 # - configmap (cm)
 # - cronjob (cj)
 # - clusterrole (cr)
 # - clusterrolebinding (crb)
-# - deployment (d)
 # - daemonset (ds)
+# - deployment (d)
 # - endpoint (e)
 # - ingress (i)
 # - job (j)
@@ -37,11 +43,15 @@
 # - persistentvolumeclaim (pvc)
 # - node (n)
 # - namespace (ns)
+# - replicaset (rs)
 # - role (r)
 # - rolebinding (rb)
 # - secret (sec)
 # - service (s)
 # - serviceaccount (sa)
+#
+# appendices:
+# - --all-namespaces (all)
 #
 # main idea:
 # - kubectl is abbreviated as kc
@@ -49,6 +59,8 @@
 # - add the resource abbreviation after that
 # - eg. kubectl (kc) get (g) pods (p) => kcgp ...
 #       kubectl (kc) edit (e) configmap (cm) => kcecm ...
+# - add the appendix
+# - eg. kubectl (kc) get (g) pods (p) --all-namespaces => kcgpall ...
 #
 # cheers!
 #
@@ -59,12 +71,16 @@ alias kc='kubectl';
 # verbs #
 #########
 alias kca='kc apply -f';
-alias kcci='kubectl cluster-info';
-alias kcconf='kubectl config';
+alias kcar='kc api-resources';
+alias kcav='kc api-verions';
+alias kcci='kc cluster-info';
+alias kcconf='kc config';
+alias kccrt='kc certificate';
 alias kcdel='kc delete';
 alias kcd='kc describe';
 alias kce='kc edit';
 alias kcexec='kc exec';
+alias kcex='kc explain';
 alias kcexp='kc expose';
 alias kcg='kc get';
 alias kclb='kc label';
@@ -74,7 +90,17 @@ alias kcpf='kc port-forward';
 alias kcro='kc rollout';
 alias kcroup='kc rollout-update';
 alias kcrun='kc run';
+alias kctnt='kc taint';
 alias kct='kc top';
+
+##############################
+# certificatesigningrequests # (csr)
+##############################
+alias kcdcsr='kcd csr';
+alias kcdelcsr='kcdel csr';
+alias kcecsr='kce csr';
+alias kcgcsr='kcg csr -o wide';
+alias kcgcsrall='kcg csr -o wide --all-namespaces';
 
 ##########
 # config # (conf)
@@ -92,6 +118,7 @@ alias kcdcm='kcd configmap';
 alias kcdelcm='kcdel configmap';
 alias kcecm='kce configmap';
 alias kcgcm='kcg configmap -o wide';
+alias kcgcmall='kcg configmap -o wide --all-namespaces';
 
 ###########
 # cronjob # (cj)
@@ -100,6 +127,7 @@ alias kcdcj='kcd cronjob';
 alias kcdelcj='kcdel cronjob';
 alias kcecj='kce cronjob';
 alias kcgcj='kcg cronjob -o wide';
+alias kcgcjall='kcg cronjob -o wide --all-namespaces';
 
 ###############
 # clusterrole # (cr)
@@ -108,6 +136,7 @@ alias kcdcr='kcd clusterrole';
 alias kcdelcr='kcdel clusterrole';
 alias kcecr='kce clusterrole';
 alias kcgcr='kcg clusterrole -o wide';
+alias kcgcrall='kcg clusterrole -o wide --all-namespaces';
 
 ######################
 # clusterrolebinding # (crb)
@@ -116,6 +145,7 @@ alias kcdcrb='kcd clusterrolebinding';
 alias kcdelcrb='kcdel clusterrolebinding';
 alias kcecrb='kce clusterrolebinding';
 alias kcgcrb='kcg clusterrolebinding -o wide';
+alias kcgcrball='kcg clusterrolebinding -o wide --all-namespaces';
 
 ##############
 # deployment # (d)
@@ -125,6 +155,7 @@ alias kcdeld='kcdel deployment';
 alias kced='kce deployment';
 alias kcexpd='kcexp deployment';
 alias kcgd='kcg deployment -o wide';
+alias kcgdall='kcg deployment -o wide --all-namespaces';
 
 #############
 # daemonset # (ds)
@@ -133,6 +164,7 @@ alias kcdds='kcd daemonset';
 alias kcdelds='kcdel daemonset';
 alias kceds='kce daemonset';
 alias kcgds='kcg daemonset -o wide';
+alias kcgdsall='kcg daemonset -o wide --all-namespaces';
 
 ############
 # endpoint # (ep)
@@ -141,6 +173,7 @@ alias kcdep='kc describe endpoint';
 alias kcdelep='kc delete endpoint';
 alias kceep='kc edit endpoint';
 alias kcgep='kc get endpoint -o wide';
+alias kcgepall='kc get endpoint -o wide --all-namespaces';
 
 ###########
 # ingress # (i)
@@ -149,6 +182,7 @@ alias kcdi='kcd ingress';
 alias kcdeli='kcdel ingress';
 alias kcei='kce ingress';
 alias kcgi='kcg ingress -o wide';
+alias kcgiall='kcg ingress -o wide --all-namespaces';
 
 #######
 # job # (j)
@@ -157,6 +191,7 @@ alias kcdj='kcd job';
 alias kcdelj='kcdel job';
 alias kcej='kce job';
 alias kcgj='kcg job -o wide';
+alias kcgjall='kcg job -o wide --all-namespaces';
 
 #######
 # pod # (p)
@@ -165,6 +200,7 @@ alias kcdp='kcd pod';
 alias kcdelp='kcdel pod';
 alias kcep='kce pod';
 alias kcgp='kcg pods -o wide';
+alias kcgpall='kcg pods -o wide --all-namespaces';
 alias kctp='kct pod';
 
 ####################
@@ -182,6 +218,7 @@ alias kcdpvc='kcd persistentvolumeclaim';
 alias kcdelpvc='kcdel persistentvolumeclaim';
 alias kcepvc='kcdel persistentvolumeclaim';
 alias kcgpvc='kcg persistentvolumeclaim -o wide';
+alias kcgpvcall='kcg persistentvolumeclaim -o wide --all-namespaces';
 
 ########
 # node # (n)
@@ -199,6 +236,15 @@ alias kcdelns='kcdel namespace';
 alias kcens='kce namespace';
 alias kcgns='kcg namespace -o wide';
 
+##############
+# replicaset # (rs)
+##############
+alias kcdrs='kcd replicaset';
+alias kcdelrs='kcdel replicaset';
+alias kcers='kce replicaset';
+alias kcgrs='kcg replicaset -o wide';
+alias kcgrsall='kcg replicaset -o wide --all-namespaces';
+
 ########
 # role # (r)
 ########
@@ -206,6 +252,7 @@ alias kcdr='kcd role';
 alias kcdelr='kcdel role';
 alias kcer='kce role';
 alias kcgr='kcg role -o wide';
+alias kcgrall='kcg role -o wide --all-namespaces';
 
 ########
 # rolebinding # (rb)
@@ -214,6 +261,7 @@ alias kcdrb='kcd rolebinding';
 alias kcdelrb='kcdel rolebinding';
 alias kcerb='kce rolebinding';
 alias kcgrb='kcg rolebinding -o wide';
+alias kcgrball='kcg rolebinding -o wide --all-namespaces';
 
 ##########
 # secret # (sec)
@@ -222,6 +270,7 @@ alias kcdsec='kcd secret';
 alias kcdelsec='kcdel secret';
 alias kcesec='kce secret';
 alias kcgsec='kcg secret -o wide';
+alias kcgsecall='kcg secret -o wide --all-namespaces';
 
 ###########
 # service # (s)
@@ -230,6 +279,7 @@ alias kcds='kcd service';
 alias kcdels='kcdel service';
 alias kces='kce service';
 alias kcgs='kcg service -o wide';
+alias kcgsall='kcg service -o wide --all-namespaces';
 
 ##################
 # serviceaccount # (sa)
@@ -238,6 +288,7 @@ alias kcdsa='kcd serviceaccount';
 alias kcdelsa='kcdel serviceaccount';
 alias kcesa='kce serviceaccount';
 alias kcgsa='kcg serviceaccount -o wide';
+alias kcgsaall='kcg serviceaccount -o wide --all-namespaces';
 
 #################
 # pure laziness # - - - - - - - - - - - - - - - - - -
