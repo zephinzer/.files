@@ -72,7 +72,7 @@ alias kc='kubectl';
 #########
 alias kca='kc apply -f';
 alias kcar='kc api-resources';
-alias kcav='kc api-verions';
+alias kcav='kc api-versions';
 alias kcci='kc cluster-info';
 alias kcconf='kc config';
 alias kccrt='kc certificate';
@@ -296,6 +296,6 @@ alias kcgsaall='kcg serviceaccount -o wide --all-namespaces';
 # sets the namespace that all kc* commands will use
 alias kcsetns='kcconfsc $(kcconfcc) --namespace';
 # gets the namespace that all kc* commands are using
-alias kcgetns='kcconfcc | grep namespace';
+alias kcgetns="kcconf get-contexts | grep '*' | tr -s '  ' ' ' | cut -f 5 -d ' '";
 
 # / kubectl
