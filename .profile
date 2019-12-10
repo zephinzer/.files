@@ -11,7 +11,6 @@ export PATH="${PATH}:/=/:/bin:/usr/bin:usr/local/bin";
 export PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/2.7/bin";
 export PATH="${PATH}:/usr/local/lib/python2.7/site-packages";
 export PATH="${PATH}:/usr/local/mysql/bin";
-export PATH="${PATH}:/usr/local/go/bin";
 export PATH="${PATH}:/usr/local/sbin";
 export PATH="${PATH}:/opt/tools";
 export PATH="${PATH}:/opt/tools/bin";
@@ -22,8 +21,6 @@ export PATH="${PATH}:${HOME}/scripts";
 [ -e "${HOME}/.rbenv/bin" ] && export PATH="${PATH}:${HOME}/.rbenv/bin";
 # rust
 [ -e "${HOME}/.cargo/bin" ] && export PATH="${PATH}:${HOME}/.cargo/bin";
-# golang
-[ -e "${HOME}/go/bin" ] && export PATH="${PATH}:${HOME}/go/bin";
 # linkerd
 [ -e "${HOME}/.linkerd2/bin" ] && export PATH="${PATH}:${HOME}/.linkerd2/bin";
 printf -- "PATH-${PATH}."
@@ -50,21 +47,6 @@ printf -- 'ALIASES-';
 _=$(stat "${HOME}/.aliases" &>/dev/null);
 if [ "$?" = "0" ]; then
   source "${HOME}/.aliases";
-  printf -- 'Y.';
-else printf -- 'N.';
-fi;
-
-#   ___  ___  _      _   _  _  ___ 
-#  / __|/ _ \| |    /_\ | \| |/ __|
-# | (_ | (_) | |__ / _ \| .` | (_ |
-#  \___|\___/|____/_/ \_\_|\_|\___|
-#                                  
-
-GVM_PRESENT=0;
-stat ${HOME}/.gvm/scripts/gvm &>/dev/null && GVM_PRESENT=1;
-printf -- 'GVM-';
-if [ ${GVM_PRESENT} -eq 1 ]; then
-  source "${HOME}/.gvm/scripts/gvm";
   printf -- 'Y.';
 else printf -- 'N.';
 fi;
