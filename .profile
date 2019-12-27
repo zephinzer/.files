@@ -63,7 +63,7 @@ printf -- 'DOCKER-';
 if [ ${ROOTLESS_DOCKER_PRESENT} -eq 1 ]; then
   # as recommended at https://docs.docker.com/engine/security/rootless/
   export PATH="${PATH}:${HOME}/bin";
-  export DOCKER_HOST=/run/user/$(id -u)/docker.sock;
+  export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock;
 else printf -- 'N.';
 fi;
 
