@@ -2,95 +2,95 @@
 CURR_DIR="$(dirname $0)";
 CURR_TIMESTAMP="$(date +'%Y%m%d%H%M%S')";
 
-# # create archive directory if not already present
-# mkdir -p "${HOME}/.archived.scripts";
+# create archive directory if not already present
+mkdir -p "${HOME}/.archived.scripts";
 
-# #   _   _  _  _  ___ __   __ ___  ___  ___    _    _    
-# #  | | | || \| ||_ _|\ \ / /| __|| _ \/ __|  /_\  | |   
-# #  | |_| || .` | | |  \ V / | _| |   /\__ \ / _ \ | |__ 
-# #   \___/ |_|\_||___|  \_/  |___||_|_\|___//_/ \_\|____|
-# #                                                      
+#   _   _  _  _  ___ __   __ ___  ___  ___    _    _    
+#  | | | || \| ||_ _|\ \ / /| __|| _ \/ __|  /_\  | |   
+#  | |_| || .` | | |  \ V / | _| |   /\__ \ / _ \ | |__ 
+#   \___/ |_|\_||___|  \_/  |___||_|_\|___//_/ \_\|____|
+#                                                      
 
-# printf -- "Processing ~/.aliases... ";
-# _=$(cat ${HOME}/.aliases &>/dev/null);
-# if [ "$?" = "0" ]; then cp "${HOME}/.aliases" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
-# cat ${CURR_DIR}/.aliases > ${HOME}/.aliases;
-# printf -- "Done.\n";
+printf -- "Processing ~/.aliases... ";
+_=$(cat ${HOME}/.aliases &>/dev/null);
+if [ "$?" = "0" ]; then cp "${HOME}/.aliases" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.aliases > ${HOME}/.aliases;
+printf -- "Done.\n";
 
-# printf -- "Processing ~/.aliases.docker... ";
-# _=$(cat ${HOME}/.aliases.docker &>/dev/null);
-# if [ "$?" = "0" ]; then cp "${HOME}/.aliases.docker" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
-# cat ${CURR_DIR}/.aliases.docker > ${HOME}/.aliases.docker;
-# printf -- "Done.\n";
+printf -- "Processing ~/.aliases.docker... ";
+_=$(cat ${HOME}/.aliases.docker &>/dev/null);
+if [ "$?" = "0" ]; then cp "${HOME}/.aliases.docker" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.aliases.docker > ${HOME}/.aliases.docker;
+printf -- "Done.\n";
 
-# printf -- "Processing ~/.aliases.kubectl... ";
-# _=$(cat ${HOME}/.aliases.kubectl &>/dev/null);
-# if [ "$?" = "0" ]; then cp "${HOME}/.aliases.kubectl" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
-# cat ${CURR_DIR}/.aliases.kubectl > ${HOME}/.aliases.kubectl;
-# printf -- "Done.\n";
+printf -- "Processing ~/.aliases.kubectl... ";
+_=$(cat ${HOME}/.aliases.kubectl &>/dev/null);
+if [ "$?" = "0" ]; then cp "${HOME}/.aliases.kubectl" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.aliases.kubectl > ${HOME}/.aliases.kubectl;
+printf -- "Done.\n";
 
-# printf -- "Processing ~/.profile... ";
-# _=$(cat ${HOME}/.profile &>/dev/null);
-# if [ "$?" = "0" ]; then cp "${HOME}/.profile" "${HOME}/.archived.scripts/profile.${CURR_TIMESTAMP}"; fi;
-# cat ${CURR_DIR}/.profile > ${HOME}/.profile;
-# printf -- "Done.\n";
+printf -- "Processing ~/.profile... ";
+_=$(cat ${HOME}/.profile &>/dev/null);
+if [ "$?" = "0" ]; then cp "${HOME}/.profile" "${HOME}/.archived.scripts/profile.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.profile > ${HOME}/.profile;
+printf -- "Done.\n";
 
-# #  ___    _    ___  _  _ 
-# # | _ )  /_\  / __|| || |
-# # | _ \ / _ \ \__ \| __ |
-# # |___//_/ \_\|___/|_||_|
-# #                                               
+#  ___    _    ___  _  _ 
+# | _ )  /_\  / __|| || |
+# | _ \ / _ \ \__ \| __ |
+# |___//_/ \_\|___/|_||_|
+#                                               
 
-# BASH_PRESENT=0;
-# _=$(command -v bash &>/dev/null);
-# if [ "$?" = "0" ]; then BASH_PRESENT=1; fi;
+BASH_PRESENT=0;
+_=$(command -v bash &>/dev/null);
+if [ "$?" = "0" ]; then BASH_PRESENT=1; fi;
 
-# printf -- "Processing ~/.bash_profile... ";
-# if [ $BASH_PRESENT -eq 1 ]; then
-#   _=$(cat ${HOME}/.bash_profile);
-#   if [ "$?" = "0" ]; then cp "${HOME}/.bash_profile" "${HOME}/.archived.scripts/bash_profile.${CURR_TIMESTAMP}"; fi;
-#   cat ${CURR_DIR}/.bash_profile > ${HOME}/.bash_profile;
-#   printf -- 'Done.\n';
-# else printf -- 'Skipped.\n';
-# fi;
+printf -- "Processing ~/.bash_profile... ";
+if [ $BASH_PRESENT -eq 1 ]; then
+  _=$(cat ${HOME}/.bash_profile);
+  if [ "$?" = "0" ]; then cp "${HOME}/.bash_profile" "${HOME}/.archived.scripts/bash_profile.${CURR_TIMESTAMP}"; fi;
+  cat ${CURR_DIR}/.bash_profile > ${HOME}/.bash_profile;
+  printf -- 'Done.\n';
+else printf -- 'Skipped.\n';
+fi;
 
-# #   ____ ___  _  _ 
-# #  |_  // __|| || |
-# #   / / \__ \| __ |
-# #  /___||___/|_||_|
-# #                 
+#   ____ ___  _  _ 
+#  |_  // __|| || |
+#   / / \__ \| __ |
+#  /___||___/|_||_|
+#                 
 
-# ZSH_PRESENT=0;
-# _=$(command -v zsh);
-# if [ "$?" = "0" ]; then ZSH_PRESENT=1; fi;
+ZSH_PRESENT=0;
+_=$(command -v zsh);
+if [ "$?" = "0" ]; then ZSH_PRESENT=1; fi;
 
-# printf -- "Processing ~/.zshrc... ";
-# if [ $ZSH_PRESENT -eq 1 ]; then
-#   _=$(cat ${HOME}/.zshrc);
-#   if [[ $? = "0" ]]; then cp "${HOME}/.zshrc" "${HOME}/.archived.scripts/zshrc.${CURR_TIMESTAMP}"; fi;
-#   cat ${CURR_DIR}/.zshrc > ${HOME}/.zshrc;
-#   printf -- "Done.\n";
-# else printf -- 'Skipped.\n';
-# fi;
+printf -- "Processing ~/.zshrc... ";
+if [ $ZSH_PRESENT -eq 1 ]; then
+  _=$(cat ${HOME}/.zshrc);
+  if [[ $? = "0" ]]; then cp "${HOME}/.zshrc" "${HOME}/.archived.scripts/zshrc.${CURR_TIMESTAMP}"; fi;
+  cat ${CURR_DIR}/.zshrc > ${HOME}/.zshrc;
+  printf -- "Done.\n";
+else printf -- 'Skipped.\n';
+fi;
 
-# # __  __ __  __   ___   ___   __  __    _    ___ 
-# # \ \/ /|  \/  | / _ \ |   \ |  \/  |  /_\  | _ \
-# #  >  < | |\/| || (_) || |) || |\/| | / _ \ |  _/
-# # /_/\_\|_|  |_| \___/ |___/ |_|  |_|/_/ \_\|_|  
-# #                                                
+# __  __ __  __   ___   ___   __  __    _    ___ 
+# \ \/ /|  \/  | / _ \ |   \ |  \/  |  /_\  | _ \
+#  >  < | |\/| || (_) || |) || |\/| | / _ \ |  _/
+# /_/\_\|_|  |_| \___/ |___/ |_|  |_|/_/ \_\|_|  
+#                                                
 
-# XMODMAP_PRESENT=0;
-# _=$(command -v xmodmap);
-# if [ "$?" = "0" ]; then XMODMAP_PRESENT=1; fi;
+XMODMAP_PRESENT=0;
+_=$(command -v xmodmap);
+if [ "$?" = "0" ]; then XMODMAP_PRESENT=1; fi;
 
-# printf -- "Processing ~/.Xmodmap... ";
-# if [ $XMODMAP_PRESENT -eq 1 ]; then
-#   _=$(cat ${HOME}/.Xmodmap);
-#   if [ "$?" = "0" ]; then cp "${HOME}/.Xmodmap" "${HOME}/.archived.scripts/Xmodmap.${CURR_TIMESTAMP}"; fi;
-#   cat ${CURR_DIR}/.Xmodmap > ${HOME}/.Xmodmap;
-#   printf -- "Done.\n";
-# else printf -- 'Skipped.\n';
-# fi;
+printf -- "Processing ~/.Xmodmap... ";
+if [ $XMODMAP_PRESENT -eq 1 ]; then
+  _=$(cat ${HOME}/.Xmodmap);
+  if [ "$?" = "0" ]; then cp "${HOME}/.Xmodmap" "${HOME}/.archived.scripts/Xmodmap.${CURR_TIMESTAMP}"; fi;
+  cat ${CURR_DIR}/.Xmodmap > ${HOME}/.Xmodmap;
+  printf -- "Done.\n";
+else printf -- 'Skipped.\n';
+fi;
 
 
 #    _  _   _ _____ ___  _  _______   __
