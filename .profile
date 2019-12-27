@@ -51,6 +51,22 @@ if [ "$?" = "0" ]; then
 else printf -- 'N.';
 fi;
 
+#  ___   ___   ___ _  _____ ___ 
+# |   \ / _ \ / __| |/ / __| _ \
+# | |) | (_) | (__| ' <| _||   /
+# |___/ \___/ \___|_|\_\___|_|_\
+#                               
+
+ROOTLESS_DOCKER_PRESENT=0;
+stat /run/user/$(id -u)/docker.sock &>/dev/null && ROOTLESS_DOCKER_PRESENT=1;
+printf -- 'DOCKER-';
+if [ ${ROOTLESS_DOCKER_PRESENT} -eq 1 ]; then
+  # as recommended at https://docs.docker.com/engine/security/rootless/
+  export PATH="${PATH}:${HOME}/bin";
+  export DOCKER_HOST=/run/user/$(id -u)/docker.sock;
+else printf -- 'N.';
+fi;
+
 #  _  _ __   __ __  __ 
 # | \| |\ \ / /|  \/  |
 # | .` | \ V / | |\/| |
