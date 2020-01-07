@@ -14,8 +14,9 @@ export PATH="${PATH}:/usr/local/mysql/bin";
 export PATH="${PATH}:/usr/local/sbin";
 export PATH="${PATH}:/opt/tools";
 export PATH="${PATH}:/opt/tools/bin";
-export PATH="${PATH}:${HOME}/bin";
+export PATH="${PATH}:${HOME}/bin"; # added for rootless docker
 export PATH="${PATH}:${HOME}/.bin";
+export PATH="${PATH}:${HOME}/.local/bin"; # added for pip on ubuntu 18.04
 export PATH="${PATH}:${HOME}/.composer/vendor/bin";
 export PATH="${PATH}:${HOME}/scripts";
 # ruby environment manager
