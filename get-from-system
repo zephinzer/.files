@@ -10,6 +10,7 @@ mkdir -p .archives;
 
 printf -- "Processing ${HOME}/.aliases... " \
   && [ -e ${HOME}/.aliases ] \
+  && cp ./.aliases \
   && cp ./.aliases ./.archives/.aliases.snapshot_on.${TIMESTAMP} \
   && cat ${HOME}/.aliases > ./.aliases \
   && printf -- 'DONE.\n' \
@@ -17,6 +18,7 @@ printf -- "Processing ${HOME}/.aliases... " \
 
 printf -- "Processing ${HOME}/.aliases.docker... " \
   && [ -e ${HOME}/.aliases.docker ] \
+  && touch ./.aliases.docker \
   && cp ./.aliases.docker ./.archives/.aliases.docker.snapshot_on.${TIMESTAMP} \
   && cat ${HOME}/.aliases.docker > ./.aliases.docker \
   && printf -- 'DONE.\n' \
@@ -24,6 +26,7 @@ printf -- "Processing ${HOME}/.aliases.docker... " \
 
 printf -- "Processing ${HOME}/.aliases.kubectl... " \
   && [ -e ${HOME}/.aliases.kubectl ] \
+  && touch ./.aliases.kubectl \
   && cp ./.aliases.kubectl ./.archives/.aliases.kubectl.snapshot_on.${TIMESTAMP} \
   && cat ${HOME}/.aliases.kubectl > ./.aliases.kubectl \
   && printf -- 'DONE.\n' \
@@ -31,6 +34,7 @@ printf -- "Processing ${HOME}/.aliases.kubectl... " \
 
 printf -- "Processing ${HOME}/.profile... " \
   && [ -e ${HOME}/.profile ] \
+  && touch ./.profile \
   && cp ./.profile ./.archives/.profile.snapshot_on.${TIMESTAMP} \
   && cat ${HOME}/.profile > ./.profile \
   && printf -- 'DONE.\n' \
@@ -44,8 +48,23 @@ printf -- "Processing ${HOME}/.profile... " \
 
 printf -- "Processing ${HOME}/.bash_profile... " \
   && [ -e ${HOME}/.bash_profile ] \
+  && touch ./.bash_profile \
   && cp ./.bash_profile ./.archives/.bash_profile.snapshot_on.${TIMESTAMP} \
   && cat ${HOME}/.bash_profile > ./.bash_profile \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+#       _       
+#  __ _(_)_ __  
+#  \ V / | '  \ 
+#   \_/|_|_|_|_|
+#               
+
+printf -- "Processing ${HOME}/.vimrc... " \
+  && [ -e ${HOME}/.vimrc ] \
+  && touch ./.vimrc \
+  && cp ./.vimrc ./.archives/.vimrc.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.vimrc > ./.vimrc \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
@@ -57,6 +76,7 @@ printf -- "Processing ${HOME}/.bash_profile... " \
 
 printf -- "Processing ${HOME}/.zshrc... " \
   && [ -e ${HOME}/.zshrc ] \
+  && touch ./.zshrc \
   && cp ./.zshrc ./.archives/.zshrc.snapshot_on.${TIMESTAMP} \
   && cat ${HOME}/.zshrc > ./.zshrc \
   && printf -- 'DONE.\n' \
@@ -70,6 +90,7 @@ printf -- "Processing ${HOME}/.zshrc... " \
 
 printf -- "Processing ${HOME}/.Xmodmap... " \
   && [ -e ${HOME}/.Xmodmap ] \
+  && touch ./.Xmodmap \
   && cp ./.Xmodmap ./.archives/.Xmodmap.snapshot_on.${TIMESTAMP} \
   && cat ${HOME}/.Xmodmap > ./.Xmodmap \
   && printf -- 'DONE.\n' \
