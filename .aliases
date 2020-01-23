@@ -18,6 +18,11 @@ else printf -- 'N.';
 fi;
 # / docker
 
+# > random commands
+alias ports='sudo lsof -iTCP -sTCP:LISTEN -P -n';
+alias mem='sudo free -m';
+# / random commands
+
 # > git
 alias ga='git add';
 alias gcb='printf %s "$(git branch | grep "*" | cut -f 2 -d " ")"';
