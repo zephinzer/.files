@@ -10,8 +10,9 @@
 # handles the following kubectl verbs (abbreviation in brackets):
 # - apply (a)
 # - api-resources (ar)
+# - auth (auth)
 # - api-versions (av)
-# - config (conf)
+# - config (cf)
 # - certificate (crt)
 # - describe (d)
 # - delete (del)
@@ -22,6 +23,7 @@
 # - get (g)
 # - logs (l)
 # - port-forward (pf)
+# - proxy (px)
 # - run (r)
 # - taint (tnt)
 # - top (t)
@@ -72,9 +74,10 @@ alias kc='kubectl';
 #########
 alias kca='kc apply -f';
 alias kcar='kc api-resources';
+alias kcauth='kc auth';
 alias kcav='kc api-versions';
 alias kcci='kc cluster-info';
-alias kcconf='kc config';
+alias kccf='kc config';
 alias kccrt='kc certificate';
 alias kcdel='kc delete';
 alias kcd='kc describe';
@@ -87,11 +90,17 @@ alias kclb='kc label';
 alias kcl='kc logs';
 alias kclf='kc logs -f';
 alias kcpf='kc port-forward';
+alias kcpx='kc proxy';
 alias kcro='kc rollout';
 alias kcroup='kc rollout-update';
 alias kcrun='kc run';
 alias kctnt='kc taint';
 alias kct='kc top';
+
+########
+# auth #
+########
+alias kcauthci="kcauth can-i"
 
 ##############################
 # certificatesigningrequests # (csr)
@@ -105,11 +114,13 @@ alias kcgcsrall='kcg csr -o wide --all-namespaces';
 ##########
 # config # (conf)
 ##########
-alias kcconfcc='kcconf current-context';
-alias kcconfv='kcconf view';
-alias kcconfs='kcconf set';
-alias kcconfsc='kcconf set-context';
-alias kcconfus='kcconf unset';
+alias kccfccon='kccf current-context';
+alias kccfgcon='kccf get-contexts';
+alias kccfv='kccf view';
+alias kccfs='kccf set';
+alias kccfscon='kccf set-context';
+alias kccfus='kccf unset';
+alias kccfucon='kccf use-context';
 
 #############
 # configmap # (cm)
@@ -294,8 +305,8 @@ alias kcgsaall='kcg serviceaccount -o wide --all-namespaces';
 # pure laziness # - - - - - - - - - - - - - - - - - -
 #################
 # sets the namespace that all kc* commands will use
-alias kcsetns='kcconfsc $(kcconfcc) --namespace';
+alias kcsetns='kccfsc $(kccfcc) --namespace';
 # gets the namespace that all kc* commands are using
-alias kcgetns="kcconf get-contexts | grep '*' | tr -s '  ' ' ' | cut -f 5 -d ' '";
+alias kcgetns="kccf get-contexts | grep '*' | tr -s '  ' ' ' | cut -f 5 -d ' '";
 
 # / kubectl
