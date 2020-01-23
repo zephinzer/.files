@@ -305,7 +305,7 @@ alias kcgsaall='kcg serviceaccount -o wide --all-namespaces';
 # pure laziness # - - - - - - - - - - - - - - - - - -
 #################
 # sets the namespace that all kc* commands will use
-alias kcsetns='kccfsc $(kccfcc) --namespace';
+alias kcsetns='kccfscon $(kccfccon) --namespace';
 # gets the namespace that all kc* commands are using
 alias kcgetns="kccf get-contexts | grep '*' | tr -s '  ' ' ' | cut -f 5 -d ' '";
 
