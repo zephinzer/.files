@@ -13,7 +13,7 @@ else
 fi;
 
 ## .profile loading
-stat ${HOME}/.profile &>/dev/null && source ~/.profile;
+[ -e "${HOME}/.profile" ] && source "${HOME}/.profile";
 
 ## awscli command completion
 stat /usr/local/bin/aws_zsh_completer.sh &>/dev/null && source /usr/local/bin/aws_zsh_completer.sh;
@@ -53,9 +53,3 @@ precmd() {
 
 PROMPT=$'\n%{\033[90m%}%{\033[37m%}%{\033[1m%}$(drawline)\033[0m⎸ 𝒛𝖘𝔥 ⎸$(hostname) ⎸📆  $(get_time) ⎸📂  ${PWD/} ⎸$(get_vcs_branch) %{\033[0m%} \n%{\033[36m%}%{\033[35m%}⢈%{\033[31m%}⢨⢘%{\033[91m%}⢈⢸⠨%{\033[33m%}⠸⢈%{\033[32m%}⢨%{\033[36m%}⢘%{\033[94m%}⢈ %{\033[37m%}$\ %{\033[0m%} '
 ZLE_RPROMPT_INDENT=0
-
-## direnv
-_=$(which direnv &>/dev/null);
-if [ "$?" = "0" ]; then
-  eval "$(direnv hook zsh)";
-fi;

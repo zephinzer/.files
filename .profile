@@ -1,168 +1,79 @@
 ## initialise with message
-printf -- "\033[90m.PROFILE.";
-
+printf -- "\033[90m";
 #  ___   _  _____  _  _  ___ 
 # | _ \ /_\|_   _|| || |/ __|
 # |  _// _ \ | |  | __ |\__ \
 # |_| /_/ \_\|_|  |_||_||___/
 #                            
-
 export PATH="${PATH}:/=/:/bin:/usr/bin:usr/local/bin";
-export PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/2.7/bin";
-export PATH="${PATH}:/usr/local/lib/python2.7/site-packages";
-export PATH="${PATH}:/usr/local/mysql/bin";
-export PATH="${PATH}:/usr/local/sbin";
-export PATH="${PATH}:/opt/tools";
-export PATH="${PATH}:/opt/tools/bin";
-export PATH="${PATH}:${HOME}/bin"; # added for rootless docker
-export PATH="${PATH}:${HOME}/.bin";
-export PATH="${PATH}:${HOME}/.local/bin"; # added for pip on ubuntu 18.04
-export PATH="${PATH}:${HOME}/.composer/vendor/bin";
-export PATH="${PATH}:${HOME}/scripts";
+# personal whims
+[ -e "/opt/tools" ] && export PATH="${PATH}:/opt/tools";
+[ -e "/opt/tools/bin" ] && export PATH="${PATH}:/opt/tools/bin";
+[ -e "${HOME}/.bin" ] && export PATH="${PATH}:${HOME}/.bin";
+[ -e "${HOME}/.local/bin" ] && export PATH="${PATH}:${HOME}/.local/bin";
+[ -e "${HOME}/scripts" ] && export PATH="${PATH}:${HOME}/scripts";
 # ruby environment manager
 [ -e "${HOME}/.rbenv/bin" ] && export PATH="${PATH}:${HOME}/.rbenv/bin";
 # rust
 [ -e "${HOME}/.cargo/bin" ] && export PATH="${PATH}:${HOME}/.cargo/bin";
 # linkerd
 [ -e "${HOME}/.linkerd2/bin" ] && export PATH="${PATH}:${HOME}/.linkerd2/bin";
-printf -- "PATH-${PATH}."
-
-
-#  ___ ___ ___ ___ _  ___   __
-#  |   \_ _| _ \ __| \| \ \ / /
-#  | |) | ||   / _|| .` |\ V / 
-#  |___/___|_|_\___|_|\_| \_/  
-#                                  
-
-which direnv >/dev/null;
-if [ "$?" = "0" ]; then
-  eval "$(direnv hook bash)";
-fi;
-
+printf -- "PATH-${PATH}.";
 #    _   _    ___   _   ___ ___ ___ 
 #   /_\ | |  |_ _| /_\ / __| __/ __|
 #  / _ \| |__ | | / _ \\__ \ _|\__ \
 # /_/ \_\____|___/_/ \_\___/___|___/
 #                                   
-
-printf -- 'ALIASES-';
-_=$(stat "${HOME}/.aliases" &>/dev/null);
-if [ "$?" = "0" ]; then
-  source "${HOME}/.aliases";
-  printf -- 'Y.';
-else printf -- 'N.';
-fi;
-
-#  ___   ___   ___ _  _____ ___ 
-# |   \ / _ \ / __| |/ / __| _ \
-# | |) | (_) | (__| ' <| _||   /
-# |___/ \___/ \___|_|\_\___|_|_\
-#                               
-
-ROOTLESS_DOCKER_PRESENT=0;
-stat /run/user/$(id -u)/docker.sock &>/dev/null && ROOTLESS_DOCKER_PRESENT=1;
-printf -- 'DOCKER-';
-if [ ${ROOTLESS_DOCKER_PRESENT} -eq 1 ]; then
-  # as recommended at https://docs.docker.com/engine/security/rootless/
-  export PATH="${PATH}:${HOME}/bin";
-  export DOCKER_HOST=unix:///run/user/$(id -u)/docker.sock;
-  export DOCKER_BUILDKIT=1;
-else printf -- 'N.';
-fi;
-
+[ -e "${HOME}/.aliases" ] && source "${HOME}/.aliases";
+#  ___ ___ ___ ___ _  ___   __
+#  |   \_ _| _ \ __| \| \ \ / /
+#  | |) | ||   / _|| .` |\ V / 
+#  |___/___|_|_\___|_|\_| \_/  
+#                                  
+which direnv >/dev/null && eval "$(direnv hook bash)";
 #  _  _ __   __ __  __ 
 # | \| |\ \ / /|  \/  |
 # | .` | \ V / | |\/| |
 # |_|\_|  \_/  |_|  |_|
 #                      
-
-NVM_PRESENT=0;
-stat "${HOME}/.nvm" &>/dev/null && NVM_PRESENT=1;
-printf -- 'NVM-';
-if [ ${NVM_PRESENT} -eq 1 ]; then
-  export NVM_DIR="${HOME}/.nvm";
-  [ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh";
-  [ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion";
-  printf -- 'Y.';
-else printf -- 'N.';
-fi;
-
+[ -e "${HOME}/.nvm" ] && export NVM_DIR="${HOME}/.nvm";
+[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh";
+[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion";
 #  ___  ___  ___  _  _ __   __
 # | _ \| _ )| __|| \| |\ \ / /
 # |   /| _ \| _| | .` | \ V / 
 # |_|_\|___/|___||_|\_|  \_/  
 #
-
-RBENV_PRESENT=0;
-_=$(which rbenv &>/dev/null);
-if [ "$?" = "0" ]; then RBENV_PRESENT=1; fi;
-printf -- 'RBENV-';
-if [ ${RBENV_PRESENT} -eq 1 ]; then
-  eval "$(rbenv init -)";
-  printf -- 'Y.';
-else printf -- 'N.';
-fi;
-
+which rbenv >/dev/null && eval "$(rbenv init -)";
 #  _  _______   _____ _  _   _   ___ _  _ 
 # | |/ / __\ \ / / __| || | /_\ |_ _| \| |
 # | ' <| _| \ V / (__| __ |/ _ \ | || .` |
 # |_|\_\___| |_| \___|_||_/_/ \_\___|_|\_|
 #                                         
-
-printf -- 'KEYCHAIN-';
-KEYCHAIN_PRESENT=0;
-which keychain &>/dev/null && KEYCHAIN_PRESENT=1;
-if [ ${KEYCHAIN_PRESENT} -eq 1 ]; then
-  # add all SSH keys with 'id_rsa' in their name
-  ls ~/.ssh | grep id_rsa | grep -v '.pub' | xargs -I@ keychain -- ~/.ssh/@;
-  # initialise keychain
-  source ~/.keychain/$(hostname)-sh;
-  printf -- 'Y.';
-else
-  printf -- 'N,';
-
-  #  ___  ___  _  _     _    ___  ___  _  _  _____ 
-  # / __|/ __|| || |   /_\  / __|| __|| \| ||_   _|
-  # \__ \\__ \| __ |  / _ \| (_ || _| | .` |  | |  
-  # |___/|___/|_||_| /_/ \_\\___||___||_|\_|  |_|  
-  #                                                
-  # only executes if keychain is not present
-  printf -- 'SSHAGENT-';
-  if [ "${SSH_AUTH_SOCK}" != '' ]; then
-    # eval `ssh-agent -s`;
-    printf -- 'Y.';
-  else
-    printf -- 'N.';
-  fi; 
-fi;
-
+which keychain &>/dev/null \
+  && ls ${HOME}/.ssh | grep id_rsa | grep -v '.pub' | xargs -I@ keychain -- ${HOME}/.ssh/@ \
+  && source ${HOME}/.keychain/$(hostname)-sh \
+  && eval `ssh-agent -s`;
 #   ___   ___  ___ 
 #  / __| / __|| _ \
 # | (_ || (__ |  _/
 #  \___| \___||_|  
 #                  
-
-if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/path.zsh.inc"; fi
-if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
-
+[ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ] && source "${HOME}/google-cloud-sdk/path.zsh.inc";
+[ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ] && source "${HOME}/google-cloud-sdk/completion.zsh.inc";
 #  ___  ___  __  __ ___   _  _   _   ___ _  __
 # / __|/ _ \|  \/  | __| | || | /_\ / __| |/ /
 # \__ \ (_) | |\/| | _|  | __ |/ _ \ (__| ' < 
 # |___/\___/|_|  |_|___| |_||_/_/ \_\___|_|\_\
 #                                             
-
-printf -- '\n';
-if [ -n $TERM ]; then
-  sleep 1;
-  command -v tput &>/dev/null && tput -Txterm reset;
-fi;
-
+[ -n $TERM ] \
+  && sleep 1 \
+  && command -v tput &>/dev/null && tput -Txterm reset;
 #  _  _ ___ ___ ___ 
 # | \| |_ _/ __| __|
 # | .` || | (__| _| 
 # |_|\_|___\___|___|
 #                   
-
 printf -- '\033[1m';
 if [ -n $TERM ]; then
   printf -- '\033[37m\033[4m%*s\033[0m\n' "${COLUMNS:-$(tput -Txterm cols)}" '' | tr ' ' ' ';

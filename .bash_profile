@@ -13,7 +13,7 @@ else
 fi;
 
 ## .profile loading
-stat ${HOME}/.profile &>/dev/null && source ~/.profile;
+[ -e "${HOME}/.profile" ] && source "${HOME}/.profile";
 
 ## awscli command completion
 which aws_completer &>/dev/null && complete -C $(which aws_completer) aws;
