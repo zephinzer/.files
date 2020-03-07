@@ -3,9 +3,9 @@
   email = dev@joeir.net
 [core]
   editor = vim
-[includeIf "gitdir:**/gitlab.com/zephinzer/**"]
+[includeIf "gitdir:~/**/gitlab.com/zephinzer/"]
   path = ~/.gitlab.com.zephinzer.gitconfig
-[includeIf "gitdir:**/gitlab.com/usvc/**"]
+[includeIf "gitdir:~/**/gitlab.com/usvc/"]
   path = ~/.gitlab.com.zephinzer.gitconfig
-[includeIf "gitdir:**/github.com/zephinzer/**"]
+[includeIf "gitdir:~/**/github.com/zephinzer/"]
   path = ~/.github.com.zephinzer.gitconfig

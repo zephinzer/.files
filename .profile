@@ -53,7 +53,7 @@ which rbenv >/dev/null && eval "$(rbenv init -)";
 which keychain &>/dev/null \
   && ls ${HOME}/.ssh | grep id_rsa | grep -v '.pub' | xargs -I@ keychain -- ${HOME}/.ssh/@ \
   && source ${HOME}/.keychain/$(hostname)-sh \
-  && eval `ssh-agent -s`;
+  || eval `ssh-agent -s`;
 #   ___   ___  ___ 
 #  / __| / __|| _ \
 # | (_ || (__ |  _/
