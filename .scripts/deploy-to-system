@@ -14,35 +14,35 @@ mkdir -p "${DOTFILES_ARCHIVED_PATH}";
 
 printf -- "Processing ~/.aliases... ";
 [ -e "${HOME}/.aliases" ] && cp "${HOME}/.aliases" "${DOTFILES_ARCHIVED_PATH}/aliases.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.aliases" ] && cat "${CURR_DIR}/.aliases" > ${HOME}/.aliases && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${CURR_DIR}/../.aliases" ] && cat "${CURR_DIR}/../.aliases" > ${HOME}/.aliases && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
-printf -- "Processing ~/.aliases.docker... ";
-[ -e "${HOME}/.aliases.docker" ] && cp "${HOME}/.aliases.docker" "${DOTFILES_ARCHIVED_PATH}/aliases.docker.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.aliases.docker" ] && cat "${CURR_DIR}/.aliases.docker" > ${HOME}/.aliases.docker && printf -- "Done.\n" || printf -- 'Skipped.\n';
+printf -- "Processing ~/.aliases_docker... ";
+[ -e "${HOME}/.aliases_docker" ] && cp "${HOME}/.aliases_docker" "${DOTFILES_ARCHIVED_PATH}/aliases_docker.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.aliases_docker" ] && cat "${CURR_DIR}/../.aliases_docker" > ${HOME}/.aliases_docker && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
-printf -- "Processing ~/.aliases.git... ";
-[ -e "${HOME}/.aliases.git" ] && cp "${HOME}/.aliases.git" "${DOTFILES_ARCHIVED_PATH}/aliases.git.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.aliases.git" ] && cat "${CURR_DIR}/.aliases.git" > ${HOME}/.aliases.git && printf -- "Done.\n" || printf -- 'Skipped.\n';
+printf -- "Processing ~/.aliases_git... ";
+[ -e "${HOME}/.aliases_git" ] && cp "${HOME}/.aliases_git" "${DOTFILES_ARCHIVED_PATH}/aliases_git.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.aliases_git" ] && cat "${CURR_DIR}/../.aliases_git" > ${HOME}/.aliases_git && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
-printf -- "Processing ~/.aliases.kubectl... ";
-[ -e "${HOME}/.aliases.kubectl" ] && cp "${HOME}/.aliases.kubectl" "${DOTFILES_ARCHIVED_PATH}/aliases.kubectl.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.aliases.kubectl" ] && cat "${CURR_DIR}/.aliases.kubectl" > ${HOME}/.aliases.kubectl && printf -- "Done.\n" || printf -- 'Skipped.\n';
+printf -- "Processing ~/.aliases_kubectl... ";
+[ -e "${HOME}/.aliases_kubectl" ] && cp "${HOME}/.aliases_kubectl" "${DOTFILES_ARCHIVED_PATH}/aliases_kubectl.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.aliases_kubectl" ] && cat "${CURR_DIR}/../.aliases_kubectl" > ${HOME}/.aliases_kubectl && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.gitconfig... ";
 [ -e "${HOME}/.gitconfig" ] && cp "${HOME}/.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitconfig.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.gitconfig" ] && cat "${CURR_DIR}/.gitconfig" > ${HOME}/.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${CURR_DIR}/../.gitconfig" ] && cat "${CURR_DIR}/../.gitconfig" > ${HOME}/.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.github.com.zephinzer.gitconfig... ";
 [ -e "${HOME}/.github.com.zephinzer.gitconfig" ] && cp "${HOME}/.github.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/github.com.zephinzer.gitconfig.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.github.com.zephinzer.gitconfig" ] && cat "${CURR_DIR}/.github.com.zephinzer.gitconfig" > ${HOME}/.github.com.zephinzer.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${CURR_DIR}/../.github.com.zephinzer.gitconfig" ] && cat "${CURR_DIR}/../.github.com.zephinzer.gitconfig" > ${HOME}/.github.com.zephinzer.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.gitlab.com.zephinzer.gitconfig... ";
 [ -e "${HOME}/.gitlab.com.zephinzer.gitconfig" ] && cp "${HOME}/.gitlab.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitlab.com.zephinzer.gitconfig.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.gitlab.com.zephinzer.gitconfig" ] && cat "${CURR_DIR}/.gitlab.com.zephinzer.gitconfig" > ${HOME}/.gitlab.com.zephinzer.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${CURR_DIR}/../.gitlab.com.zephinzer.gitconfig" ] && cat "${CURR_DIR}/../.gitlab.com.zephinzer.gitconfig" > ${HOME}/.gitlab.com.zephinzer.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.profile... ";
 [ -e "${HOME}/.profile" ] && cp "${HOME}/.profile" "${DOTFILES_ARCHIVED_PATH}/profile.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/.profile" ] && cat "${CURR_DIR}/.profile" > ${HOME}/.profile && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${CURR_DIR}/../.profile" ] && cat "${CURR_DIR}/../.profile" > ${HOME}/.profile && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 #  ___    _    ___  _  _ 
 # | _ )  /_\  / __|| || |
@@ -55,7 +55,7 @@ printf -- "Processing ~/.bash_profile... ";
 if [ $BASH_PRESENT -eq 1 ]; then
   _=$(cat ${HOME}/.bash_profile);
   if [ "$?" = "0" ]; then cp "${HOME}/.bash_profile" "${HOME}/.archived.scripts/bash_profile.${CURR_TIMESTAMP}"; fi;
-  cat ${CURR_DIR}/.bash_profile > ${HOME}/.bash_profile;
+  cat ${CURR_DIR}/../.bash_profile > ${HOME}/.bash_profile;
   printf -- 'Done.\n';
 else printf -- 'Skipped.\n';
 fi;
@@ -70,7 +70,7 @@ which zsh >/dev/null && export ZSH_PRESENT=1 || export ZSH_PRESENT=0;
 printf -- "Processing ~/.zshrc... ";
 if [ $ZSH_PRESENT -eq 1 ]; then
   [ -e "${HOME}/.zshrc" ] && cp "${HOME}/.zshrc" "${HOME}/.archived.scripts/zshrc.${CURR_TIMESTAMP}";
-  cat ${CURR_DIR}/.zshrc > ${HOME}/.zshrc;
+  cat ${CURR_DIR}/../.zshrc > ${HOME}/.zshrc;
   printf -- "Done.\n";
 else printf -- 'Skipped.\n';
 fi;
@@ -86,7 +86,7 @@ which xmodmap >/dev/null && export XMODMAP_PRESENT=1;
 printf -- "Processing ~/.Xmodmap... ";
 if [ $XMODMAP_PRESENT -eq 1 ]; then
    [ -e "${HOME}/.Xmodmap" ] && cp "${HOME}/.Xmodmap" "${HOME}/.archived.scripts/Xmodmap.${CURR_TIMESTAMP}";
-  cat ${CURR_DIR}/.Xmodmap > ${HOME}/.Xmodmap;
+  cat ${CURR_DIR}/../.Xmodmap > ${HOME}/.Xmodmap;
   printf -- "Done.\n";
 else printf -- 'Skipped.\n';
 fi;
@@ -105,7 +105,7 @@ if [ $AUTOKEY_PRESENT -eq 1 ]; then
     mkdir -p "${HOME}/.config/autokey/archived"
     mv "${HOME}/.config/autokey/data/zphrases" "${HOME}/.config/autokey/archived/zphrases.${CURR_TIMESTAMP}";
   fi;
-  cp -r ${CURR_DIR}/autokey/phrases ${HOME}/.config/autokey/data/zphrases;
+  cp -r ${CURR_DIR}/../autokey/phrases ${HOME}/.config/autokey/data/zphrases;
   printf -- 'Done.\n';
 else printf -- 'Skipped.\n';
 fi;

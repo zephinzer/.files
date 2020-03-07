@@ -1,11 +1,12 @@
 [user]
   name = zephinzer
-  email = dev@joeir.net
 [core]
   editor = vim
-[includeIf "gitdir:~/**/gitlab.com/zephinzer/"]
+[commit]
+  gpgsign = true
+[gpg]
+  program = gpg
+[includeIf "gitdir:~/**/gitlab.*/"]
   path = ~/.gitlab.com.zephinzer.gitconfig
-[includeIf "gitdir:~/**/gitlab.com/usvc/"]
-  path = ~/.gitlab.com.zephinzer.gitconfig
-[includeIf "gitdir:~/**/github.com/zephinzer/"]
-  path = ~/.github.com.zephinzer.gitconfig
+[includeIf "gitdir:~/**/github.com/"]
+  path = /home/z/.github.com.zephinzer.gitconfig

@@ -9,6 +9,6 @@ which xclip >/dev/null && alias pbcopy='xclip -selection clipboard';
 which pm-powersave >/dev/null && alias __chill='sudo pm-powersave true';
 which pm-powersave >/dev/null && alias __chiong='sudo pm-powersave false';
 
-[ -e "${HOME}/.aliases.docker" ] && source "${HOME}/.aliases.docker";
-[ -e "${HOME}/.aliases.git" ] && source "${HOME}/.aliases.git";
-[ -e "${HOME}/.aliases.kubectl" ] && source "${HOME}/.aliases.kubectl";
+[ -e "${HOME}/.aliases_docker" ] && source "${HOME}/.aliases_docker";
+[ -e "${HOME}/.aliases_git" ] && source "${HOME}/.aliases_git";
+[ -e "${HOME}/.aliasesd_kubectl" ] && source "${HOME}/.aliases_kubectl";

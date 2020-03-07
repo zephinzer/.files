@@ -1,4 +1,4 @@
 deploy:
-	./deploy-to-system
+	./.scripts/deploy-to-system
 retrieve:
-	./get-from-system
+	./.scripts/get-from-system
