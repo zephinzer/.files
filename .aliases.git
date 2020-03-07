@@ -1,0 +1,18 @@
+#!/bin/sh
+
+alias ga='git add';
+alias gcb='printf %s "$(git branch | grep "*" | cut -f 2 -d " ")"';
+alias gcm='git commit -m';
+alias gcmae='git commit --allow-empty -m';
+alias gco='git checkout';
+alias gcob='gco -b';
+alias gf='git fetch';
+alias gi='git init';
+alias gl='git log';
+alias gln='git log -n';
+alias gplrecb='git pull --rebase origin $(gcb)';
+alias gplcb='git pull origin $(gcb)';
+alias gpscb='git push origin $(gcb)';
+alias gra='git remote add';
+alias grb='git rebase';
+alias gs='git status';

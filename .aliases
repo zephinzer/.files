@@ -1,93 +1,14 @@
 #!/bin/sh
-# > shell
-alias ll='ls -lA';
-# for linux systems with xclip
-command -v xclip &>/dev/null && alias pbcopy='xclip -selection clipboard';
-# for linux systems with pm-powersave
-command -v pm-powersave &>/dev/null && alias __chill='sudo pm-powersave true';
-command -v pm-powersave &>/dev/null && alias __chiong='sudo pm-powersave false';
-# / shell
 
-# > docker
-printf -- '.aliases.docker.'
-_=$(stat "${HOME}/.aliases.docker" &>/dev/null);
-if [ "$?" = "0" ]; then
-  source "${HOME}/.aliases.docker";
-  printf -- 'Y.';
-else printf -- 'N.';
-fi;
-# / docker
+alias ll='ls -lah';
+alias __ports='sudo lsof -iTCP -sTCP:LISTEN -P -n';
+alias __mem='sudo free -m';
+alias __disk='dh -h';
+alias __diski='df -hi';
+which xclip >/dev/null && alias pbcopy='xclip -selection clipboard';
+which pm-powersave >/dev/null && alias __chill='sudo pm-powersave true';
+which pm-powersave >/dev/null && alias __chiong='sudo pm-powersave false';
 
-# > random commands
-alias ports='sudo lsof -iTCP -sTCP:LISTEN -P -n';
-alias mem='sudo free -m';
-# / random commands
-
-# > git
-alias ga='git add';
-alias gcb='printf %s "$(git branch | grep "*" | cut -f 2 -d " ")"';
-alias gcm='git commit -m';
-alias gcmae='git commit --allow-empty -m';
-alias gco='git checkout';
-alias gcob='gco -b';
-alias gf='git fetch';
-alias gi='git init';
-alias gl='git log';
-alias gln='git log -n';
-alias gplrecb='git pull --rebase origin $(gcb)';
-alias gplcb='git pull origin $(gcb)';
-alias gpscb='git push origin $(gcb)';
-alias gra='git remote add';
-alias grb='git rebase';
-alias gs='git status';
-# / git
-
-# > jekyll
-alias jkserve='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest serve';
-alias jkinitt='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest init-theme';
-alias jkinits='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest init-site';
-alias jkinit='docker run -it -u $(id -u) -v "$(pwd):/jekyll" -v "$(pwd)/cache/tmp/bundler/home/unknown:/tmp/bundler/home/unknown" -v "$(pwd)/cache/usr/local/bundler/cache:/usr/local/bundler/cache/" zephinzer/jekyll:latest init';
-# / jekyll
-
-# > kubectl
-printf -- '.aliases.kubectl.'
-_=$(stat "${HOME}/.aliases.kubectl" &>/dev/null);
-if [ "$?" = "0" ]; then
-  source "${HOME}/.aliases.kubectl";
-  printf -- 'Y.';
-else printf -- 'N.';
-fi;
-# / kubectl
-
-# > gcloud
-alias gcl='gcloud';
-alias gcle='gcloud compute';
-alias gcleals='gcloud compute addresses list'
-alias gcldkpush='gcloud docker -- push';
-alias gcldkpull='gcloud docker -- pull';
-# / gcloud
-
-# > gcloud gke
-alias gke='gcloud container';
-alias gkeils='gcloud container image list --repository'
-alias gkeitls='gcloud container image list-tags'
-# / gcloud gke
-
-# > minikube
-alias mk='minikube';
-alias mkc='minikube config';
-alias mkd='minikube dashboard';
-alias mkdel='minikube delete';
-alias mkao='minikube addons';
-alias mkip='minikube ip';
-alias mkl='minikube logs';
-alias mkp='minikube profile';
-alias mks='minikube service';
-alias mkstart='minikube start';
-alias mkstat='minikube status';
-alias mkstop='minikube stop';
-# / minikube
-
-# > reveal-md
-alias revealmd='docker run -it -v "$(pwd):/app/src" --network host zephinzer/reveal-md:latest';
-# / reveal-md
+[ -e "${HOME}/.aliases.docker" ] && source "${HOME}/.aliases.docker";
+[ -e "${HOME}/.aliases.git" ] && source "${HOME}/.aliases.git";
+[ -e "${HOME}/.aliases.kubectl" ] && source "${HOME}/.aliases.kubectl";

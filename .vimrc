@@ -11,4 +11,3 @@ set incsearch
 set hlsearch
 
 filetype indent on
-
