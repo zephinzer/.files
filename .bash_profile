@@ -54,9 +54,3 @@ get_branch() {
   fi;
 }
 PS1=$'\[\a\]\[\n\]\[\e[90m\]\[\e[37m\]\[\e[1m\]$(drawline)\n⎸𝔟𝖆𝖘𝔥 ⎸$(hostname) ⎸📆  $(get_time) ⎸ 📂  $(pwd) $(get_branch)\n\[\e[0m\]\[\e[36m\]\[\e[35m\]⢈\[\e[31m\]⢨⢘\[\e[91m\]⢈⢸⠨\[\e[33m\]⠸⢈\[\e[32m\]⢨\[\e[36m\]⢘\[\e[94m\]⢈ \[\e[37m\]$\[\e[0m\] ';
-
-## direnv
-_=$(which direnv &>/dev/null);
-if [ "$?" = "0" ]; then
-  eval "$(direnv hook bash)";
-fi;
