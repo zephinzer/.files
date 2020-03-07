@@ -3,10 +3,6 @@
   email = dev@joeir.net
 [core]
   editor = vim
-[commit]
-  gpgsign = true
-[gpg]
-  program = gpg
 [includeIf "gitdir:**/gitlab.com/zephinzer/**"]
   path = ~/.gitlab.com.zephinzer.gitconfig
 [includeIf "gitdir:**/gitlab.com/usvc/**"]

@@ -13,51 +13,43 @@ mkdir -p "${DOTFILES_ARCHIVED_PATH}";
 #                                                      
 
 printf -- "Processing ~/.aliases... ";
-[ -e "${HOME}/.aliases" ] && cp "${HOME}/.aliases" "${DOTFILES_ARCHIVED_PATH}/aliases.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.aliases > ${HOME}/.aliases;
-printf -- "Done.\n";
+[ -e "${HOME}/.aliases" ] && cp "${HOME}/.aliases" "${DOTFILES_ARCHIVED_PATH}/aliases.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.aliases" ] && cat "${CURR_DIR}/.aliases" > ${HOME}/.aliases && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.aliases.docker... ";
-[ -e "${HOME}/.aliases.docker" ] && cp "${HOME}/.aliases.docker" "${DOTFILES_ARCHIVED_PATH}/aliases.docker.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.aliases.docker > ${HOME}/.aliases.docker;
-printf -- "Done.\n";
+[ -e "${HOME}/.aliases.docker" ] && cp "${HOME}/.aliases.docker" "${DOTFILES_ARCHIVED_PATH}/aliases.docker.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.aliases.docker" ] && cat "${CURR_DIR}/.aliases.docker" > ${HOME}/.aliases.docker && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.aliases.git... ";
-[ -e "${HOME}/.aliases.git" ] && cp "${HOME}/.aliases.git" "${DOTFILES_ARCHIVED_PATH}/aliases.git.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.aliases.git > ${HOME}/.aliases.git;
-printf -- "Done.\n";
+[ -e "${HOME}/.aliases.git" ] && cp "${HOME}/.aliases.git" "${DOTFILES_ARCHIVED_PATH}/aliases.git.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.aliases.git" ] && cat "${CURR_DIR}/.aliases.git" > ${HOME}/.aliases.git && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.aliases.kubectl... ";
-[ -e "${HOME}/.aliases.kubectl" ] && cp "${HOME}/.aliases.kubectl" "${DOTFILES_ARCHIVED_PATH}/aliases.kubectl.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.aliases.kubectl > ${HOME}/.aliases.kubectl;
-printf -- "Done.\n";
+[ -e "${HOME}/.aliases.kubectl" ] && cp "${HOME}/.aliases.kubectl" "${DOTFILES_ARCHIVED_PATH}/aliases.kubectl.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.aliases.kubectl" ] && cat "${CURR_DIR}/.aliases.kubectl" > ${HOME}/.aliases.kubectl && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.gitconfig... ";
-[ -e "${HOME}/.gitconfig" ] && cp "${HOME}/.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitconfig.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.gitconfig > ${HOME}/.gitconfig;
-printf -- "Done.\n";
+[ -e "${HOME}/.gitconfig" ] && cp "${HOME}/.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitconfig.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.gitconfig" ] && cat "${CURR_DIR}/.gitconfig" > ${HOME}/.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.github.com.zephinzer.gitconfig... ";
-[ -e "${HOME}/.github.com.zephinzer.gitconfig" ] && cp "${HOME}/.github.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/github.com.zephinzer.gitconfig.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.github.com.zephinzer.gitconfig > ${HOME}/.github.com.zephinzer.gitconfig;
-printf -- "Done.\n";
+[ -e "${HOME}/.github.com.zephinzer.gitconfig" ] && cp "${HOME}/.github.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/github.com.zephinzer.gitconfig.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.github.com.zephinzer.gitconfig" ] && cat "${CURR_DIR}/.github.com.zephinzer.gitconfig" > ${HOME}/.github.com.zephinzer.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.gitlab.com.zephinzer.gitconfig... ";
-[ -e "${HOME}/.gitlab.com.zephinzer.gitconfig" ] && cp "${HOME}/.gitlab.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitlab.com.zephinzer.gitconfig.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.gitlab.com.zephinzer.gitconfig > ${HOME}/.gitlab.com.zephinzer.gitconfig;
-printf -- "Done.\n";
+[ -e "${HOME}/.gitlab.com.zephinzer.gitconfig" ] && cp "${HOME}/.gitlab.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitlab.com.zephinzer.gitconfig.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.gitlab.com.zephinzer.gitconfig" ] && cat "${CURR_DIR}/.gitlab.com.zephinzer.gitconfig" > ${HOME}/.gitlab.com.zephinzer.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.profile... ";
-[ -e "${HOME}/.profile" ] && cp "${HOME}/.profile" "${DOTFILES_ARCHIVED_PATH}/profile.${CURR_TIMESTAMP}"; fi;
-cat ${CURR_DIR}/.profile > ${HOME}/.profile;
-printf -- "Done.\n";
+[ -e "${HOME}/.profile" ] && cp "${HOME}/.profile" "${DOTFILES_ARCHIVED_PATH}/profile.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/.profile" ] && cat "${CURR_DIR}/.profile" > ${HOME}/.profile && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 #  ___    _    ___  _  _ 
 # | _ )  /_\  / __|| || |
 # | _ \ / _ \ \__ \| __ |
 # |___//_/ \_\|___/|_||_|
 #                                               
-which bash >/dev/null && export BASH_PRESENT=1;
+which bash >/dev/null && export BASH_PRESENT=1 || export BASH_PRESENT=0;
 
 printf -- "Processing ~/.bash_profile... ";
 if [ $BASH_PRESENT -eq 1 ]; then
@@ -73,12 +65,11 @@ fi;
 #   / / \__ \| __ |
 #  /___||___/|_||_|
 #                 
-which zsh >/dev/null && export ZSH_PRESENT=1;
+which zsh >/dev/null && export ZSH_PRESENT=1 || export ZSH_PRESENT=0;
 
 printf -- "Processing ~/.zshrc... ";
 if [ $ZSH_PRESENT -eq 1 ]; then
-  _=$(cat ${HOME}/.zshrc);
-  if [[ $? = "0" ]]; then cp "${HOME}/.zshrc" "${HOME}/.archived.scripts/zshrc.${CURR_TIMESTAMP}"; fi;
+  [ -e "${HOME}/.zshrc" ] && cp "${HOME}/.zshrc" "${HOME}/.archived.scripts/zshrc.${CURR_TIMESTAMP}";
   cat ${CURR_DIR}/.zshrc > ${HOME}/.zshrc;
   printf -- "Done.\n";
 else printf -- 'Skipped.\n';
@@ -94,8 +85,7 @@ which xmodmap >/dev/null && export XMODMAP_PRESENT=1;
 
 printf -- "Processing ~/.Xmodmap... ";
 if [ $XMODMAP_PRESENT -eq 1 ]; then
-  _=$(cat ${HOME}/.Xmodmap);
-  if [ "$?" = "0" ]; then cp "${HOME}/.Xmodmap" "${HOME}/.archived.scripts/Xmodmap.${CURR_TIMESTAMP}"; fi;
+   [ -e "${HOME}/.Xmodmap" ] && cp "${HOME}/.Xmodmap" "${HOME}/.archived.scripts/Xmodmap.${CURR_TIMESTAMP}";
   cat ${CURR_DIR}/.Xmodmap > ${HOME}/.Xmodmap;
   printf -- "Done.\n";
 else printf -- 'Skipped.\n';
