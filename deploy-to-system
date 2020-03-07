@@ -3,7 +3,8 @@ CURR_DIR="$(dirname $0)";
 CURR_TIMESTAMP="$(date +'%Y%m%d%H%M%S')";
 
 # create archive directory if not already present
-mkdir -p "${HOME}/.archived.scripts";
+DOTFILES_ARCHIVED_PATH="${HOME}/.archived.dotfiles";
+mkdir -p "${DOTFILES_ARCHIVED_PATH}";
 
 #   _   _  _  _  ___ __   __ ___  ___  ___    _    _    
 #  | | | || \| ||_ _|\ \ / /| __|| _ \/ __|  /_\  | |   
@@ -12,26 +13,42 @@ mkdir -p "${HOME}/.archived.scripts";
 #                                                      
 
 printf -- "Processing ~/.aliases... ";
-_=$(cat ${HOME}/.aliases &>/dev/null);
-if [ "$?" = "0" ]; then cp "${HOME}/.aliases" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+[ -e "${HOME}/.aliases" ] && cp "${HOME}/.aliases" "${DOTFILES_ARCHIVED_PATH}/aliases.${CURR_TIMESTAMP}"; fi;
 cat ${CURR_DIR}/.aliases > ${HOME}/.aliases;
 printf -- "Done.\n";
 
 printf -- "Processing ~/.aliases.docker... ";
-_=$(cat ${HOME}/.aliases.docker &>/dev/null);
-if [ "$?" = "0" ]; then cp "${HOME}/.aliases.docker" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+[ -e "${HOME}/.aliases.docker" ] && cp "${HOME}/.aliases.docker" "${DOTFILES_ARCHIVED_PATH}/aliases.docker.${CURR_TIMESTAMP}"; fi;
 cat ${CURR_DIR}/.aliases.docker > ${HOME}/.aliases.docker;
 printf -- "Done.\n";
 
+printf -- "Processing ~/.aliases.git... ";
+[ -e "${HOME}/.aliases.git" ] && cp "${HOME}/.aliases.git" "${DOTFILES_ARCHIVED_PATH}/aliases.git.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.aliases.git > ${HOME}/.aliases.git;
+printf -- "Done.\n";
+
 printf -- "Processing ~/.aliases.kubectl... ";
-_=$(cat ${HOME}/.aliases.kubectl &>/dev/null);
-if [ "$?" = "0" ]; then cp "${HOME}/.aliases.kubectl" "${HOME}/.archived.scripts/aliases.${CURR_TIMESTAMP}"; fi;
+[ -e "${HOME}/.aliases.kubectl" ] && cp "${HOME}/.aliases.kubectl" "${DOTFILES_ARCHIVED_PATH}/aliases.kubectl.${CURR_TIMESTAMP}"; fi;
 cat ${CURR_DIR}/.aliases.kubectl > ${HOME}/.aliases.kubectl;
 printf -- "Done.\n";
 
+printf -- "Processing ~/.gitconfig... ";
+[ -e "${HOME}/.gitconfig" ] && cp "${HOME}/.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitconfig.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.gitconfig > ${HOME}/.gitconfig;
+printf -- "Done.\n";
+
+printf -- "Processing ~/.github.com.zephinzer.gitconfig... ";
+[ -e "${HOME}/.github.com.zephinzer.gitconfig" ] && cp "${HOME}/.github.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/github.com.zephinzer.gitconfig.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.github.com.zephinzer.gitconfig > ${HOME}/.github.com.zephinzer.gitconfig;
+printf -- "Done.\n";
+
+printf -- "Processing ~/.gitlab.com.zephinzer.gitconfig... ";
+[ -e "${HOME}/.gitlab.com.zephinzer.gitconfig" ] && cp "${HOME}/.gitlab.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitlab.com.zephinzer.gitconfig.${CURR_TIMESTAMP}"; fi;
+cat ${CURR_DIR}/.gitlab.com.zephinzer.gitconfig > ${HOME}/.gitlab.com.zephinzer.gitconfig;
+printf -- "Done.\n";
+
 printf -- "Processing ~/.profile... ";
-_=$(cat ${HOME}/.profile &>/dev/null);
-if [ "$?" = "0" ]; then cp "${HOME}/.profile" "${HOME}/.archived.scripts/profile.${CURR_TIMESTAMP}"; fi;
+[ -e "${HOME}/.profile" ] && cp "${HOME}/.profile" "${DOTFILES_ARCHIVED_PATH}/profile.${CURR_TIMESTAMP}"; fi;
 cat ${CURR_DIR}/.profile > ${HOME}/.profile;
 printf -- "Done.\n";
 
@@ -40,10 +57,7 @@ printf -- "Done.\n";
 # | _ \ / _ \ \__ \| __ |
 # |___//_/ \_\|___/|_||_|
 #                                               
-
-BASH_PRESENT=0;
-_=$(command -v bash &>/dev/null);
-if [ "$?" = "0" ]; then BASH_PRESENT=1; fi;
+which bash >/dev/null && export BASH_PRESENT=1;
 
 printf -- "Processing ~/.bash_profile... ";
 if [ $BASH_PRESENT -eq 1 ]; then
@@ -59,10 +73,7 @@ fi;
 #   / / \__ \| __ |
 #  /___||___/|_||_|
 #                 
-
-ZSH_PRESENT=0;
-_=$(command -v zsh);
-if [ "$?" = "0" ]; then ZSH_PRESENT=1; fi;
+which zsh >/dev/null && export ZSH_PRESENT=1;
 
 printf -- "Processing ~/.zshrc... ";
 if [ $ZSH_PRESENT -eq 1 ]; then
@@ -79,9 +90,7 @@ fi;
 # /_/\_\|_|  |_| \___/ |___/ |_|  |_|/_/ \_\|_|  
 #                                                
 
-XMODMAP_PRESENT=0;
-_=$(command -v xmodmap);
-if [ "$?" = "0" ]; then XMODMAP_PRESENT=1; fi;
+which xmodmap >/dev/null && export XMODMAP_PRESENT=1;
 
 printf -- "Processing ~/.Xmodmap... ";
 if [ $XMODMAP_PRESENT -eq 1 ]; then
@@ -98,8 +107,7 @@ fi;
 #  / _ \ |_| | | || (_) | ' <| _| \ V / 
 # /_/ \_\___/  |_| \___/|_|\_\___| |_|  
 #                                       
-AUTOKEY_PRESENT=0;
-if [ $(which autokey) ]; then AUTOKEY_PRESENT=1; fi;
+which autokey >/dev/null && AUTOKEY_PRESENT=1;
 
 printf -- "Processing ~/.config/autokey/data... ";
 if [ $AUTOKEY_PRESENT -eq 1 ]; then
