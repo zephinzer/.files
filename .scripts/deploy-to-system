@@ -40,6 +40,10 @@ printf -- "Processing ~/.gitlab.com.zephinzer.gitconfig... ";
 [ -e "${HOME}/.gitlab.com.zephinzer.gitconfig" ] && cp "${HOME}/.gitlab.com.zephinzer.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitlab.com.zephinzer.gitconfig.${CURR_TIMESTAMP}";
 [ -e "${CURR_DIR}/../.gitlab.com.zephinzer.gitconfig" ] && cat "${CURR_DIR}/../.gitlab.com.zephinzer.gitconfig" > ${HOME}/.gitlab.com.zephinzer.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
+printf -- "Processing ~/.gitconfig.d... ";
+[ -e "${HOME}/.gitconfig.d" ] && cp "${HOME}/.gitconfig.d" "${DOTFILES_ARCHIVED_PATH}/gitconfig.d.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.gitconfig.d" ] && cat "${CURR_DIR}/../.gitconfig.d" > ${HOME}/.gitconfig.d && printf -- "Done.\n" || printf -- 'Skipped.\n';
+
 printf -- "Processing ~/.profile... ";
 [ -e "${HOME}/.profile" ] && cp "${HOME}/.profile" "${DOTFILES_ARCHIVED_PATH}/profile.${CURR_TIMESTAMP}";
 [ -e "${CURR_DIR}/../.profile" ] && cat "${CURR_DIR}/../.profile" > ${HOME}/.profile && printf -- "Done.\n" || printf -- 'Skipped.\n';

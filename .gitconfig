@@ -2,11 +2,17 @@
   name = zephinzer
 [core]
   editor = vim
+# force gpg signing to happen
 [commit]
   gpgsign = true
 [gpg]
   program = gpg
-[includeIf "gitdir:~/**/gitlab.*/"]
+# for all gitlab commits...
+[includeIf "gitdir:~/**/gitlab.com/"]
   path = ~/.gitlab.com.zephinzer.gitconfig
+# for all github commits...
 [includeIf "gitdir:~/**/github.com/"]
-  path = /home/z/.github.com.zephinzer.gitconfig
+  path = ~/.github.com.zephinzer.gitconfig
+# for any urls that shouldn't be in here...
+[include]
+  path = ~/.gitconfig.d
