@@ -11,4 +11,4 @@ which pm-powersave >/dev/null && alias __chiong='sudo pm-powersave false';
 
 [ -e "${HOME}/.aliases_docker" ] && source "${HOME}/.aliases_docker";
 [ -e "${HOME}/.aliases_git" ] && source "${HOME}/.aliases_git";
-[ -e "${HOME}/.aliasesd_kubectl" ] && source "${HOME}/.aliases_kubectl";
+[ -e "${HOME}/.aliases_kubectl" ] && source "${HOME}/.aliases_kubectl";
