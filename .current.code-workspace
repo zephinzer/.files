@@ -1,0 +1,44 @@
+{
+	"folders": [
+    {
+      "name": "my dotfiles",
+      "path": "./github.com/zephinzer/dotfiles"
+    },
+    {
+      "name": "my wikipedia",
+      "path": "./gitlab.com/zephinzer/wiki.joeir.net"
+    },
+    {
+      "name": "usvc/ci",
+      "path": "./gitlab.com/usvc/images/ci/recipes"
+    },
+    {
+      "name": "usvc/go-config",
+      "path": "./gitlab.com/usvc/modules/go/config"
+    },
+		{
+      "name": "usvc/go-db",
+			"path": "./gitlab.com/usvc/modules/go/db"
+		},
+    {
+      "name": "usvc/go-logger",
+      "path": "./gitlab.com/usvc/modules/go/logger"
+    },
+    {
+      "name": "usvc/go-password",
+      "path": "./gitlab.com/usvc/modules/go/password"
+    },
+		{
+      "name": "usvc/go-semver",
+			"path": "./gitlab.com/usvc/modules/go/semver"
+		},
+    {
+      "name": "usvc/echoserver",
+      "path": "./gitlab.com/usvc/services/echoserver"
+    },
+		{
+      "name": "usvc/semver",
+			"path": "./gitlab.com/usvc/utils/semver"
+		}
+	]
+}

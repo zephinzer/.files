@@ -48,6 +48,10 @@ printf -- "Processing ~/.profile... ";
 [ -e "${HOME}/.profile" ] && cp "${HOME}/.profile" "${DOTFILES_ARCHIVED_PATH}/profile.${CURR_TIMESTAMP}";
 [ -e "${CURR_DIR}/../.profile" ] && cat "${CURR_DIR}/../.profile" > ${HOME}/.profile && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
+printf -- "Processing ~/.current.code-workspace... ";
+[ -e "${HOME}/.current.code-workspace" ] && cp "${HOME}/.current.code-workspace" "${DOTFILES_ARCHIVED_PATH}/current.code-workspace.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.current.code-workspace" ] && cat "${CURR_DIR}/../.current.code-workspace" > ${HOME}/.current.code-workspace && printf -- "Done.\n" || printf -- 'Skipped.\n';
+
 #  ___    _    ___  _  _ 
 # | _ )  /_\  / __|| || |
 # | _ \ / _ \ \__ \| __ |

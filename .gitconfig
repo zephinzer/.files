@@ -8,10 +8,10 @@
 [gpg]
   program = gpg
 # for all gitlab commits...
-[includeIf "gitdir:~/**/gitlab.com/"]
+[includeIf "gitdir:**/gitlab.com/"]
   path = ~/.gitlab.com.zephinzer.gitconfig
 # for all github commits...
-[includeIf "gitdir:~/**/github.com/"]
+[includeIf "gitdir:**/github.com/"]
   path = ~/.github.com.zephinzer.gitconfig
 # for any urls that shouldn't be in here...
 [include]
