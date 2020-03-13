@@ -49,11 +49,12 @@ which rbenv >/dev/null && eval "$(rbenv init -)";
 # | |/ / __\ \ / / __| || | /_\ |_ _| \| |
 # | ' <| _| \ V / (__| __ |/ _ \ | || .` |
 # |_|\_\___| |_| \___|_||_/_/ \_\___|_|\_|
-#                                         
-which keychain &>/dev/null \
-  && ls ${HOME}/.ssh | grep id_rsa | grep -v '.pub' | xargs -I@ keychain -- ${HOME}/.ssh/@ \
-  && source ${HOME}/.keychain/$(hostname)-sh \
-  || eval `ssh-agent -s`;
+#                  
+if tty -s; then
+  which keychain &>/dev/null \
+    && eval `keychain --eval --agents ssh ~/.ssh/id_rsa_*` \
+    || eval `ssh-agent -s`;
+fi;
 #   ___   ___  ___ 
 #  / __| / __|| _ \
 # | (_ || (__ |  _/

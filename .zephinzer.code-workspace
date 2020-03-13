@@ -1,0 +1,16 @@
+{
+	"folders": [
+    {
+      "name": "dotfiles",
+      "path": "./github.com/zephinzer/dotfiles"
+    },
+    {
+      "name": "blog.joeir.net",
+      "path": "./github.com/zephinzer/blog.joeir.net"
+    },
+    {
+      "name": "wiki.joeir.net",
+      "path": "./gitlab.com/zephinzer/wiki.joeir.net"
+    }
+	]
+}

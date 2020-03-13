@@ -16,19 +16,43 @@ printf -- "Processing ${HOME}/.aliases... " \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
-printf -- "Processing ${HOME}/.aliases.docker... " \
-  && [ -e ${HOME}/.aliases.docker ] \
-  && touch ./.aliases.docker \
-  && cp ./.aliases.docker ./.archives/.aliases.docker.snapshot_on.${TIMESTAMP} \
-  && cat ${HOME}/.aliases.docker > ./.aliases.docker \
+printf -- "Processing ${HOME}/.aliases_docker... " \
+  && [ -e ${HOME}/.aliases_docker ] \
+  && touch ./.aliases_docker \
+  && cp ./.aliases_docker ./.archives/.aliases_docker.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.aliases_docker > ./.aliases_docker \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
-printf -- "Processing ${HOME}/.aliases.kubectl... " \
-  && [ -e ${HOME}/.aliases.kubectl ] \
-  && touch ./.aliases.kubectl \
-  && cp ./.aliases.kubectl ./.archives/.aliases.kubectl.snapshot_on.${TIMESTAMP} \
-  && cat ${HOME}/.aliases.kubectl > ./.aliases.kubectl \
+printf -- "Processing ${HOME}/.aliases_git... " \
+  && [ -e ${HOME}/.aliases_git ] \
+  && touch ./.aliases_git \
+  && cp ./.aliases_git ./.archives/.aliases_git.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.aliases_git > ./.aliases_git \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+printf -- "Processing ${HOME}/.aliases_kubectl... " \
+  && [ -e ${HOME}/.aliases_kubectl ] \
+  && touch ./.aliases_kubectl \
+  && cp ./.aliases_kubectl ./.archives/.aliases_kubectl.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.aliases_kubectl > ./.aliases_kubectl \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+printf -- "Processing ${HOME}/.bash_profile... " \
+  && [ -e ${HOME}/.bash_profile ] \
+  && touch ./.bash_profile \
+  && cp ./.bash_profile ./.archives/.bash_profile.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.bash_profile > ./.bash_profile \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
+
+printf -- "Processing ${HOME}/.gitconfig... " \
+  && [ -e ${HOME}/.gitconfig ] \
+  && touch ./.gitconfig \
+  && cp ./.gitconfig ./.archives/.gitconfig.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.gitconfig > ./.gitconfig \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
@@ -40,26 +64,6 @@ printf -- "Processing ${HOME}/.profile... " \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
-#  ___    _    ___  _  _ 
-# | _ )  /_\  / __|| || |
-# | _ \ / _ \ \__ \| __ |
-# |___//_/ \_\|___/|_||_|
-#                                               
-
-printf -- "Processing ${HOME}/.bash_profile... " \
-  && [ -e ${HOME}/.bash_profile ] \
-  && touch ./.bash_profile \
-  && cp ./.bash_profile ./.archives/.bash_profile.snapshot_on.${TIMESTAMP} \
-  && cat ${HOME}/.bash_profile > ./.bash_profile \
-  && printf -- 'DONE.\n' \
-  || printf -- 'SKIPPED.\n';
-
-#       _       
-#  __ _(_)_ __  
-#  \ V / | '  \ 
-#   \_/|_|_|_|_|
-#               
-
 printf -- "Processing ${HOME}/.vimrc... " \
   && [ -e ${HOME}/.vimrc ] \
   && touch ./.vimrc \
@@ -68,11 +72,13 @@ printf -- "Processing ${HOME}/.vimrc... " \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
-#   ____ ___  _  _ 
-#  |_  // __|| || |
-#   / / \__ \| __ |
-#  /___||___/|_||_|
-#                 
+printf -- "Processing ${HOME}/.Xmodmap... " \
+  && [ -e ${HOME}/.Xmodmap ] \
+  && touch ./.Xmodmap \
+  && cp ./.Xmodmap ./.archives/.Xmodmap.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.Xmodmap > ./.Xmodmap \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
 
 printf -- "Processing ${HOME}/.zshrc... " \
   && [ -e ${HOME}/.zshrc ] \
@@ -82,16 +88,18 @@ printf -- "Processing ${HOME}/.zshrc... " \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
 
-# __  __ __  __   ___   ___   __  __    _    ___ 
-# \ \/ /|  \/  | / _ \ |   \ |  \/  |  /_\  | _ \
-#  >  < | |\/| || (_) || |) || |\/| | / _ \ |  _/
-# /_/\_\|_|  |_| \___/ |___/ |_|  |_|/_/ \_\|_|  
-#                                                
+printf -- "Processing ${HOME}/.zephinzer.code-workspace... " \
+  && [ -e ${HOME}/.zephinzer.code-workspace ] \
+  && touch ./.zephinzer.code-workspace \
+  && cp ./.zephinzer.code-workspace ./.archives/.zephinzer.code-workspace.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.zephinzer.code-workspace > ./.zephinzer.code-workspace \
+  && printf -- 'DONE.\n' \
+  || printf -- 'SKIPPED.\n';
 
-printf -- "Processing ${HOME}/.Xmodmap... " \
-  && [ -e ${HOME}/.Xmodmap ] \
-  && touch ./.Xmodmap \
-  && cp ./.Xmodmap ./.archives/.Xmodmap.snapshot_on.${TIMESTAMP} \
-  && cat ${HOME}/.Xmodmap > ./.Xmodmap \
+printf -- "Processing ${HOME}/.usvc.code-workspace... " \
+  && [ -e ${HOME}/.usvc.code-workspace ] \
+  && touch ./.usvc.code-workspace \
+  && cp ./.usvc.code-workspace ./.archives/.usvc.code-workspace.snapshot_on.${TIMESTAMP} \
+  && cat ${HOME}/.usvc.code-workspace > ./.usvc.code-workspace \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
