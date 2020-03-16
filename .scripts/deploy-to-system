@@ -49,12 +49,12 @@ printf -- "Processing ~/.profile... ";
 [ -e "${CURR_DIR}/../.profile" ] && cat "${CURR_DIR}/../.profile" > ${HOME}/.profile && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.zephinzer.code-workspace... ";
-[ -e "${HOME}/.zephinzer.code-workspace" ] && cp "${HOME}/.zephinzer.code-workspace" "${DOTFILES_ARCHIVED_PATH}/zephinzer.code-workspace.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/../.zephinzer.code-workspace" ] && cat "${CURR_DIR}/../.zephinzer.code-workspace" > ${HOME}/.zephinzer.code-workspace && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${HOME}/.zephinzer.code-workspace" ] && cat "${HOME}/.zephinzer.code-workspace" > "${DOTFILES_ARCHIVED_PATH}/zephinzer.code-workspace.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.zephinzer.code-workspace" ] && ln -s "${CURR_DIR}/../.zephinzer.code-workspace" "${HOME}/.zephinzer.code-workspace" && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.usvc.code-workspace... ";
-[ -e "${HOME}/.usvc.code-workspace" ] && cp "${HOME}/.usvc.code-workspace" "${DOTFILES_ARCHIVED_PATH}/usvc.code-workspace.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/../.usvc.code-workspace" ] && cat "${CURR_DIR}/../.usvc.code-workspace" > ${HOME}/.usvc.code-workspace && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${HOME}/.usvc.code-workspace" ] && cat "${HOME}/.usvc.code-workspace" > "${DOTFILES_ARCHIVED_PATH}/usvc.code-workspace.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.usvc.code-workspace" ] && ln -s "${CURR_DIR}/../.usvc.code-workspace" "${HOME}/.usvc.code-workspace" && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 #  ___    _    ___  _  _ 
 # | _ )  /_\  / __|| || |

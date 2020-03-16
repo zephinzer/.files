@@ -4,10 +4,18 @@
       "name": "ci",
       "path": "./gitlab.com/usvc/images/ci/recipes"
     },
+		{
+      "name": "dev",
+			"path": "./gitlab.com/usvc/utils/dev"
+		},
     {
       "name": "echoserver",
       "path": "./gitlab.com/usvc/services/echoserver"
     },
+		{
+      "name": "semver",
+			"path": "./gitlab.com/usvc/utils/semver"
+		},
     {
       "name": "go-config",
       "path": "./gitlab.com/usvc/modules/go/config"
@@ -27,10 +35,6 @@
 		{
       "name": "go-semver",
 			"path": "./gitlab.com/usvc/modules/go/semver"
-		},
-		{
-      "name": "semver",
-			"path": "./gitlab.com/usvc/utils/semver"
 		}
 	]
 }
