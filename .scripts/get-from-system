@@ -87,19 +87,3 @@ printf -- "Processing ${HOME}/.zshrc... " \
   && cat ${HOME}/.zshrc > ./.zshrc \
   && printf -- 'DONE.\n' \
   || printf -- 'SKIPPED.\n';
-
-printf -- "Processing ${HOME}/.zephinzer.code-workspace... " \
-  && [ -e ${HOME}/.zephinzer.code-workspace ] \
-  && touch ./.zephinzer.code-workspace \
-  && cp ./.zephinzer.code-workspace ./.archives/.zephinzer.code-workspace.snapshot_on.${TIMESTAMP} \
-  && cat ${HOME}/.zephinzer.code-workspace > ./.zephinzer.code-workspace \
-  && printf -- 'DONE.\n' \
-  || printf -- 'SKIPPED.\n';
-
-printf -- "Processing ${HOME}/.usvc.code-workspace... " \
-  && [ -e ${HOME}/.usvc.code-workspace ] \
-  && touch ./.usvc.code-workspace \
-  && cp ./.usvc.code-workspace ./.archives/.usvc.code-workspace.snapshot_on.${TIMESTAMP} \
-  && cat ${HOME}/.usvc.code-workspace > ./.usvc.code-workspace \
-  && printf -- 'DONE.\n' \
-  || printf -- 'SKIPPED.\n';
