@@ -1,6 +1,10 @@
 {
 	"folders": [
     {
+      "name": "usvc.dev",
+      "path": "./gitlab.com/usvc/usvc"
+    },
+    {
       "name": "ci",
       "path": "./gitlab.com/usvc/images/ci/recipes"
     },
