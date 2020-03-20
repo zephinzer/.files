@@ -8,6 +8,10 @@
       "name": "ci",
       "path": "./gitlab.com/usvc/images/ci/recipes"
     },
+    {
+      "name": "db",
+      "path": "./gitlab.com/usvc/utils/db"
+    },
 		{
       "name": "dev",
 			"path": "./gitlab.com/usvc/utils/dev"
