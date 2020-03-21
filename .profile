@@ -52,7 +52,7 @@ which rbenv >/dev/null && eval "$(rbenv init -)";
 #                  
 if tty -s; then
   which keychain &>/dev/null \
-    && eval `keychain --eval --agents ssh ~/.ssh/id_rsa_*` \
+    && ls ${HOME}/.ssh | grep id_rsa | grep -v '.pub' | xargs -I@ keychain -- ${HOME}/.ssh/@ \
     && source ${HOME}/.keychain/$(hostname)-sh \
     || eval `ssh-agent -s`;
 fi;
