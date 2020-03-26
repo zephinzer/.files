@@ -11,6 +11,7 @@ export PATH="${PATH}:/=/:/bin:/usr/bin:usr/local/bin";
 [ -e "/opt/tools/bin" ] && export PATH="${PATH}:/opt/tools/bin";
 [ -e "${HOME}/.bin" ] && export PATH="${PATH}:${HOME}/.bin";
 [ -e "${HOME}/.local/bin" ] && export PATH="${PATH}:${HOME}/.local/bin";
+[ -e "${HOME}/go/bin" ] && export PATH="${PATH}:${HOME}/go/bin";
 [ -e "${HOME}/scripts" ] && export PATH="${PATH}:${HOME}/scripts";
 # npm bin directory
 npm --version &>/dev/null && [ -e "$(npm -g bin)" ] && export PATH="${PATH}:$(npm -g bin)";

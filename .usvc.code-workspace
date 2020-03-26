@@ -12,10 +12,14 @@
       "name": "db",
       "path": "./gitlab.com/usvc/utils/db"
     },
-		{
+    {
       "name": "dev",
-			"path": "./gitlab.com/usvc/utils/dev"
-		},
+      "path": "./gitlab.com/usvc/utils/dev"
+    },
+    {
+      "name": "env",
+      "path": "./gitlab.com/usvc/env"
+    },
     {
       "name": "echoserver",
       "path": "./gitlab.com/usvc/services/echoserver"
