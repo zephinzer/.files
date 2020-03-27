@@ -43,6 +43,10 @@
 		{
       "name": "go-semver",
 			"path": "./gitlab.com/usvc/modules/go/semver"
-		}
+		},
+    {
+      "name": "grpc-example",
+      "path": "./gitlab.com/usvc/playground/grpc-example"
+    }
 	]
 }

@@ -12,11 +12,13 @@ export PATH="${PATH}:/=/:/bin:/usr/bin:usr/local/bin";
 [ -e "${HOME}/.bin" ] && export PATH="${PATH}:${HOME}/.bin";
 [ -e "${HOME}/.local/bin" ] && export PATH="${PATH}:${HOME}/.local/bin";
 [ -e "${HOME}/scripts" ] && export PATH="${PATH}:${HOME}/scripts";
-# ruby environment manager
-[ -e "${HOME}/.rbenv/bin" ] && export PATH="${PATH}:${HOME}/.rbenv/bin";
-# rust
+# npm bin directory
+npm --version &>/dev/null && [ -e "$(npm -g bin)" ] && export PATH="${PATH}:$(npm -g bin)";
+# go bin directory
+go version &>/dev/null && [ -e "$(go env GOPATH)/bin" ] && export PATH="${PATH}:$(go env GOPATH)/bin";
+# rust bin directory
 [ -e "${HOME}/.cargo/bin" ] && export PATH="${PATH}:${HOME}/.cargo/bin";
-# linkerd
+# linkerd2 bin directory
 [ -e "${HOME}/.linkerd2/bin" ] && export PATH="${PATH}:${HOME}/.linkerd2/bin";
 printf -- "PATH-${PATH}.";
 #    _   _    ___   _   ___ ___ ___ 
