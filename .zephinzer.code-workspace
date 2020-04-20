@@ -11,6 +11,18 @@
     {
       "name": "wiki.joeir.net",
       "path": "./gitlab.com/zephinzer/wiki.joeir.net"
+    },
+    {
+      "name": "eg-cadence-jobportal",
+      "path": "./github.com/zephinzer/eg-cadence-jobportal"
+    },
+    {
+      "name": "godev",
+      "path": "./github.com/zephinzer/godev"
+    },
+    {
+      "name": "godev2",
+      "path": "./github.com/zephinzer/godev2"
     }
 	]
 }
