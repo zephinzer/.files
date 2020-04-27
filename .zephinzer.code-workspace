@@ -23,6 +23,12 @@
     {
       "name": "godev2",
       "path": "./github.com/zephinzer/godev2"
+    },
+    {
+      "path": "tmp/20200422"
+    },
+    {
+      "path": "github.com/kubernetes-sigs/aws-iam-authenticator"
     }
-	]
+  ]
 }
