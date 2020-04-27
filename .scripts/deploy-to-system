@@ -28,6 +28,10 @@ printf -- "Processing ~/.aliases_kubectl... ";
 [ -e "${HOME}/.aliases_kubectl" ] && cp "${HOME}/.aliases_kubectl" "${DOTFILES_ARCHIVED_PATH}/aliases_kubectl.${CURR_TIMESTAMP}";
 [ -e "${CURR_DIR}/../.aliases_kubectl" ] && cat "${CURR_DIR}/../.aliases_kubectl" > ${HOME}/.aliases_kubectl && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
+printf -- "Processing ~/.aliases_terrax... ";
+[ -e "${HOME}/.aliases_terrax" ] && cp "${HOME}/.aliases_terrax" "${DOTFILES_ARCHIVED_PATH}/aliases_terrax.${CURR_TIMESTAMP}";
+[ -e "${CURR_DIR}/../.aliases_terrax" ] && cat "${CURR_DIR}/../.aliases_terrax" > ${HOME}/.aliases_terrax && printf -- "Done.\n" || printf -- 'Skipped.\n';
+
 printf -- "Processing ~/.gitconfig... ";
 [ -e "${HOME}/.gitconfig" ] && cp "${HOME}/.gitconfig" "${DOTFILES_ARCHIVED_PATH}/gitconfig.${CURR_TIMESTAMP}";
 [ -e "${CURR_DIR}/../.gitconfig" ] && cat "${CURR_DIR}/../.gitconfig" > ${HOME}/.gitconfig && printf -- "Done.\n" || printf -- 'Skipped.\n';
