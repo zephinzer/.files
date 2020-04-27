@@ -1,0 +1,31 @@
+#!/bin/sh
+
+#############
+# terraform #
+#############
+
+alias tf='terraform';
+alias tfa='tf apply';
+alias tfc='tf console';
+alias tfdes='tf destroy';
+alias tfe='tf env';
+alias tfg='tf get';
+alias tfi='tf init';
+alias tfp='tf plan';
+alias tfr='tf refresh';
+alias tfv='tf validate';
+
+##############
+# terragrunt #
+##############
+
+alias tg='terragrunt';
+alias tga='tg apply';
+alias tgc='tg console';
+alias tgdes='tg destroy';
+alias tge='tg env';
+alias tgg='tg get';
+alias tgi='tg init';
+alias tgp='tg plan';
+alias tgr='tg refresh';
+alias tgv='tg validate';
