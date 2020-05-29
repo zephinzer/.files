@@ -52,6 +52,11 @@ printf -- "Processing ~/.profile... ";
 [ -e "${HOME}/.profile" ] && cp "${HOME}/.profile" "${DOTFILES_ARCHIVED_PATH}/profile.${CURR_TIMESTAMP}";
 [ -e "${CURR_DIR}/../.profile" ] && cat "${CURR_DIR}/../.profile" > ${HOME}/.profile && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
+printf -- "Processing ~/dev.yaml... ";
+stat "${HOME}/dev.yaml" &>/dev/null && cat "${HOME}/dev.yaml" > "${DOTFILES_ARCHIVED_PATH}/dev.yaml.${CURR_TIMESTAMP}";
+stat "${HOME}/dev.yaml" &>/dev/null && rm -rf "${HOME}/dev.yaml";
+stat "${CURR_DIR}/../dev.yaml" &>/dev/null && ln -s "$(pwd)/${CURR_DIR}/../dev.yaml" "${HOME}/.dev.yaml" && printf -- "Done.\n" || printf -- 'Skipped.\n';
+
 printf -- "Processing ~/.zephinzer.code-workspace... ";
 stat "${HOME}/.zephinzer.code-workspace" &>/dev/null && cat "${HOME}/.zephinzer.code-workspace" > "${DOTFILES_ARCHIVED_PATH}/zephinzer.code-workspace.${CURR_TIMESTAMP}";
 stat "${HOME}/.zephinzer.code-workspace" &>/dev/null && rm -rf "${HOME}/.zephinzer.code-workspace";

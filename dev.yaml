@@ -1,0 +1,69 @@
+includes:
+- ~/dev.telegram_notifs.yaml
+- ~/dev.govtech.yaml
+links:
+- label: my github
+  categories: ["dev"]
+  url: https://github.com/zephinzer
+- label: my gitlab
+  categories: ["dev"]
+  url: https://gitlab.com/zephinzer
+- label: my medium
+  categories: ["writing"]
+  url: https://medium.com/@joeir
+networks:
+- name: internet
+  check:
+    url: https://google.com
+repositories:
+- name: my blog
+  cloneURL: git@github.com:zephinzer/blog.joeir.net.git
+  workspaces: ["personal"]
+- name: my dotfiles
+  cloneURL: git@github.com:zephinzer/dotfiles.git
+  workspaces: ["personal"]
+- name: dev tool
+  cloneURL: git@gitlab.com:zephinzer/dev.git
+  workspaces: ["personal"]
+- name: usvc website
+  cloneURL: git@gitlab.com:usvc/usvc.git
+  workspaces: ["usvc"]
+- name: ci pipeline recipes
+  cloneURL: git@gitlab.com:usvc/images/ci/recipes.git
+  workspaces: ["usvc"]
+- name: golang configuration package
+  cloneURL: git@gitlab.com:usvc/modules/go/config.git
+  workspaces: ["usvc"]
+- name: golang database package
+  cloneURL: git@gitlab.com:usvc/modules/go/db.git
+  workspaces: ["usvc"]
+- name: golang logger package
+  cloneURL: git@gitlab.com:usvc/modules/go/logger.git
+  workspaces: ["usvc"]
+- name: golang password management package
+  cloneURL: git@gitlab.com:usvc/modules/go/password.git
+  workspaces: ["usvc"]
+- name: golang semantic versioning package
+  cloneURL: git@gitlab.com:usvc/modules/go/semver.git
+  workspaces: ["usvc"]
+softwares:
+- name: docker
+  check:
+    command: ["docker", "version", "--format", "{{.Client.Platform.Name}} {{.Client.Version}}"]
+    stdout: ^Docker Engine.*\d+\.\d+(\.\d+)?$
+- name: golang
+  check:
+    command: ["go", "version"]
+    stdout: ^go version go\d\.\d+(\.\d+)? [a-zA-Z0-9]+\/[a-zA-Z0-9]+$
+- name: kubectl
+  check:
+    command: ["kubectl", "version", "--client", "--short"]
+    stdout: '^Client Version: v\d+\.\d+(\.\d+)?$'
+- name: node
+  check:
+    command: ["node", "-v"]
+    stdout: ^v\d+\.\d+\.\d+$
+- name: yarn
+  check:
+    command: ["yarn", "-v"]
+    stdout: ^\d+\.\d+\.\d+$
