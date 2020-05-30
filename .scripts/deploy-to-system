@@ -55,7 +55,7 @@ printf -- "Processing ~/.profile... ";
 printf -- "Processing ~/dev.yaml... ";
 stat "${HOME}/dev.yaml" &>/dev/null && cat "${HOME}/dev.yaml" > "${DOTFILES_ARCHIVED_PATH}/dev.yaml.${CURR_TIMESTAMP}";
 stat "${HOME}/dev.yaml" &>/dev/null && rm -rf "${HOME}/dev.yaml";
-stat "${CURR_DIR}/../dev.yaml" &>/dev/null && ln -s "$(pwd)/${CURR_DIR}/../dev.yaml" "${HOME}/.dev.yaml" && printf -- "Done.\n" || printf -- 'Skipped.\n';
+stat "${CURR_DIR}/../dev.yaml" &>/dev/null && ln -s "$(pwd)/${CURR_DIR}/../dev.yaml" "${HOME}/dev.yaml" && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.zephinzer.code-workspace... ";
 stat "${HOME}/.zephinzer.code-workspace" &>/dev/null && cat "${HOME}/.zephinzer.code-workspace" > "${DOTFILES_ARCHIVED_PATH}/zephinzer.code-workspace.${CURR_TIMESTAMP}";
