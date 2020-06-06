@@ -1,6 +1,3 @@
-includes:
-- ~/dev.telegram_notifs.yaml
-- ~/dev.govtech.yaml
 links:
 - label: my github
   categories: ["dev"]
@@ -16,8 +13,11 @@ networks:
   check:
     url: https://google.com
 repositories:
-- name: my blog
+- name: my github blog
   url: git@github.com:zephinzer/blog.joeir.net.git
+  workspaces: ["personal"]
+- name: my knowledge wiki
+  url: git@github.com:zephinzer/wiki.joeir.net.git
   workspaces: ["personal"]
 - name: my dotfiles
   url: git@github.com:zephinzer/dotfiles.git
