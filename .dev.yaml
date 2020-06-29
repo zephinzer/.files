@@ -1,69 +1,132 @@
 links:
 - label: my github
-  categories: ["dev"]
+  categories: [dev]
   url: https://github.com/zephinzer
 - label: my gitlab
-  categories: ["dev"]
+  categories: [dev]
   url: https://gitlab.com/zephinzer
 - label: my medium
-  categories: ["writing"]
+  categories: [writing]
   url: https://medium.com/@joeir
+- label: my linkedin
+  categories: [network]
+  url: https://www.linkedin.com/in/joeir/
+- label: my soundcloud
+  categories: [music]
+  url: https://soundcloud.com/zephinzer
 networks:
 - name: internet
   check:
     url: https://google.com
-repositories:
-- name: my github blog
-  url: git@github.com:zephinzer/blog.joeir.net.git
-  workspaces: ["personal"]
-- name: my knowledge wiki
-  url: git@github.com:zephinzer/wiki.joeir.net.git
-  workspaces: ["personal"]
-- name: my dotfiles
-  url: git@github.com:zephinzer/dotfiles.git
-  workspaces: ["personal"]
-- name: dev tool
-  url: git@gitlab.com:zephinzer/dev.git
-  workspaces: ["personal"]
-- name: usvc website
-  url: git@gitlab.com:usvc/usvc.git
-  workspaces: ["usvc"]
-- name: ci pipeline recipes
-  url: git@gitlab.com:usvc/images/ci/recipes.git
-  workspaces: ["usvc"]
-- name: golang configuration package
-  url: git@gitlab.com:usvc/modules/go/config.git
-  workspaces: ["usvc"]
-- name: golang database package
-  url: git@gitlab.com:usvc/modules/go/db.git
-  workspaces: ["usvc"]
-- name: golang logger package
-  url: git@gitlab.com:usvc/modules/go/logger.git
-  workspaces: ["usvc"]
-- name: golang password management package
-  url: git@gitlab.com:usvc/modules/go/password.git
-  workspaces: ["usvc"]
-- name: golang semantic versioning package
-  url: git@gitlab.com:usvc/modules/go/semver.git
-  workspaces: ["usvc"]
 softwares:
 - name: docker
+  description: used for creating container images and running software in containers
   check:
-    command: ["docker", "version", "--format", "{{.Client.Platform.Name}} {{.Client.Version}}"]
+    command:
+    - docker
+    - version
+    - --format
+    - '{{.Client.Platform.Name}} {{.Client.Version}}'
     stdout: ^Docker Engine.*\d+\.\d+(\.\d+)?$
+  install:
+    link: https://docs.docker.com/get-docker/
+- name: docker-compose
+  description: used for orchestrating container-based deployments on the local machine
+  check:
+    command:
+    - docker-compose
+    - version
+    stdout: ^docker-compose version \d+\.\d+\.\d+
+  install:
+    link: https://docs.docker.com/compose/install/#install-compose
 - name: golang
+  description: current programming muse
   check:
-    command: ["go", "version"]
+    command:
+    - go
+    - version
     stdout: ^go version go\d\.\d+(\.\d+)? [a-zA-Z0-9]+\/[a-zA-Z0-9]+$
+  install:
+    link: https://golang.org/doc/install
+- name: kind
+  description: for setting up of local kubernetes clusters for testing manifests/charts
+  check:
+    command:
+    - kind
+    - version
+    stdout: ^kind v\d+\.\d+\.\d+ go\d+\.\d+(\.\d+)?
+  install:
+    link: https://kind.sigs.k8s.io/docs/user/quick-start/#installation
 - name: kubectl
+  description: for communication with kubernetes clusters
   check:
-    command: ["kubectl", "version", "--client", "--short"]
+    command:
+    - kubectl
+    - version
+    - --client
+    - --short
     stdout: '^Client Version: v\d+\.\d+(\.\d+)?$'
+  install:
+    link: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 - name: node
+  description: good ol' javascript
   check:
-    command: ["node", "-v"]
+    command:
+    - node
+    - -v
     stdout: ^v\d+\.\d+\.\d+$
-- name: yarn
+  install:
+    link: https://github.com/nvm-sh/nvm#installing-and-updating
+- name: npm
+  description: package manager for good ol' javascript
   check:
-    command: ["yarn", "-v"]
+    command:
+    - npm
+    - --version
     stdout: ^\d+\.\d+\.\d+$
+  install:
+    link: https://github.com/nvm-sh/nvm#installing-and-updating
+- name: yarn
+  description: slightly better package manager for good ol' javascript
+  check:
+    command:
+    - yarn
+    - -v
+    stdout: ^\d+\.\d+\.\d+$
+repositories:
+- name: ci pipeline recipes
+  url: git@gitlab.com:usvc/images/ci/recipes.git
+  workspaces: [usvc]
+- name: dev tool
+  url: git@gitlab.com:zephinzer/dev.git
+  workspaces: [personal]
+- name: golang configuration package
+  url: git@gitlab.com:usvc/modules/go/config.git
+  workspaces: [usvc]
+- name: golang database package
+  url: git@gitlab.com:usvc/modules/go/db.git
+  workspaces: [usvc]
+- name: golang logger package
+  url: git@gitlab.com:usvc/modules/go/logger.git
+  workspaces: [usvc]
+- name: golang password management package
+  url: git@gitlab.com:usvc/modules/go/password.git
+  workspaces: [usvc]
+- name: golang semantic versioning package
+  url: git@gitlab.com:usvc/modules/go/semver.git
+  workspaces: [usvc]
+- name: my dotfiles
+  url: git@github.com:zephinzer/dotfiles.git
+  workspaces: [personal]
+- name: my github blog
+  url: git@github.com:zephinzer/blog.joeir.net.git
+  workspaces: [personal]
+- name: my knowledge wiki
+  url: git@gitlab.com:zephinzer/wiki.joeir.net.git
+  workspaces: [personal]
+- name: podcast-sally
+  url: git@gitlab.com:zephinzer/podcast-sally.git
+  workspaces: [personal]
+- name: usvc website
+  url: git@gitlab.com:usvc/usvc.git
+  workspaces: [usvc]
