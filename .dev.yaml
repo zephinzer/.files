@@ -94,6 +94,9 @@ softwares:
     - -v
     stdout: ^\d+\.\d+\.\d+$
 repositories:
+- name: codepr.ac
+  url: git@gitlab.com:zephinzer/codepr.ac.git
+  workspaces: [personal]
 - name: ci pipeline recipes
   url: git@gitlab.com:usvc/images/ci/recipes.git
   workspaces: [usvc]
