@@ -94,12 +94,12 @@ softwares:
     - -v
     stdout: ^\d+\.\d+\.\d+$
 repositories:
-- name: codepr.ac
-  url: git@gitlab.com:zephinzer/codepr.ac.git
-  workspaces: [personal]
 - name: ci pipeline recipes
   url: git@gitlab.com:usvc/images/ci/recipes.git
   workspaces: [usvc]
+- name: codepr.ac
+  url: git@gitlab.com:zephinzer/codepr.ac.git
+  workspaces: [personal]
 - name: dev tool
   url: git@gitlab.com:zephinzer/dev.git
   workspaces: [personal]
@@ -118,6 +118,10 @@ repositories:
 - name: golang semantic versioning package
   url: git@gitlab.com:usvc/modules/go/semver.git
   workspaces: [usvc]
+- description: keyboard mapper so ubuntu is like mac
+  name: kinto
+  url: git@github.com:rbreaves/kinto.git
+  workspaces: [personal]
 - name: my dotfiles
   url: git@github.com:zephinzer/dotfiles.git
   workspaces: [personal]

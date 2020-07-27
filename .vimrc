@@ -9,5 +9,9 @@ set lazyredraw
 set showmatch
 set incsearch
 set hlsearch
+set cryptmethod=blowfish2
+set encoding=utf8
+set mouse=a
+set noswapfile
 
 filetype indent on
