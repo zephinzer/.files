@@ -5,7 +5,8 @@ alias __ports='sudo lsof -iTCP -sTCP:LISTEN -P -n';
 alias __mem='sudo free -m';
 alias __disk='dh -h';
 alias __diski='df -hi';
-which xclip >/dev/null && alias pbcopy='xclip -selection clipboard';
+alias ualt='update-alternatives';
+which xclip >/dev/null && alias pbcopy='xargs echo -n | xclip -selection clipboard';
 which pm-powersave >/dev/null && alias __chill='sudo pm-powersave true';
 which pm-powersave >/dev/null && alias __chiong='sudo pm-powersave false';
 

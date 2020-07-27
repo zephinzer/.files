@@ -14,7 +14,7 @@ mkdir -p "${DOTFILES_ARCHIVED_PATH}";
 
 printf -- "Processing ~/.aliases... ";
 [ -e "${HOME}/.aliases" ] && cp "${HOME}/.aliases" "${DOTFILES_ARCHIVED_PATH}/aliases.${CURR_TIMESTAMP}";
-[ -e "${CURR_DIR}/../.aliases" ] && cat "${CURR_DIR}/../.aliases" > ${HOME}/.aliases && printf -- "Done.\n" || printf -- 'Skipped.\n';
+[ -e "${CURR_DIR}/../.aliases" ] && rm -rf "${HOME}/.aliases" && ln -s "$(pwd)/.aliases" "${HOME}/.aliases" && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
 printf -- "Processing ~/.aliases_docker... ";
 [ -e "${HOME}/.aliases_docker" ] && cp "${HOME}/.aliases_docker" "${DOTFILES_ARCHIVED_PATH}/aliases_docker.${CURR_TIMESTAMP}";
