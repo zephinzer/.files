@@ -103,6 +103,9 @@ repositories:
 - name: dev tool
   url: git@gitlab.com:zephinzer/dev.git
   workspaces: [personal]
+- name: env
+  url: git@gitlab.com:zephinzer/env.git
+  workspaces: [personal]
 - name: golang configuration package
   url: git@gitlab.com:usvc/modules/go/config.git
   workspaces: [usvc]
@@ -118,9 +121,8 @@ repositories:
 - name: golang semantic versioning package
   url: git@gitlab.com:usvc/modules/go/semver.git
   workspaces: [usvc]
-- description: keyboard mapper so ubuntu is like mac
-  name: kinto
-  url: git@github.com:rbreaves/kinto.git
+- name: howto.joeir.net
+  url: git@github.com:zephinzer/howto.joeir.net.git
   workspaces: [personal]
 - name: my dotfiles
   url: git@github.com:zephinzer/dotfiles.git
