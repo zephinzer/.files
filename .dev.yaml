@@ -133,9 +133,6 @@ repositories:
 - name: my knowledge wiki
   url: git@gitlab.com:zephinzer/wiki.joeir.net.git
   workspaces: [personal]
-- name: podcast-sally
-  url: git@gitlab.com:zephinzer/podcast-sally.git
-  workspaces: [personal]
 - name: usvc website
   url: git@gitlab.com:usvc/usvc.git
   workspaces: [usvc]
