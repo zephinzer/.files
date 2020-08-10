@@ -121,6 +121,10 @@ repositories:
 - name: golang semantic versioning package
   url: git@gitlab.com:usvc/modules/go/semver.git
   workspaces: [usvc]
+- name: golang.md
+  path: github.com/gists/golang.md
+  url: git@github.com:7a557b5a612867618c3ba92d5f95c05c.git
+  categories: [personal]
 - name: howto.joeir.net
   url: git@github.com:zephinzer/howto.joeir.net.git
   workspaces: [personal]
