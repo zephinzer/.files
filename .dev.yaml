@@ -96,7 +96,7 @@ softwares:
 repositories:
 - name: ci pipeline recipes
   url: git@gitlab.com:usvc/images/ci/recipes.git
-  workspaces: [usvc]
+  workspaces: [personal, usvc]
 - name: codepr.ac
   url: git@gitlab.com:zephinzer/codepr.ac.git
   workspaces: [personal]
