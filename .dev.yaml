@@ -128,6 +128,9 @@ repositories:
 - name: howto.joeir.net
   url: git@github.com:zephinzer/howto.joeir.net.git
   workspaces: [personal]
+- name: load
+  url: git@gitlab.com:zephinzer/load.git
+  workspaces: [personal]
 - name: my dotfiles
   url: git@github.com:zephinzer/dotfiles.git
   workspaces: [personal]
