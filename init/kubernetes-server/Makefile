@@ -2,6 +2,7 @@ APP_ID=kubernetes-server
 VERSION=v1.19.1
 PRIORITY="$$(printf -- "$(VERSION)" | tr -d 'v' | tr -s '.' '\n' | xargs -I@ sh -c 'printf -- "%03d" "@"' | sed 's/^0*//')"
 USER=$(shell whoami)
+IMAGE_URL=zephinzer/kubernetes-server
 
 define COMPONENTS
 mounter\n\
@@ -25,12 +26,12 @@ install_linux:
 	rm -rf /opt/$(APP_ID)/$(VERSION)/kubernetes
 
 image:
-	docker build -t zephinzer/k8s-server:latest .
+	docker build -t $(IMAGE_URL):latest .
 
 lint:
 	hadolint ./Dockerfile \
 		--ignore DL3018
 
 test: image
-	container-structure-test test --config ./Dockerfile_spec.yaml --image zephinzer/k8s-server:latest
+	container-structure-test test --config ./Dockerfile_spec.yaml --image $(IMAGE_URL):latest
 
