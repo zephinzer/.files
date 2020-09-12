@@ -21,5 +21,9 @@ install_linux:
 image:
 	docker build -t zephinzer/k8s-node:latest .
 
+lint:
+	hadolint ./Dockerfile \
+		--ignore DL3018
+
 test: image
 	container-structure-test test --config ./Dockerfile_spec.yaml --image zephinzer/k8s-node:latest
