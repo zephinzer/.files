@@ -1,0 +1,27 @@
+schemaVersion: "2.0.0"
+commandTests:
+- name: kube-proxy is in the path and is runnable
+  command: kube-proxy
+  args: [--version]
+  expectedOutput: ['^Kubernetes v[\d]+\.[\d]+\.[\d]+']
+- name: kubelet is in the path and is runnable
+  command: kubelet
+  args: [--version]
+  expectedOutput: ['^Kubernetes v[\d]+\.[\d]+\.[\d]+']
+- name: kubectl is in the path and is runnable
+  command: kubectl
+  args: [version, --client]
+  expectedOutput: ['^Client Version: version\.Info{.+GitVersion:"v[\d]+\.[\d]+\.[\d]+"']
+- name: kubeadm is in the path and is runnable
+  command: kubeadm
+  args: [version]
+  expectedOutput: ['^kubeadm version: &version\.Info{.+GitVersion:"v[\d]+\.[\d]+\.[\d]+"']
+fileExistenceTests:
+- name: kube-proxy 
+  path: /usr/bin/kube-proxy 
+- name: kubelet 
+  path: /usr/bin/kubelet 
+- name: kubectl 
+  path: /usr/bin/kubectl 
+- name: kubeadm 
+  path: /usr/bin/kubeadm 
