@@ -1,0 +1,63 @@
+schemaVersion: "2.0.0"
+commandTests:
+- name: mounter is in the path and runnable
+  command: which
+  args: [mounter]
+  expectedOutput: ['/usr/bin/mounter']
+- name: kube-scheduler is in the path and runnable
+  command: kube-scheduler
+  args: [--version]
+  expectedOutput: ['^Kubernetes v[\d]+\.[\d]+\.[\d]+']
+- name: kube-proxy is in the path and runnable
+  command: kube-proxy
+  args: [--version]
+  expectedOutput: ['^Kubernetes v[\d]+\.[\d]+\.[\d]+']
+- name: kubelet is in the path and runnable
+  command: kubelet
+  args: [--version]
+  expectedOutput: ['^Kubernetes v[\d]+\.[\d]+\.[\d]+']
+- name: kubectl is in the path and runnable
+  command: kubectl
+  args: [version, --client]
+  expectedOutput: ['^Client Version: version\.Info{.+GitVersion:"v[\d]+\.[\d]+\.[\d]+"']
+- name: kube-controller-manager is in the path and runnable
+  command: kube-controller-manager
+  args: [--version]
+  expectedOutput: ['^Kubernetes v[\d]+\.[\d]+\.[\d]+']
+- name: kube-apiserver is in the path and runnable
+  command: kube-apiserver
+  args: [--version]
+  expectedOutput: ['^Kubernetes v[\d]+\.[\d]+\.[\d]+']
+- name: kube-aggregator is in the path and runnable
+  command: kube-aggregator
+  args: [--help]
+  expectedOutput: ['^Launch a API aggregator and proxy server']
+- name: kubeadm is in the path and runnable
+  command: kubeadm
+  args: [version]
+  expectedOutput: ['^kubeadm version: &version\.Info{.+GitVersion:"v[\d]+\.[\d]+\.[\d]+"']
+- name: apiextensions-apiserver is in the path and runnable
+  command: apiextensions-apiserver
+  args: [--help]
+  expectedOutput: ['^Launch an API extensions API server']
+fileExistenceTests:
+- name: mounter
+  path: /usr/bin/mounter
+- name: kube-scheduler
+  path: /usr/bin/kube-scheduler
+- name: kube-proxy
+  path: /usr/bin/kube-proxy
+- name: kubelet
+  path: /usr/bin/kubelet
+- name: kubectl
+  path: /usr/bin/kubectl
+- name: kube-controller-manager
+  path: /usr/bin/kube-controller-manager
+- name: kube-apiserver
+  path: /usr/bin/kube-apiserver
+- name: kube-aggregator
+  path: /usr/bin/kube-aggregator
+- name: kubeadm
+  path: /usr/bin/kubeadm
+- name: apiextensions-apiserver
+  path: /usr/bin/apiextensions-apiserver
