@@ -6,7 +6,7 @@ USER=$(shell whoami)
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
-	curl -fsL "https://github.com/kubernetes-sigs/kubebuilder/releases/download/v$(VERSION)/kubebuilder_$(VERSION)_linux_amd64.tar.gz" \
+	curl -fL "https://github.com/kubernetes-sigs/kubebuilder/releases/download/v$(VERSION)/kubebuilder_$(VERSION)_linux_amd64.tar.gz" \
 		| tar xfz - -C "/opt/$(APP_ID)/$(VERSION)/"
 	mv /opt/$(APP_ID)/$(VERSION)/kubebuilder_2.3.1_linux_amd64/bin/kubebuilder /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	rm -rf /opt/$(APP_ID)/$(VERSION)/kubebuilder_2.3.1_linux_amd64

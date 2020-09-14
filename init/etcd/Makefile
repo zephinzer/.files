@@ -6,7 +6,7 @@ USER=$(shell whoami)
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
-	curl -fsL "https://github.com/etcd-io/etcd/releases/download/$(VERSION)/etcd-$(VERSION)-linux-amd64.tar.gz" \
+	curl -fL "https://github.com/etcd-io/etcd/releases/download/$(VERSION)/etcd-$(VERSION)-linux-amd64.tar.gz" \
 		| tar xfz - -C "/opt/$(APP_ID)/$(VERSION)/"
 	mv /opt/$(APP_ID)/$(VERSION)/etcd-$(VERSION)-linux-amd64/* /opt/$(APP_ID)/$(VERSION)/
 	chmod 750 /opt/$(APP_ID)/$(VERSION)/$(APP_ID)

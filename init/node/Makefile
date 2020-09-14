@@ -6,7 +6,7 @@ USER=$(shell whoami)
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
-	curl -fsL "https://nodejs.org/dist/${VERSION}/node-${VERSION}-linux-x64.tar.xz" \
+	curl -fL "https://nodejs.org/dist/${VERSION}/node-${VERSION}-linux-x64.tar.xz" \
 		| tar xvfJ - -C /opt/$(APP_ID)/$(VERSION)/
 	mv /opt/$(APP_ID)/$(VERSION)/node-$(VERSION)-linux-x64/bin/node \
 		/opt/$(APP_ID)/$(VERSION)/node
