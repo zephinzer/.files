@@ -124,7 +124,6 @@ repositories:
 - name: golang.md
   path: github.com/gists/golang.md
   url: git@github.com:7a557b5a612867618c3ba92d5f95c05c.git
-  categories: [personal]
 - name: howto.joeir.net
   url: git@github.com:zephinzer/howto.joeir.net.git
   workspaces: [personal]
@@ -140,6 +139,8 @@ repositories:
 - name: my knowledge wiki
   url: git@gitlab.com:zephinzer/wiki.joeir.net.git
   workspaces: [personal]
+- name: react-bootstrap
+  url: git@github.com:react-bootstrap/react-bootstrap.git
 - name: usvc website
   url: git@gitlab.com:usvc/usvc.git
   workspaces: [usvc]
