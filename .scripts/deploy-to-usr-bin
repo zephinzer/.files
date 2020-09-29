@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$(id -u)" != "0" ]; then
+  printf -- '\033[31mrun this script as root\033[0m\n';
+  exit 1;
+fi;
+
+rm -rf /usr/local/bin/pbcopy;
+which pbcopy || ln -s "$(pwd)/bin/pbcopy" /usr/local/bin/pbcopy;
+
+rm -rf /usr/local/bin/ualt;
+which update-alternatives && ln -s "$(pwd)/bin/ualt" "/usr/local/bin/ualt" && chmod +x "/usr/local/bin/ualt";

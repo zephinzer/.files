@@ -1,2 +1,4 @@
 #!/bin/sh
-xargs echo -n | xclip -selection clipboard;
+
+# '-z' was introduced only in version 4.2.2
+sed -z 's/\n$//g' | xclip -selection clipboard

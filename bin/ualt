@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo update-alternatives --config $1;
+sudo update-alternatives --config "$1";

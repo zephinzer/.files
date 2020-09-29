@@ -1,0 +1,14 @@
+version: "3.7"
+networks:
+  zdotfiles: # if this fails to create, run `make create_compose` in the `~/deploy` directory
+    external:
+      name: zdotfiles
+services:
+  ghost:
+    image: ghost:3.33.0-alpine
+    environment:
+      url: http://localhost:2368
+    networks:
+      - zdotfiles
+    ports:
+      - 2368:2368

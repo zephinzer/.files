@@ -100,6 +100,8 @@ repositories:
 - name: codepr.ac
   url: git@gitlab.com:zephinzer/codepr.ac.git
   workspaces: [personal]
+- name: codeprac
+  url: git@gitlab.com:codeprac/codeprac.git
 - name: dev tool
   url: git@gitlab.com:zephinzer/dev.git
   workspaces: [personal]
@@ -127,6 +129,9 @@ repositories:
 - name: howto.joeir.net
   url: git@github.com:zephinzer/howto.joeir.net.git
   workspaces: [personal]
+- name: kalm
+  url: git@github.com:kalmhq/kalm.git
+  workspaces: [oss]
 - name: load
   url: git@gitlab.com:zephinzer/load.git
   workspaces: [personal]

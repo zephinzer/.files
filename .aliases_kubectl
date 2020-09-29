@@ -29,6 +29,7 @@
 # - top (t)
 #
 # handles the following resource types (abbreviation in brackets):
+# - certificates (crt)
 # - certificatesigningrequests (csr)
 # - config (c)
 # - configmap (cm)
@@ -37,12 +38,15 @@
 # - clusterrolebinding (crb)
 # - daemonset (ds)
 # - deployment (d)
-# - endpoint (e)
+# - endpoint (ep)
+# - event (ev)
 # - ingress (i)
 # - job (j)
 # - pod (p)
+# - podsecuritypolicies (psp)
 # - persistentvolume (pv)
 # - persistentvolumeclaim (pvc)
+# - networkpolicies (np)
 # - node (n)
 # - namespace (ns)
 # - replicaset (rs)
@@ -51,6 +55,7 @@
 # - secret (sec)
 # - service (s)
 # - serviceaccount (sa)
+# - statefulset (ss)
 #
 # appendices:
 # - --all-namespaces (all)
@@ -110,6 +115,15 @@ alias kcdelcsr='kcdel csr';
 alias kcecsr='kce csr';
 alias kcgcsr='kcg csr -o wide';
 alias kcgcsrall='kcg csr -o wide --all-namespaces';
+
+################
+# certificates # (crt)
+################
+alias kcdcrt='kcd certificate';
+alias kcdelcrt='kcdel certificate';
+alias kcecrt='kce certificate';
+alias kcgcrt='kcg certificate -o wide';
+alias kcgcrtall='kcg certificate -o wide --all-namespaces';
 
 ##########
 # config # (conf)
@@ -186,6 +200,14 @@ alias kceep='kc edit endpoint';
 alias kcgep='kc get endpoint -o wide';
 alias kcgepall='kc get endpoint -o wide --all-namespaces';
 
+#########
+# event # (ev)
+#########
+alias kcdev='kc describe events';
+alias kcdelev='kc delete event';
+alias kceev='kc edit events';
+alias kcgev='kc get events -o wide';
+
 ###########
 # ingress # (i)
 ###########
@@ -214,6 +236,14 @@ alias kcgp='kcg pods -o wide';
 alias kcgpall='kcg pods -o wide --all-namespaces';
 alias kctp='kct pod';
 
+#######################
+# podsecuritypolicies # (psp)
+#######################
+alias kcdpsp='kcd podsecuritypolicies';
+alias kcdelpsp='kcdel podsecuritypolicies';
+alias kcepsp='kce podsecuritypolicies';
+alias kcgpsp='kcg podsecuritypolicies -o wide';
+
 ####################
 # persistentvolume # (pv)
 ####################
@@ -230,6 +260,15 @@ alias kcdelpvc='kcdel persistentvolumeclaim';
 alias kcepvc='kcdel persistentvolumeclaim';
 alias kcgpvc='kcg persistentvolumeclaim -o wide';
 alias kcgpvcall='kcg persistentvolumeclaim -o wide --all-namespaces';
+
+###################
+# networkpolicies # (np)
+###################
+alias kcdnp='kcd networkpolicies';
+alias kcdelnp='kcdel networkpolicies';
+alias kcenp='kcdel networkpolicies';
+alias kcgnp='kcg networkpolicies -o wide';
+alias kcgnpall='kcg networkpolicies -o wide --all-namespaces';
 
 ########
 # node # (n)
@@ -300,6 +339,15 @@ alias kcdelsa='kcdel serviceaccount';
 alias kcesa='kce serviceaccount';
 alias kcgsa='kcg serviceaccount -o wide';
 alias kcgsaall='kcg serviceaccount -o wide --all-namespaces';
+
+###############
+# statefulset # (ss)
+###############
+alias kcdss='kcd statefulset';
+alias kcdelss='kcdel statefulset';
+alias kcess='kce statefulset';
+alias kcgss='kcg statefulset -o wide';
+alias kcgssall='kcg statefulset -o wide --all-namespaces';
 
 #################
 # pure laziness # - - - - - - - - - - - - - - - - - -
