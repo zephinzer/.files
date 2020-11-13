@@ -105,6 +105,9 @@ repositories:
 - name: dev tool
   url: git@gitlab.com:zephinzer/dev.git
   workspaces: [personal]
+- name: el-curriculum
+  url: git@gitlab.com:joeir/el-curriculum.git
+  workspaces: [personal]
 - name: env
   url: git@gitlab.com:zephinzer/env.git
   workspaces: [personal]
