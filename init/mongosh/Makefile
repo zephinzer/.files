@@ -1,7 +1,6 @@
 APP_ID=mongosh
 VERSION=0.2.2
-PRIORITY="$$(printf -- "$(VERSION)" | tr -d 'v' | tr -s '.' '\n' | xargs -I@ sh -c 'printf -- "%03d" "@"' | sed 's/^0*//')"
-USER=$(shell whoami)
+-include ../Makefile
 
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)

@@ -1,7 +1,6 @@
 APP_ID=k9s
 VERSION=v0.21.7
-PRIORITY="$$(printf -- "$(VERSION)" | tr -d 'v' | tr -s '.' '\n' | xargs -I@ sh -c 'printf -- "%03d" "@"' | sed 's/^0*//')"
-USER=$(shell whoami)
+-include ../Makefile
 
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)

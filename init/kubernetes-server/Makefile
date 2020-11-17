@@ -1,7 +1,6 @@
 APP_ID=kubernetes-server
 VERSION=v1.19.1
-PRIORITY="$$(printf -- "$(VERSION)" | tr -d 'v' | tr -s '.' '\n' | xargs -I@ sh -c 'printf -- "%03d" "@"' | sed 's/^0*//')"
-USER=$(shell whoami)
+-include ../Makefile
 IMAGE_URL=zephinzer/kubernetes-server
 
 define COMPONENTS

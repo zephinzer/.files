@@ -1,14 +1,13 @@
 APP_ID=vault
 VERSION=1.5.3
-PRIORITY="$$(printf -- "$(VERSION)" | tr -d 'v' | tr -s '.' '\n' | xargs -I@ sh -c 'printf -- "%03d" "@"' | sed 's/^0*//')"
-USER=$(shell whoami)
+-include ../Makefile
 
 install_linux:
-	# sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
-	# sudo chown $(USER):root -R /opt/$(APP_ID)
-	# curl -Lo /opt/$(APP_ID)/$(VERSION)/$(APP_ID).zip \
-	# 	"https://releases.hashicorp.com/vault/$(VERSION)/vault_$(VERSION)_linux_amd64.zip"
-	# unzip /opt/$(APP_ID)/$(VERSION)/$(APP_ID).zip -d /opt/$(APP_ID)/$(VERSION)
+	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
+	sudo chown $(USER):root -R /opt/$(APP_ID)
+	curl -Lo /opt/$(APP_ID)/$(VERSION)/$(APP_ID).zip \
+		"https://releases.hashicorp.com/vault/$(VERSION)/vault_$(VERSION)_linux_amd64.zip"
+	unzip /opt/$(APP_ID)/$(VERSION)/$(APP_ID).zip -d /opt/$(APP_ID)/$(VERSION)
 	rm -rf /opt/$(APP_ID)/$(VERSION)/$(APP_ID).zip
 	-mv /opt/$(APP_ID)/$(VERSION)/vault /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	chmod 750 /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
