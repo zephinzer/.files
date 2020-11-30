@@ -132,6 +132,9 @@ repositories:
 - name: howto.joeir.net
   url: git@github.com:zephinzer/howto.joeir.net.git
   workspaces: [personal]
+- name: k8s
+  url: git@gitlab.com:zephinzer/k8s.git
+  workspaces: [personal]
 - name: kalm
   url: git@github.com:kalmhq/kalm.git
   workspaces: [oss]
