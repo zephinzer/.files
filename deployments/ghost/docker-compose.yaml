@@ -5,7 +5,7 @@ networks:
       name: zdotfiles
 services:
   ghost:
-    image: ghost:3.33.0-alpine
+    image: ghost:3.39.0-alpine
     environment:
       url: http://localhost:2368
     networks:
