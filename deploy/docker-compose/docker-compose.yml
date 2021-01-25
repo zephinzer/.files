@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  cyberchef:
+    build:
+      context: ../docker/cyberchef
+      dockerfile: Dockerfile
+    image: zephinzer/cyberchef:latest
+    ports:
+      - "12345:80"
