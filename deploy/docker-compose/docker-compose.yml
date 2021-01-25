@@ -6,4 +6,12 @@ services:
       dockerfile: Dockerfile
     image: zephinzer/cyberchef:latest
     ports:
-      - "12345:80"
+      - "1111:80"
+  hoppscotch:
+    image: hoppscotch/hoppscotch
+    ports:
+      - "2222:3000"
+  plantuml:
+    image: plantuml/plantuml-server:jetty
+    ports:
+      - "3333:8080"
