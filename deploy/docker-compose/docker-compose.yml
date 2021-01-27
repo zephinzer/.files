@@ -1,17 +1,29 @@
 version: "3.7"
 services:
+  index:
+    build:
+      context: ../docker/index
+      dockerfile: Dockerfile
+    image: zephinzer/localindex:latest
+    ports:
+      - "30000:80"
+    volumes:
+      - "../docker/index:/usr/share/nginx/html:ro"
+  kroki:
+    image: yuzutech/kroki:0.9.0
+    ports:
+      - "50001:8000"
+  kroki-ui:
+    build:
+      context: ../docker/kroki-ui
+      dockerfile: Dockerfile
+    image: zephinzer/kroki-ui:latest
+    ports:
+      - "30001:80"
   cyberchef:
     build:
       context: ../docker/cyberchef
       dockerfile: Dockerfile
     image: zephinzer/cyberchef:latest
     ports:
-      - "1111:80"
-  hoppscotch:
-    image: hoppscotch/hoppscotch
-    ports:
-      - "2222:3000"
-  plantuml:
-    image: plantuml/plantuml-server:jetty
-    ports:
-      - "3333:8080"
+      - "30002:80"

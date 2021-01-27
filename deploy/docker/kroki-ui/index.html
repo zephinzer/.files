@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!-- saved from url=(0017)http://localhost:30000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kroki!</title>
+    <link rel="stylesheet" href="./index_files/main.min.css">
+<body>
+<section class="section">
+    <div class="container">
+        <div class="duo">
+            <div class="lead">
+                <a href="http://localhost:30000/#">
+                    <img class="title logo" src="./index_files/logo.svg" alt="logo">
+                </a>
+                <h1 class="subtitle">Creates <strong>diagrams</strong> from <strong>textual</strong> descriptions!</h1>
+                <div class="content">
+                    <p>
+                        Kroki provides a unified API with support for BlockDiag (BlockDiag, SeqDiag, ActDiag, NwDiag, PacketDiag, RackDiag),
+                        BPMN, Bytefield, C4 (with PlantUML), Ditaa, Erd, Excalidraw, GraphViz, Mermaid, Nomnoml, PlantUML, SvgBob, UMLet, Vega, Vega-Lite, WaveDrom...
+                        and more to come!
+                    </p>
+                </div>
+
+                <h2 id="features" class="title is-2">Features<a class="anchor-link" href="http://localhost:30000/#features">#</a></h2>
+
+                <div class="content">
+                    <dl>
+                        <dt><strong>Ready to use</strong></dt>
+                        <dd>Diagrams libraries are written in a variety of languages: Haskell, Python, JavaScript, Go, PHP, Java... some also have C bindings.
+                            Trust us, you have better things to do than install all the requirements to use them. Get started in no time!
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt><strong>Simple</strong></dt>
+                        <dd>Kroki provides a unified API for all the diagram libraries. Learn once use diagrams anywhere!</dd>
+                    </dl>
+                    <dl>
+                        <dt><strong>Free &amp; Open source</strong></dt>
+                        <dd>All the code is available on GitHub and our goal is to provide Kroki as a free service.</dd>
+                    </dl>
+                    <dl>
+                        <dt><strong>Fast</strong></dt>
+                        <dd>Built using a modern architecture, Kroki offers great performance.</dd>
+                    </dl>
+                </div>
+
+                <h2 id="try" class="title is-2">Try<a class="anchor-link" href="http://localhost:30000/#try">#</a></h2>
+
+                <div class="field">
+                    <label class="label">Diagram</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="select-diagram" aria-label="Diagram">
+                                <option value="blockdiag">BlockDiag</option>
+                                <option value="bpmn">BPMN</option>
+                                <option value="bytefield">Bytefield</option>
+                                <option value="seqdiag">SeqDiag</option>
+                                <option value="actdiag">ActDiag</option>
+                                <option value="nwdiag">NwDiag</option>
+                                <option value="packetdiag">PacketDiag</option>
+                                <option value="rackdiag">RackDiag</option>
+                                <option value="c4plantuml">C4 with PlantUML</option>
+                                <option value="ditaa">Ditaa</option>
+                                <option value="erd">Erd</option>
+                                <option value="excalidraw">Excalidraw</option>
+                                <option value="graphviz">GraphViz</option>
+                                <option value="mermaid">Mermaid</option>
+                                <option value="nomnoml">Nomnoml</option>
+                                <option selected="" value="plantuml">PlantUML</option>
+                                <option value="svgbob">Svgbob</option>
+                                <option value="vega">Vega</option>
+                                <option value="vegalite">Vega-Lite</option>
+                                <option value="wavedrom">WaveDrom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="columns try-columns">
+                        <div class="column">
+                            <div class="field">
+                                <div class="control">
+                            <textarea id="diagram-source" class="textarea code" placeholder="User -&gt; Kroki: Hello" rows="25">skinparam monochrome true
+skinparam ranksep 20
+skinparam dpi 150
+skinparam arrowThickness 0.7
+skinparam packageTitleAlignment left
+skinparam usecaseBorderThickness 0.4
+skinparam defaultFontSize 12
+skinparam rectangleBorderThickness 1
+
+rectangle "Main" {
+  (main.view)
+  (singleton)
+}
+rectangle "Base" {
+  (base.component)
+  (component)
+  (model)
+}
+rectangle "&lt;b&gt;main.ts&lt;/b&gt;" as main_ts
+
+(component) ..&gt; (base.component)
+main_ts ==&gt; (main.view)
+(main.view) --&gt; (component)
+(main.view) ...&gt; (singleton)
+(singleton) ---&gt; (model)</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div id="diagram-result" class="diagram-plantuml"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="100%" preserveAspectRatio="none" style="width: 100%; height: 100%; max-height: 176.562px; max-width: 118.75px;" version="1.1" viewBox="0 0 118 176" width="100%" zoomAndPan="magnify"><defs><filter height="300%" id="ft1u5stn6er1v" width="300%" x="-1" y="-1"><fegaussianblur result="blurOut" stdDeviation="3.125"></fegaussianblur><fecolormatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"></fecolormatrix><feoffset dx="6.25" dy="6.25" in="blurOut2" result="blurOut3"></feoffset><feblend in="SourceGraphic" in2="blurOut3" mode="normal"></feblend></filter></defs><g><line style="stroke:#383838;stroke-width:1.5625;stroke-dasharray:5.0,5.0;" x1="28.125" x2="28.125" y1="60.0002" y2="113.1252"></line><line style="stroke:#383838;stroke-width:1.5625;stroke-dasharray:5.0,5.0;" x1="84.375" x2="84.375" y1="60.0002" y2="113.1252"></line><rect fill="#F8F8F8" filter="url(#ft1u5stn6er1v)" height="44.3752" style="stroke:#383838;stroke-width:2.34375;" width="35.9375" x="7.8125" y="7.8125"></rect><text fill="#000000" font-family="sans-serif" font-size="18.75" lengthAdjust="spacing" textLength="14.0625" x="18.75" y="37.5001">hi</text><rect fill="#F8F8F8" filter="url(#ft1u5stn6er1v)" height="44.3752" style="stroke:#383838;stroke-width:2.34375;" width="35.9375" x="7.8125" y="111.5627"></rect><text fill="#000000" font-family="sans-serif" font-size="18.75" lengthAdjust="spacing" textLength="14.0625" x="18.75" y="141.2503">hi</text><rect fill="#F8F8F8" filter="url(#ft1u5stn6er1v)" height="44.3752" style="stroke:#383838;stroke-width:2.34375;" width="31.25" x="65.625" y="7.8125"></rect><text fill="#000000" font-family="sans-serif" font-size="18.75" lengthAdjust="spacing" textLength="9.375" x="76.5625" y="37.5001">x</text><rect fill="#F8F8F8" filter="url(#ft1u5stn6er1v)" height="44.3752" style="stroke:#383838;stroke-width:2.34375;" width="31.25" x="65.625" y="111.5627"></rect><text fill="#000000" font-family="sans-serif" font-size="18.75" lengthAdjust="spacing" textLength="9.375" x="76.5625" y="141.2503">x</text><polygon fill="#383838" points="65.625,78.7502,81.25,85.0002,65.625,91.2502,71.875,85.0002" style="stroke:#383838;stroke-width:1.5625;"></polygon><line style="stroke:#383838;stroke-width:1.09375;" x1="28.9063" x2="75" y1="85.0002" y2="85.0002"></line><!--MD5=[420bd1e7b299767d33a9bc0e008ac8aa]
+@startuml
+skinparam monochrome true
+skinparam ranksep 20
+skinparam dpi 150
+skinparam arrowThickness 0.7
+skinparam packageTitleAlignment left
+skinparam usecaseBorderThickness 0.4
+skinparam defaultFontSize 12
+skinparam rectangleBorderThickness 1
+
+hi -> x
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 10:25:05 GMT 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg></div>
+                            <article id="diagram-error" class="message is-danger is-invisible">
+                                <div id="diagram-error-message" class="message-body">Error 400: Syntax Error? (line: 10)</div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="highlight" id="diagram-url">
+                        <pre><code class="language-http static"><span class="token verb-get">GET</span> <span class="token host">http://localhost:30000</span>/<span class="token path">plantuml/svg/eNpljkEKwkAMRfc9RS6gtEVxJ-jCC9gLhGnaDjOTGZIUxdO7k4Db_z7vf02RGwoWKJVr2KQWApOdOv0RQU5KDcbehXOLMJx9giL1NW0xJCZV6I8XBxuGhCtN0TLdcly5EBtkWsyVdqWASvcqM4k3nfwwLbhne1S2Z_wQDKO_SsGQ1_znGLpui3C4wvsLY3xYEg==</span></code></pre>
+                        <button class="button is-small bd-copy" data-clipboard-text="http://localhost:30000/plantuml/svg/eNpljkEKwkAMRfc9RS6gtEVxJ-jCC9gLhGnaDjOTGZIUxdO7k4Db_z7vf02RGwoWKJVr2KQWApOdOv0RQU5KDcbehXOLMJx9giL1NW0xJCZV6I8XBxuGhCtN0TLdcly5EBtkWsyVdqWASvcqM4k3nfwwLbhne1S2Z_wQDKO_SsGQ1_znGLpui3C4wvsLY3xYEg==" title="Copy to clipboard">
+                            <svg fill="currentColor" viewBox="0 0 896 1024" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128 768h256v64H128v-64z m320-384H128v64h320v-64z m128 192V448L384 640l192 192V704h320V576H576z m-288-64H128v64h160v-64zM128 704h160v-64H128v64z m576 64h64v128c-1 18-7 33-19 45s-27 18-45 19H64c-35 0-64-29-64-64V192c0-35 29-64 64-64h192C256 57 313 0 384 0s128 57 128 128h192c35 0 64 29 64 64v320h-64V320H64v576h640V768zM128 256h512c0-35-29-64-64-64h-64c-35 0-64-29-64-64s-29-64-64-64-64 29-64 64-29 64-64 64h-64c-35 0-64 29-64 64z"></path>
+                            </svg>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+
+                <h2 id="examples" class="title is-2">Examples<a class="anchor-link" href="http://localhost:30000/#examples">#</a></h2>
+
+                <div class="content">
+                    <p>Looking for inspiration? Visit the <a href="http://localhost:30000/examples.html">examples</a> page.</p>
+                </div>
+
+                <h2 id="support" class="title is-2">Diagram types<a class="anchor-link" href="http://localhost:30000/#support">#</a></h2>
+
+                <div class="content">
+                    <p>The following diagram types and output formats are available:</p>
+                    <div class="table-container">
+                        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                            <thead>
+                            <tr>
+                                <th>Diagram Type</th>
+                                <th>png</th>
+                                <th>svg</th>
+                                <th>jpeg</th>
+                                <th>pdf</th>
+                                <th>base64</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><a href="https://github.com/blockdiag/blockdiag">BlockDiag</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/bpmn-io/bpmn-js">BPMN</a></td>
+                                <td>️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/Deep-Symmetry/bytefield-svg/">Bytefield</a></td>
+                                <td>️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/blockdiag/seqdiag">SeqDiag</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/blockdiag/actdiag">ActDiag</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/blockdiag/nwdiag">NwDiag</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/blockdiag/nwdiag">PacketDiag</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/blockdiag/nwdiag">RackDiag</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/RicardoNiepel/C4-PlantUML">C4 with PlantUML</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>️</td>
+                                <td>✔️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="http://ditaa.sourceforge.net/">Ditaa</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/BurntSushi/erd">Erd</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/excalidraw/excalidraw">Excalidraw</a></td>
+                                <td>️</td>
+                                <td>✔️</td>
+                                <td>️</td>
+                                <td>️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.graphviz.org/">GraphViz</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/knsv/mermaid">Mermaid</a></td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/skanaar/nomnoml">Nomnoml</a></td>
+                                <td>️</td>
+                                <td>✔️</td>
+                                <td>️</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/plantuml/plantuml">PlantUML</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>️</td>
+                                <td>✔️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/ivanceras/svgbob">Svgbob</a></td>
+                                <td>️</td>
+                                <td>✔️</td>
+                                <td>️</td>
+                                <td>️</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/umlet/umlet">UMlet</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td>️</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/vega/vega">Vega</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/vega/vega-lite">Vega-Lite</a></td>
+                                <td>✔️</td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td>️</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://github.com/wavedrom/wavedrom">WaveDrom</a></td>
+                                <td></td>
+                                <td>✔️</td>
+                                <td></td>
+                                <td></td>
+                                <td>️</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>You don't see your favorite diagram tool in this list, please let us know <a href="mailto:hello@kroki.io">👋 hello@kroki.io</a>.</p>
+                </div>
+
+                <h2 id="install" class="title is-2">Install<a class="anchor-link" href="http://localhost:30000/#install">#</a></h2>
+
+                <div class="content">
+                    <p>
+                        Kroki is available as a Free Service and as a Self-Managed instance.<br>
+                    </p>
+                    <div class="tile is-parent is-ancestor">
+                        <div class="tile is-child card">
+                            <div class="card-content">
+                                <p class="title is-4">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="server" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-server fa-fw">
+                                        <path fill="currentColor" d="M376 256c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm-40 24c13.255 0 24-10.745 24-24s-10.745-24-24-24-24 10.745-24 24 10.745 24 24 24zm176-128c0 12.296-4.629 23.507-12.232 32 7.603 8.493 12.232 19.704 12.232 32v80c0 12.296-4.629 23.507-12.232 32 7.603 8.493 12.232 19.704 12.232 32v80c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48v-80c0-12.296 4.629-23.507 12.232-32C4.629 319.507 0 308.296 0 296v-80c0-12.296 4.629-23.507 12.232-32C4.629 175.507 0 164.296 0 152V72c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v80zm-480 0c0 8.822 7.178 16 16 16h416c8.822 0 16-7.178 16-16V72c0-8.822-7.178-16-16-16H48c-8.822 0-16 7.178-16 16v80zm432 48H48c-8.822 0-16 7.178-16 16v80c0 8.822 7.178 16 16 16h416c8.822 0 16-7.178 16-16v-80c0-8.822-7.178-16-16-16zm16 160c0-8.822-7.178-16-16-16H48c-8.822 0-16 7.178-16 16v80c0 8.822 7.178 16 16 16h416c8.822 0 16-7.178 16-16v-80zm-80-224c13.255 0 24-10.745 24-24s-10.745-24-24-24-24 10.745-24 24 10.745 24 24 24zm-64 0c13.255 0 24-10.745 24-24s-10.745-24-24-24-24 10.745-24 24 10.745 24 24 24zm64 240c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z" class=""></path>
+                                    </svg>
+                                    Self-Managed
+                                </p>
+                                <div class="content">
+                                    <p>
+                                        Select this option if you want to download and install Kroki on your own infrastructure or in a cloud environment.
+                                    </p>
+                                    <article class="message is-info">
+                                        <div class="message-body">
+                                            Please note that Kroki Self-Managed requires Linux experience to install.
+                                        </div>
+                                    </article>
+                                    <p>Please refer to the documentation to <a href="https://docs.kroki.io/kroki/setup/install">install Kroki</a>.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tile is-child card">
+                            <div class="card-content">
+                                <p class="title is-4">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="cloud" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-cloud fa-fw">
+                                        <path fill="currentColor" d="M571.7 238.8c2.8-9.9 4.3-20.2 4.3-30.8 0-61.9-50.1-112-112-112-16.7 0-32.9 3.6-48 10.8-31.6-45-84.3-74.8-144-74.8-94.4 0-171.7 74.5-175.8 168.2C39.2 220.2 0 274.3 0 336c0 79.6 64.4 144 144 144h368c70.7 0 128-57.2 128-128 0-47-25.8-90.8-68.3-113.2zM512 448H144c-61.9 0-112-50.1-112-112 0-56.8 42.2-103.7 97-111-.7-5.6-1-11.3-1-17 0-79.5 64.5-144 144-144 60.3 0 111.9 37 133.4 89.6C420 137.9 440.8 128 464 128c44.2 0 80 35.8 80 80 0 18.5-6.3 35.6-16.9 49.2C573 264.4 608 304.1 608 352c0 53-43 96-96 96z" class=""></path>
+                                    </svg>
+                                    Free service
+                                </p>
+                                <div class="content">
+                                    <p>
+                                        Thanks to <a href="https://www.exoscale.com/" target="_blank" rel="noopener noreferrer">Exoscale</a>, which has kindly offered two servers,
+                                        we can provide Kroki as a <em>free service</em>!<br>
+                                        However, some parts of the infrastructure are still host on other providers, so <strong>we are still looking for sponsors to cover all the
+                                        expenses.</strong>
+                                    </p>
+                                    <p>
+                                        If you are interested, please <a href="mailto:hello@kroki.io">👋 contact us</a>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="how" class="title is-2">How<a class="anchor-link" href="http://localhost:30000/#how">#</a></h2>
+
+                <div class="content">
+                    <p>
+                        Kroki provides an HTTP API to create diagrams from textual descriptions.
+                        Kroki handles both <code>GET</code> and <code>POST</code> requests.
+                        When using <code>GET</code> requests, your diagram must be encoded in the URL using a deflate + base64 algorithm.
+                        But don't worry, if you're not familiar with deflate or base64 (or if you don't want to use them),
+                        you can also send your diagram as plain text using <code>POST</code> requests (<a href="http://localhost:30000/#post-request">see below</a>).
+                    </p>
+                    <p>
+                        Let's take an example with a <em>GraphViz</em> "Hello World":
+                    </p>
+                    <code class="snippet-name">hello.dot</code>
+                    <pre class=" language-graphviz"><code class=" language-graphviz">digraph G {
+  Hello-&gt;World
+}</code></pre>
+                    <p>
+                        Here, we are using a Python one-liner to encode our diagram using deflate + base64:
+                    </p>
+                    <pre class=" language-sh"><code class=" language-sh">cat hello.dot | <span class="token command">python</span> <span class="token operator">-c </span><span class="token keyword">"import sys; import base64; import zlib; print(base64.urlsafe_b64encode(zlib.compress(sys.stdin.read(), 9)))"</span></code></pre>
+
+                    <article class="message is-info">
+                        <div class="message-body">
+                            In the <a href="https://docs.kroki.io/kroki/setup/encode-diagram/">documentation</a>, we provide code examples that demonstrate how to encode a diagram
+                            in Node.js, JavaScript, Java, Python and Go.
+                        </div>
+                    </article>
+
+                    <p>
+                        The above command will return a value that you can copy in the URL:
+                    </p>
+                    <pre class=" language-http"><code class=" language-http"><span class="token verb-get">GET</span> /graphviz/svg/eNpLyUwvSizIUHBXqPZIzcnJ17ULzy_KSanlAgB1EAjQ</code></pre>
+                    <p>
+                        And here's the result:
+                    </p>
+                    <svg class="kroki-output" xmlns="http://www.w3.org/2000/svg" width="74pt" height="116pt" viewBox="0.00 0.00 74.29 116.00">
+                        <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+                            <title>G</title>
+                            <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-112 70.2941,-112 70.2941,4 -4,4"></polygon>
+                            <!-- Hello -->
+                            <g id="node1" class="node">
+                                <title>Hello</title>
+                                <ellipse fill="none" stroke="#000000" cx="33.1471" cy="-90" rx="30.5947" ry="18"></ellipse>
+                                <text text-anchor="middle" x="33.1471" y="-86.3" font-family="Times,serif" font-size="14.00" fill="#000000">Hello</text>
+                            </g>
+                            <!-- World -->
+                            <g id="node2" class="node">
+                                <title>World</title>
+                                <ellipse fill="none" stroke="#000000" cx="33.1471" cy="-18" rx="33.2948" ry="18"></ellipse>
+                                <text text-anchor="middle" x="33.1471" y="-14.3" font-family="Times,serif" font-size="14.00" fill="#000000">World</text>
+                            </g>
+                            <!-- Hello&#45;&gt;World -->
+                            <g id="edge1" class="edge">
+                                <title>Hello-&gt;World</title>
+                                <path fill="none" stroke="#000000" d="M33.1471,-71.8314C33.1471,-64.131 33.1471,-54.9743 33.1471,-46.4166"></path>
+                                <polygon fill="#000000" stroke="#000000" points="36.6472,-46.4132 33.1471,-36.4133 29.6472,-46.4133 36.6472,-46.4132"></polygon>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <p id="post-request">You can also call Kroki with <code>POST</code>:</p>
+                    <pre class=" language-http"><code class=" language-http"><span class="token verb-post">POST</span> /</code></pre>
+                    <pre class=" language-json"><code class=" language-json"><span class="token punctuation">{</span>
+  <span class="token property">"diagram_source"</span><span class="token operator">:</span> <span class="token string">"digraph G {Hello-&gt;World}"</span><span class="token punctuation">,</span>
+  <span class="token property">"diagram_type"</span><span class="token operator">:</span> <span class="token string">"graphviz"</span><span class="token punctuation">,</span>
+  <span class="token property">"output_format"</span><span class="token operator">:</span> <span class="token string">"svg"</span>
+<span class="token punctuation">}</span></code></pre>
+                    <p>In this case, you don't need to encode your diagram.</p>
+                    <p>
+                        It's also possible to send your diagram as plain text using the <code>Content-Type</code> header.
+                        The output format will be specified using the <code>Accept</code> header and the diagram source will be sent as the request body:
+                    </p>
+                    <pre class=" language-http"><code class=" language-http"><span class="token verb-post">POST</span> /graphviz</code></pre>
+                    <pre class=" language-request"><code class=" language-request"><span class="token operator">Accept:</span> <span class="token keyword">image/svg+xml</span>
+<span class="token operator">Content-Type:</span> <span class="token keyword">text/plain</span>
+
+digraph G {
+  Hello-&gt;World<span class="token null">
+}</span></code></pre>
+                    <p>
+                        You can also define the output format in the URL if you don't want to add an <code>Accept</code> header:
+                    </p>
+                    <pre class=" language-http"><code class=" language-http"><span class="token verb-post">POST</span> /graphviz/svg</code></pre>
+                    <pre class=" language-request"><code class=" language-request"><span class="token operator">Content-Type:</span> <span class="token keyword">text/plain</span>
+
+digraph G {
+  Hello-&gt;World<span class="token null">
+}</span></code></pre>
+                    <p>
+                        The same concept applies when sending the diagram as <code>JSON</code>:
+                    </p>
+                    <pre class=" language-http"><code class=" language-http"><span class="token verb-post">POST</span> /graphviz/svg</code></pre>
+                    <pre class=" language-json"><code class=" language-json"><span class="token punctuation">{</span>
+  <span class="token property">"diagram_source"</span><span class="token operator">:</span> <span class="token string">"digraph G {Hello-&gt;World}"</span>
+<span class="token punctuation">}</span></code></pre>
+
+                    <p>
+                        Please note that you can interact with the API using <strong>any HTTP client</strong>.<br>
+                        If you want to learn more, head to <a href="https://docs.kroki.io/kroki/" target="_blank" rel="noopener noreferrer">our documentation</a>.
+                        In particular, check out the <a href="https://docs.kroki.io/kroki/setup/usage/" target="_blank" rel="noopener noreferrer">Usage section</a> to find out how
+                        to send requests to the Kroki API using:
+                    </p>
+                    <ul>
+                        <li><a href="https://docs.kroki.io/kroki/setup/http-clients/" target="_blank" rel="noopener noreferrer"><em>cURL</em> and <em>HTTPie</em></a></li>
+                        <li><a href="https://docs.kroki.io/kroki/setup/kroki-cli/" target="_blank" rel="noopener noreferrer">Kroki CLI</a></li>
+                    </ul>
+                </div>
+
+                <h2 id="sponsors" class="title is-2">Sponsors<a class="anchor-link" href="http://localhost:30000/#sponsors">#</a></h2>
+
+                <div class="content">
+                    <p>
+                        Thanks to our sponsors listed below, we are able to provide Kroki as a free service available to everyone.
+                    </p>
+                    <ul class="sponsors">
+                        <li><a href="https://www.exoscale.com/" target="_blank" rel="noopener noreferrer"><img class="inline-exoscale" src="./index_files/exoscale-RGB-logo-fullcolor.svg" alt="Exoscale"><br>A solid European cloud hosting alternative.</a>
+                        </li>
+                    </ul>
+                    <p>
+                        Sponsors play a critical role, without them, we won't be able to provide Kroki as a free service.<br>
+                        To make Kroki sustainable, we need your support.
+                        If you want to become a sponsor, please <a href="mailto:hello@kroki.io">👋 contact us</a>.
+                    </p>
+                </div>
+
+                <h2 id="about" class="title is-2">About<a class="anchor-link" href="http://localhost:30000/#about">#</a></h2>
+
+                <div class="content">
+                    <p>
+                        Kroki is a free service built and maintained by <a href="https://yuzutech.fr/" target="_blank" rel="noopener noreferrer">Yuzu tech</a> and supported by <a href="https://www.exoscale.com/" target="_blank" rel="noopener noreferrer">Exoscale</a>.
+                    </p>
+                    <p>
+                        Kroki is <a href="https://github.com/yuzutech/kroki">an open source project</a> licensed under the <a href="https://opensource.org/licenses/mit-license.php">MIT license</a>.<br>
+                        This means that Kroki is never going away; anyone can host this service with minimal resource requirements.
+                    </p>
+                </div>
+            </div>
+            <aside class="menu">
+                <div id="anchors" class="anchors is-pinned">
+                    <p class="menu-label">
+                        Menu
+                    </p>
+                    <ul class="menu-list anchors-list">
+                        <li><a href="http://localhost:30000/#features">Features</a></li>
+                        <li><a href="http://localhost:30000/#try">Try</a></li>
+                        <li><a href="http://localhost:30000/#examples">Examples</a></li>
+                        <li><a href="http://localhost:30000/#support">Diagram types</a></li>
+                        <li><a href="http://localhost:30000/#install">Install</a></li>
+                        <li><a href="http://localhost:30000/#how">How</a></li>
+                        <li><a href="http://localhost:30000/#about">About</a></li>
+                        <li><a href="http://localhost:30000/#" id="back-top">Back to top ↑</a></li>
+                        <li><hr class="menu-divider"></li>
+                        <li><a href="https://docs.kroki.io/kroki/" target="_blank" rel="noopener noreferrer">📖 Documentation</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+<footer id="footer" class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <img class="logo" src="./index_files/logo.svg" alt="logo"> by <a href="https://yuzutech.fr/" target="_blank" rel="noopener noreferrer">Yuzu tech</a>
+        </p>
+        <p>
+            <img class="vertical-exoscale" src="./index_files/exoscale-RGB-poweredby-positive-vertical.svg" alt="Exoscale">
+        </p>
+    </div>
+</footer>
+<script src="./index_files/clipboard.js"></script>
+<script src="./index_files/prism-core.js"></script>
+<script src="./index_files/main.js"></script>
+<script src="./index_files/pako_deflate.min.js"></script>
+
+
+</body></html>
