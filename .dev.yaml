@@ -155,6 +155,8 @@ repositories:
   workspaces: [personal]
 - name: react-bootstrap
   url: git@github.com:react-bootstrap/react-bootstrap.git
+- name: server
+  url: git@gitlab.com:usvc/modules/go/server.git
 - name: usvc website
   url: git@gitlab.com:usvc/usvc.git
   workspaces: [usvc]

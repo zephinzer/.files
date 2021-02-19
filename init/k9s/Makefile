@@ -1,5 +1,5 @@
 APP_ID=k9s
-VERSION=v0.21.7
+VERSION=v0.24.2
 -include ../Makefile
 
 install_linux:
