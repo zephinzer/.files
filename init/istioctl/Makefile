@@ -1,5 +1,5 @@
 APP_ID=istioctl
-VERSION=1.8.1
+VERSION=1.9.0
 -include ../Makefile
 
 install_linux:
