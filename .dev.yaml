@@ -114,6 +114,9 @@ repositories:
 - name: env
   url: git@gitlab.com:zephinzer/env.git
   workspaces: [personal]
+- name: go-server
+  url: git@github.com:usvc/go-server.git
+  workspaces: [usvc]
 - name: golang configuration package
   url: git@gitlab.com:usvc/modules/go/config.git
   workspaces: [usvc]
