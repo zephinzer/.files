@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  postgresql:
+    image: postgres:11.9-alpine
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./data.d/postgresql:/var/lib/postgresql/data
+  fusionauth:
+    image: fusionauth/fusionauth-app:1.25.0
+    environment:
+      DATABASE_URL: jdbc:postgresql://postgresql:5432/fusionauth
+      POSTGRES_USER: fusionauth
+      POSTGRES_PASSWORD: password
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    ports:
+      - 9011:9011
+    # volumes:
+    #   - ./data.d/fusionauth/config:/usr/local/fusionauth/config
