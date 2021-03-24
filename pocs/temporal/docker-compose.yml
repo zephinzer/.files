@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  elasticsearch:
+    image: elasticsearch:7.11.2
+    environment:
+      discovery.type: single-node
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+  mysql:
+    image: mysql:5.7.33
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: temporal
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+  temporal:
+    image: temporalio/auto-setup:1.7.1
+    environment:
+      DB: mysql
+      MYSQL_USER: root
+      MYSQL_PWD: password
+      MYSQL_SEEDS: mysql
+      ENABLE_ES: "true"
+      ES_SEEDS: elasticsearch
+      ES_VERSION: v7
+    ports:
+      - "7233:7233"
+  temporal-admin:
+    image: temporalio/admin-tools:1.7.1
+    environment:
+      TEMPORAL_CLI_ADDRESS: temporal:7233
+    stdin_open: true
+    tty: true
+  temporal-web:
+    image: temporalio/web:1.7.1
+    environment:
+      TEMPORAL_GRPC_ENDPOINT: temporal:7233
+    ports:
+      - "8088:8088"

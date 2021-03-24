@@ -1,2 +1,1 @@
-start:
-	docker-compose up
+include ../_scripts/Makefile
