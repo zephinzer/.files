@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  mysql:
+    image: mysql:5.7.33
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: ghost
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - ./data.d/mysql:/var/lib/mysql
+  ghost:
+    image: ghost:4.1.1-alpine
+    environment:
+      database__client: mysql
+      database__connection__host: mysql
+      database__connection__user: root
+      database__connection__password: password
+      database__connection__database: ghost
+    ports:
+      - 2368:2368
+    volumes:
+      - ./data.d/ghost/content:/var/lib/ghost/content
+    depends_on:
+      - mysql
