@@ -9,7 +9,7 @@ install_linux:
 		"https://github.com/terraform-linters/tflint/releases/download/$(VERSION)/tflint_linux_amd64.zip"
 	unzip /opt/$(APP_ID)/$(VERSION)/$(APP_ID).zip -d /opt/$(APP_ID)/$(VERSION)
 	rm -rf /opt/$(APP_ID)/$(VERSION)/$(APP_ID).zip
-	-mv /opt/$(APP_ID)/$(VERSION)/terraform /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
+	-mv /opt/$(APP_ID)/$(VERSION)/tflint /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	chmod 750 /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	/opt/$(APP_ID)/$(VERSION)/$(APP_ID) --version
 	@printf -- 'displaying alternatives (BEFORE)...\n'
