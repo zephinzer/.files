@@ -1,5 +1,5 @@
 APP_ID=vault
-VERSION=1.5.3
+VERSION=1.7.0
 -include ../Makefile
 
 install_linux:
@@ -17,4 +17,3 @@ install_linux:
 	sudo update-alternatives --install /usr/bin/$(APP_ID) $(APP_ID) /opt/$(APP_ID)/$(VERSION)/$(APP_ID) $(PRIORITY)
 	@printf -- 'displaying alternatives (AFTER)...\n'
 	-update-alternatives --list $(APP_ID)
-	
