@@ -100,6 +100,9 @@ repositories:
 - name: ci pipeline recipes
   url: git@gitlab.com:usvc/images/ci/recipes.git
   workspaces: [personal, usvc]
+- name: cloudshell
+  url: git@gitlab.com:zephinzer/cloudshell.git
+  workspaces: [personal]
 - name: codepr.ac
   url: git@gitlab.com:zephinzer/codepr.ac.git
   workspaces: [personal]
