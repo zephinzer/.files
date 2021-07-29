@@ -1,0 +1,12 @@
+%echo This is possible thanks to https://www.gnupg.org/documentation/manuals/gnupg/Unattended-GPG-key-generation.html
+%echo Generating an OpenPGP key for use with Github...
+Key-Type: RSA
+Key-Length: 4096
+Subkey-Type: RSA
+Subkey-Length: 4096
+Name-Real: Joseph Matthias Goh
+Name-Comment: zephinzer@github
+Name-Email: 6473605+zephinzer@users.noreply.github.com
+Expire-Date: 365
+%commit
+%echo done
