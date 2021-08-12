@@ -1,5 +1,5 @@
 APP_ID=mdbook
-VERSION=v0.4.4
+VERSION=v0.4.12
 -include ../Makefile
 
 install_linux:
