@@ -1,5 +1,5 @@
 APP_ID=kubectl
-VERSION=v1.19.0
+VERSION=v1.21.0
 -include ../Makefile
 
 install_linux:
@@ -14,4 +14,3 @@ install_linux:
 	sudo update-alternatives --install /usr/bin/$(APP_ID) $(APP_ID) /opt/$(APP_ID)/$(VERSION)/$(APP_ID) $(PRIORITY)
 	@printf -- 'displaying alternatives (AFTER)...\n'
 	-update-alternatives --list $(APP_ID)
-	
