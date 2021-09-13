@@ -1,5 +1,6 @@
+APP_URL=https://github.com/digitalocean/doctl/releases
 APP_ID=doctl
-VERSION=1.58.0
+VERSION=1.64.0
 -include ../Makefile
 
 install_linux:
@@ -14,3 +15,6 @@ install_linux:
 	sudo update-alternatives --install /usr/bin/$(APP_ID) $(APP_ID) /opt/$(APP_ID)/$(VERSION)/$(APP_ID) $(PRIORITY)
 	@printf -- 'displaying alternatives (AFTER)...\n'
 	-update-alternatives --list $(APP_ID)
+
+check:
+	xdg-open "${APP_URL}"
