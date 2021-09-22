@@ -69,6 +69,9 @@ stat "${HOME}/.usvc.code-workspace" &>/dev/null && cat "${HOME}/.usvc.code-works
 stat "${HOME}/.usvc.code-workspace" &>/dev/null && rm -rf "${HOME}/.usvc.code-workspace";
 stat "${CURR_DIR}/../.usvc.code-workspace" &>/dev/null && ln -s "$(pwd)/${CURR_DIR}/../.usvc.code-workspace" "${HOME}/.usvc.code-workspace" && printf -- "Done.\n" || printf -- 'Skipped.\n';
 
+# ensure fresh systems have the archive directory
+mkdir -p ${HOME}/.archived.scripts;
+
 #  ___    _    ___  _  _ 
 # | _ )  /_\  / __|| || |
 # | _ \ / _ \ \__ \| __ |
@@ -92,10 +95,10 @@ fi;
 #                 
 which zsh >/dev/null && export ZSH_PRESENT=1 || ZSH_PRESENT=0;
 
-printf -- "Processing ~/.zshrc... (${ZSH_PRESENT}): ";
+printf -- "Processing ~/.zshenv... (${ZSH_PRESENT}): ";
 if [ $ZSH_PRESENT -eq 1 ]; then
-  [ -e "${HOME}/.zshrc" ] && cp "${HOME}/.zshrc" "${HOME}/.archived.scripts/zshrc.${CURR_TIMESTAMP}";
-  cat ${CURR_DIR}/../.zshrc > ${HOME}/.zshrc;
+  [ -e "${HOME}/.zshenv" ] && cp "${HOME}/.zshenv" "${HOME}/.archived.scripts/zshenv.${CURR_TIMESTAMP}";
+  cat ${CURR_DIR}/../.zshenv > ${HOME}/.zshenv;
   printf -- "Done.\n";
 else printf -- 'Skipped.\n';
 fi;
