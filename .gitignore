@@ -1,4 +1,5 @@
 .archives
+.vscode
 .*.com.*.gitconfig
 .*.com.*.gitconfig
 .gitconfig.*
