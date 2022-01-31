@@ -10,7 +10,7 @@ services:
     volumes:
       - ./data.d/postgresql:/var/lib/postgresql/data
   keycloak:
-      image: quay.io/keycloak/keycloak:12.0.4
+      image: quay.io/keycloak/keycloak:16.1.1
       environment:
         DB_VENDOR: POSTGRES
         DB_ADDR: postgresql

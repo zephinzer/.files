@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  drone:
+    image: drone/drone:2.4.0
+    environment: 
+      DRONE_GITLAB_CLIENT_ID:
+      DRONE_GITLAB_CLIENT_SECRET:
+      DRONE_GITLAB_SERVER: https://gitlab.com
+      DRONE_SERVER_HOST: localhost:8080
+      DRONE_SERVER_PROTO: http
+    ports:
+      - 8080:80
