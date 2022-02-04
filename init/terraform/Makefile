@@ -1,5 +1,5 @@
 APP_ID=terraform
-VERSION=1.0.10
+VERSION=1.0.7
 -include ../Makefile
 
 install_linux:
