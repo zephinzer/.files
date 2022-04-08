@@ -1,5 +1,5 @@
 APP_ID=yq
-VERSION=v4.6.0
+VERSION=v4.23.1
 -include ../Makefile
 
 install_linux:

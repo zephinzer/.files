@@ -1,12 +1,12 @@
 APP_ID=docker-compose
-VERSION=1.28.5
+VERSION=2.4.1
 -include ../Makefile
 
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
 	curl -Lo /opt/$(APP_ID)/$(VERSION)/$(APP_ID) \
-		"https://github.com/docker/compose/releases/download/$(VERSION)/docker-compose-Linux-x86_64"
+		"https://github.com/docker/compose/releases/download/v$(VERSION)/docker-compose-linux-x86_64"
 	chmod 750 /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	/opt/$(APP_ID)/$(VERSION)/$(APP_ID) --version
 	@printf -- 'displaying alternatives (BEFORE)...\n'

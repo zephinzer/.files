@@ -1,5 +1,5 @@
 APP_ID=terraform-docs
-VERSION=v0.14.1
+VERSION=v0.16.0
 -include ../Makefile
 
 install_linux:

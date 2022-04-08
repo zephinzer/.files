@@ -1,5 +1,5 @@
 APP_ID=terrascan
-VERSION=1.3.3
+VERSION=1.14.0
 -include ../Makefile
 
 install_linux:

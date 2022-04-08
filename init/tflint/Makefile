@@ -1,5 +1,5 @@
 APP_ID=tflint
-VERSION=v0.33.0
+VERSION=v0.35.0
 -include ../Makefile
 
 install_linux:
