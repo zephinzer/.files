@@ -1,5 +1,5 @@
 APP_ID=kind
-VERSION=v0.11.1
+VERSION=v0.12.0
 -include ../Makefile
 
 install_linux:
