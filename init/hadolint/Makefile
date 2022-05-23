@@ -1,5 +1,5 @@
 APP_ID=hadolint
-VERSION=v2.7.0
+VERSION=v2.10.0
 -include ../Makefile
 
 install_linux:
