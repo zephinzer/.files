@@ -1,5 +1,5 @@
 APP_ID=container-structure-test
-VERSION=v1.10.0
+VERSION=v1.11.0
 -include ../Makefile
 
 install_linux:
