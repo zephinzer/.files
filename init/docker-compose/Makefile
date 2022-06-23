@@ -1,7 +1,8 @@
 APP_ID=docker-compose
-VERSION=2.4.1
+VERSION=2.6.0
 -include ../Makefile
 
+# ref https://github.com/docker/compose/releases/
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
