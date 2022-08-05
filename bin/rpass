@@ -1,2 +1,2 @@
 #!/bin/sh
-cat /dev/random | tail -c 64 | base64 -w 0 | tr -s '+' '_' | head -c 24
+cat /dev/random | head -c 64 | base64 -w 0 | tr -d "+/=" | head -c 24

@@ -11,5 +11,8 @@ which pbcopy || ln -s "$(pwd)/bin/pbcopy" /usr/local/bin/pbcopy;
 rm -rf /usr/local/bin/__kb;
 which __kb || ln -s "$(pwd)/bin/__kb" /usr/local/bin/__kb;
 
+rm -rf /usr/local/bin/rpass;
+which rpass || ln -s "$(pwd)/bin/rpass" /usr/local/bin/rpass;
+
 rm -rf /usr/local/bin/ualt;
 which update-alternatives && ln -s "$(pwd)/bin/ualt" "/usr/local/bin/ualt" && chmod +x "/usr/local/bin/ualt";
