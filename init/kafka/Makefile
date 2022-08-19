@@ -1,5 +1,5 @@
 APP_ID=kafka
-VERSION=2.6.0
+VERSION=3.2.1
 -include ../Makefile
 
 # note: this is either 2.12 or 2.13 as of october 2020
@@ -8,7 +8,7 @@ VERSION_SCALA=2.13
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)-scala$(VERSION_SCALA)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
-	curl -fL "https://apachemirror.sg.wuchna.com/kafka/$(VERSION)/kafka_$(VERSION_SCALA)-$(VERSION).tgz" \
+	curl -fL "https://downloads.apache.org/kafka/${VERSION}/kafka_${VERSION_SCALA}-${VERSION}.tgz" \
 		| tar xfz - -C "/opt/$(APP_ID)/$(VERSION)-scala$(VERSION_SCALA)/"
 	mv /opt/$(APP_ID)/$(VERSION)-scala$(VERSION_SCALA)/kafka_$(VERSION_SCALA)-$(VERSION)/* \
 		/opt/$(APP_ID)/$(VERSION)-scala$(VERSION_SCALA)/

@@ -1,12 +1,12 @@
 APP_ID=telepresence
-VERSION=2.4.0
+VERSION=2.7.1
 -include ../Makefile
 
 install_linux:
-	# sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
-	# sudo chown $(USER):root -R /opt/$(APP_ID)
-	# curl -Lo /opt/$(APP_ID)/$(VERSION)/$(APP_ID) \
-	# 	"https://app.getambassador.io/download/tel2/linux/amd64/$(VERSION)/telepresence"
+	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
+	sudo chown $(USER):root -R /opt/$(APP_ID)
+	curl -Lo /opt/$(APP_ID)/$(VERSION)/$(APP_ID) \
+		"https://app.getambassador.io/download/tel2/linux/amd64/$(VERSION)/telepresence"
 	chmod 750 /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	/opt/$(APP_ID)/$(VERSION)/$(APP_ID) version
 	@printf -- 'displaying alternatives (BEFORE)...\n'
