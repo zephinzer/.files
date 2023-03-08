@@ -1,6 +1,6 @@
 APP_URL=https://github.com/digitalocean/doctl/releases
 APP_ID=doctl
-VERSION=1.78.0
+VERSION=1.84.1
 -include ../Makefile
 
 install_linux:

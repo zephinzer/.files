@@ -1,5 +1,5 @@
 APP_ID := step
-VERSION := 0.15.14
+VERSION := 0.22.0
 -include ../Makefile
 
 install_linux:
