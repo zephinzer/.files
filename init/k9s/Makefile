@@ -1,11 +1,11 @@
 APP_ID=k9s
-VERSION=v0.25.18
+VERSION=v0.27.4
 -include ../Makefile
 
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
-	curl -fL "https://github.com/derailed/k9s/releases/download/$(VERSION)/k9s_Linux_x86_64.tar.gz" \
+	curl -fL "https://github.com/derailed/k9s/releases/download/${VERSION}/k9s_Linux_amd64.tar.gz" \
 		| tar xfz - -C "/opt/$(APP_ID)/$(VERSION)/"
 	chmod 750 /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	/opt/$(APP_ID)/$(VERSION)/$(APP_ID) version
