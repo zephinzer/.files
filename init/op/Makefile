@@ -1,5 +1,5 @@
 APP_ID=op
-VERSION=v2.7.1
+VERSION=v2.18.0
 -include ../Makefile
 
 install_linux:
