@@ -1,12 +1,12 @@
 APP_ID=argo
-VERSION=v2.12.0-rc3
+VERSION=v3.5.2
 -include ../Makefile
 
 install_linux:
 	sudo mkdir -p /opt/$(APP_ID)/$(VERSION)
 	sudo chown $(USER):root -R /opt/$(APP_ID)
 	curl -fL \
-		"https://github.com/argoproj/argo/releases/download/$(VERSION)/argo-linux-amd64.gz" \
+		"https://github.com/argoproj/argo-workflows/releases/download/$(VERSION)/argo-linux-amd64.gz" \
 		| gunzip - \
 		> /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
 	chmod 750 /opt/$(APP_ID)/$(VERSION)/$(APP_ID)
