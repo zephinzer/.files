@@ -1,2 +1,0 @@
-#!/bin/sh
-cat /dev/random | head -c 64 | base64 -w 0 | tr -d "+/=" | head -c 24

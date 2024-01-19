@@ -1,0 +1,19 @@
+#!/bin/sh
+
+DEFAULT_LENGTH=24;
+
+# this script generates a
+# example to generate a password of length 24
+#   __pw;
+# example to generate a password of length 64
+#   __pw 64;
+
+LENGTH=${1:-${DEFAULT_LENGTH}};
+case ${LENGTH} in
+  ''|*[!0-9]*)
+    echo "\033[31m\033[1mwhen an argument is specified it must be a number\033[0m";
+  ;;
+  *)
+    cat /dev/random | head -c 64 | base64 -w 0 | tr -d "+/=" | head -c ${LENGTH};
+  ;;
+esac;
