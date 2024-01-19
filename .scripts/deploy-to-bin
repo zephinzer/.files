@@ -4,11 +4,17 @@ if [ "$(id -u)" != "0" ]; then
   exit 1;
 fi;
 
-rm -rf /usr/local/bin/__ualt;
-which update-alternatives && ln -s $(pwd)/bin/ualt /usr/local/bin/__ualt;
+rm -rf /usr/local/bin/__kb;
+which __kb || ln -s "$(pwd)/bin/__kb" /usr/local/bin/__kb;
+
+rm -rf /usr/local/bin/__m;
+which __m || ln -s "$(pwd)/bin/__m" /usr/local/bin/__m;
+
+rm -rf /usr/local/bin/__pw;
+which __pw || ln -s "$(pwd)/bin/__pw" /usr/local/bin/__pw;
 
 rm -rf /usr/local/bin/pbcopy;
-which pbcopy || ln -s $(pwd)/bin/pbcopy /usr/local/bin/pbcopy;
+which pbcopy || ln -s "$(pwd)/bin/pbcopy" /usr/local/bin/pbcopy;
 
-rm -rf /usr/local/bin/__kb;
-which __kb || ln -s $(pwd)/bin/__kb /usr/local/bin/__kb;
+rm -rf /usr/local/bin/__ualt;
+which update-alternatives && ln -s $(pwd)/bin/ualt /usr/local/bin/__ualt;
