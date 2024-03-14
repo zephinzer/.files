@@ -1,5 +1,5 @@
 APP_ID=gh
-VERSION=2.29.0
+VERSION=2.45.0
 -include ../Makefile
 
 install_linux:
