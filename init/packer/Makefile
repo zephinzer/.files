@@ -1,5 +1,5 @@
 APP_ID=packer
-VERSION=1.8.2
+VERSION=1.11.2
 -include ../Makefile
 
 install_linux:

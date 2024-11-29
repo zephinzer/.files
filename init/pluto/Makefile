@@ -1,5 +1,5 @@
 APP_ID := pluto
-VERSION := 5.16.0
+VERSION := 5.20
 -include ../Makefile
 
 DOWNLOAD_URL := https://github.com/FairwindsOps/pluto/releases/download/v$(VERSION)/pluto_$(VERSION)_linux_amd64.tar.gz
