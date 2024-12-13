@@ -1,6 +1,6 @@
 # ref https://developer.hashicorp.com/terraform/downloads
 APP_ID=terraform
-VERSION=1.8.3
+VERSION=1.10.2
 -include ../Makefile
 
 install_linux:
