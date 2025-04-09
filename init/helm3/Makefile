@@ -1,5 +1,5 @@
 APP_ID=helm
-VERSION=v3.9.4
+VERSION=v3.17.2
 -include ../Makefile
 
 install_linux:

@@ -1,5 +1,5 @@
 APP_ID=kubectl
-VERSION=v1.23.0
+VERSION=v1.30.0
 -include ../Makefile
 
 install_linux:
